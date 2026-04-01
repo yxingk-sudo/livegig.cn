@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Espire - Admin Dashboard Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="static/image/logo/favicon.ico">
+
+    <!-- page css -->
+
+    <!-- Core css -->
+    <link href="static/css/app.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="layout">
+        <div class="vertical-layout">
+            <!-- Header START -->
+            <div class="header-text-dark header-nav layout-vertical">
+                <div class="header-nav-wrap">
+                    <div class="header-nav-left">
+                        <div class="header-nav-item desktop-toggle">
+                            <div class="header-nav-item-select cursor-pointer">
+                                <i class="nav-icon feather icon-menu icon-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="header-nav-item mobile-toggle">
+                            <div class="header-nav-item-select cursor-pointer">
+                                <i class="nav-icon feather icon-menu icon-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-nav-right">
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select nav-notification">
+                                <div class="toggle-wrapper" id="nav-notification-dropdown" data-bs-toggle="dropdown">
+                                    <i class="header-nav-item-select nav-icon feather icon-bell"></i>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <div class="nav-notification-header">
+                                        <h5 class="mb-0">Notifications</h5>
+                                        <a href="#" class="font-size-sm">Mark All as Read</a>
+                                    </div>
+                                    <div class="nav-notification-body">
+                                        <div class="nav-notification-item ">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 40px; height: 40px; line-height: 40px;">
+                                                <img src="static/picture/thumb-8.jpg" alt="">
+                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark">Jean Bowman </span>
+                                                    <span>invited you to new project.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-primary feather font-size-lg icon-info avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Please submit your daily report.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-success feather font-size-lg icon-info avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Your request has been approved.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 40px; height: 40px; line-height: 40px;">
+                                                <img src="static/picture/thumb-4.jpg" alt="">
+                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark">Jenifer Ruiz </span>
+                                                    <span>mentioned you in comment.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-success feather font-size-lg icon-x-circle avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Your request has been rejected.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="nav-notification-footer">
+                                        <a href="#" class="font-size-sm">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="header-nav-item-select">
+                                <div class="toggle-wrapper" data-bs-toggle="modal" data-bs-target="#quick-view">
+                                    <i class="nav-icon feather icon-settings"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select">
+                                <div class="toggle-wrapper" id="nav-lang-dropdown" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-circle avatar-image" style="width: 22px; height: 22px; line-height: 22px;">
+                                        <img src="static/picture/en_US.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 18px; height: 18px; line-height: 18px;">
+                                                <img src="static/picture/en_US.png" alt="">
+                                            </div>
+                                            <span class="ms-2">English</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 18px; height: 18px; line-height: 18px;">
+                                                <img src="static/picture/fr_FR.png" alt="">
+                                            </div>
+                                            <span class="ms-2">French</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select nav-profile">
+                                <div class="toggle-wrapper" id="nav-profile-dropdown" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-circle avatar-image" style="width: 35px; height: 35px; line-height: 35px;">
+                                        <img src="static/picture/thumb-1.jpg" alt="">
+                                    </div>
+                                    <span class="fw-bold mx-1">Julio Baker</span>
+                                    <i class="feather icon-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <div class="nav-profile-header">
+                                       <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image">
+                                                <img src="static/picture/thumb-1.jpg" alt="">
+                                            </div>
+                                            <div class="d-flex flex-column ms-1">
+                                                <span class="fw-bold text-dark">Julio Baker</span>
+                                                <span class="font-size-sm">Julio@themenate.com</span>
+                                            </div>
+                                       </div>
+                                    </div>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center">
+                                           <i class="font-size-lg me-2 feather icon-user"></i>
+                                           <span>Profile</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center">
+                                           <i class="font-size-lg me-2 feather icon-settings"></i>
+                                           <span>Settings</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center"><i class="font-size-lg me-2 feather icon-life-buoy"></i>
+                                        <span>Support</span>
+                                    </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center"><i class="font-size-lg me-2 feather icon-power"></i>
+                                        <span>Sign Out</span>
+                                    </div>
+                                    </a>
+                                 </div>
+                            </div>
+                        </div>     
+                    </div>
+                </div>
+            </div>    
+            <!-- Header END -->
+
+            <!-- Side Nav START -->
+            <div class="side-nav vertical-menu nav-menu-light scrollable">
+                <div class="nav-logo">
+                    <div class="w-100 logo">
+                        <img class="img-fluid" src="static/picture/logo.png" style="max-height: 70px;" alt="logo">
+                    </div>
+                    <div class="mobile-close">
+                        <i class="icon-arrow-left feather"></i>
+                    </div>
+                 </div>
+                 <ul class="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="index.html">
+                            <i class="feather icon-home"></i>
+                            <span class="nav-menu-item-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">APPS</li>
+                    <li class="nav-menu-item">
+                        <a href="v-mail.html">
+                            <i class="feather icon-mail"></i>
+                            <span class="nav-menu-item-title">Mail</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="v-chat.html">
+                            <i class="feather icon-message-circle"></i>
+                            <span class="nav-menu-item-title">Chat</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="v-calendar.html">
+                            <i class="feather icon-calendar"></i>
+                            <span class="nav-menu-item-title">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">USER INTERFACE</li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-box"></i>
+                            <span>UI Elements</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="v-avatar.html">Avatar</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-alert.html">Alert</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-badge.html">Badge</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-buttons.html">Buttons</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-cards.html">Cards</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-icons.html">Icons</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-lists.html">Lists</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-typography.html">Typography</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu open">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-package"></i>
+                            <span>Components</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse" style="display: block;">
+                            <li class="nav-menu-item">
+                                <a href="v-accordion.html">Accordion</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-carousel.html">Carousel</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-dropdown.html">Dropdown</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-modals.html">Modals</a>
+                            </li>
+                            <li class="nav-menu-item router-link-active">
+                                <a href="">Toasts</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-popover.html">Popover</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-progress.html">Progress</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-tabs.html">Tabs</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-tooltips.html">Tooltips</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-file-text"></i>
+                            <span>Forms</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="v-form-elements.html">Form Elements</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-form-layouts.html">Form Layouts</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-form-validation.html">Form Validation</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-grid"></i>
+                            <span>Tables</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="v-basic-table.html">Basic Table</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-data-table.html">Data Table</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="v-chart.html">
+                            <i class="feather icon-bar-chart"></i>
+                            <span class="nav-menu-item-title">Chart</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">PAGES</li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-settings"></i>
+                            <span>Utility</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="v-profile-personal.html">Profile</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-invoice.html">Invoice</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-faq.html">FAQ</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-pricing.html">Pricing</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="v-user-list.html">User List</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-lock"></i>
+                            <span>Auth</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="login.html">Login</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="login-v2.html">Login v2</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="login-v3.html">Login v3</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register.html">Register</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register-v2.html">Register v2</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register-v3.html">Register v3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-slash"></i>
+                            <span>Errors</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="error.html">Error 1</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="error-v2.html">Error 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Side Nav END -->
+
+            <!-- Content START -->
+            <div class="content">
+                <div class="main">
+                    <div class="page-header">
+                        <h4 class="page-title">Toasts</h4>
+                        <div class="breadcrumb">
+                           <span class="me-1 text-gray"><i class="feather icon-home"></i></span>
+                           <div class="breadcrumb-item"><a href="index.html"> Home </a></div>
+                           <div class="breadcrumb-item"><a href="javascript:void(0)"> Components </a></div>
+                           <div class="breadcrumb-item"><a href=""> Toasts </a></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Basic</h4>
+                            <p>Toasts are as flexible as you need and have very little required markup. At a minimum, we require a single element to contain your “toasted” content and strongly encourage a dismiss button.</p>
+                            <div class="mt-4">
+                                <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-header">
+                                        <img src="static/picture/img-7.jpg" class="rounded me-2" alt="...">
+                                        <strong class="me-auto">Bootstrap</strong>
+                                        <small>11 mins ago</small>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    </div>
+                                    <div class="toast-body">
+                                        Hello, world! This is a toast message.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        Hello, world! This is a toast message.
+    </div>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Live</h4>
+                            <p>Click the button the below to show as toast (positioning with our utilities in the lower right corner) that has been hidden by default with <code>.hide</code>.</p>
+                            <div class="mt-4">
+                                <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+                                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+                                    <div id="liveToast" class="toast fade hide" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                            <img src="static/picture/img-7.jpg" class="rounded me-2" alt="...">
+                                            <strong class="me-auto">Bootstrap</strong>
+                                            <small>11 mins ago</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            Hello, world! This is a toast message.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="..." class="rounded me-2" alt="...">
+            <strong class="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div></script></code></pre>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-js"><script type="text/plain">document.getElementById('liveToastBtn').onclick = function () {
+    var myAlert = document.getElementById('liveToast')
+    var bsAlert = new bootstrap.Toast(myAlert)
+    bsAlert.show()
+}</script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Translucent</h4>
+                            <p>Toasts are slightly translucent, too, so they blend over whatever they might appear over.</p>
+                            <div class="mt-4">
+                                <div class="bg-dark p-4">
+                                    <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                            <img src="static/picture/img-7.jpg" class="rounded me-2" alt="...">
+                                            <strong class="me-auto">Bootstrap</strong>
+                                            <small class="text-muted">11 mins ago</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            Hello, world! This is a toast message.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Bootstrap</strong>
+        <small class="text-muted">11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        Hello, world! This is a toast message.
+    </div>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Stacking</h4>
+                            <p>You can stack toasts by wrapping them in a toast container, which will vertically add some spacing.</p>
+                            <div class="mt-4">
+                                <div class="toast-container">
+                                    <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                            <img src="static/picture/img-7.jpg" class="rounded me-2" alt="...">
+                                            <strong class="me-auto">Bootstrap</strong>
+                                            <small class="text-muted">just now</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            See? Just like this.
+                                        </div>
+                                    </div>
+                                
+                                    <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                            <img src="static/picture/img-7.jpg" class="rounded me-2" alt="...">
+                                            <strong class="me-auto">Bootstrap</strong>
+                                            <small class="text-muted">2 seconds ago</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            Heads up, toasts will stack automatically
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div class="toast-container">
+    <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="..." class="rounded me-2" alt="...">
+            <strong class="me-auto">Bootstrap</strong>
+            <small class="text-muted">just now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            See? Just like this.
+        </div>
+    </div>
+
+    <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="..." class="rounded me-2" alt="...">
+            <strong class="me-auto">Bootstrap</strong>
+            <small class="text-muted">2 seconds ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Heads up, toasts will stack automatically
+        </div>
+    </div>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Custom content</h4>
+                            <p>Customize your toasts by removing sub-components, tweaking with <a href="javascript:;">utilities</a>, or adding your own markup. Here we’ve created a simpler toast by removing the default <code>.toast-header</code>, adding a custom hide icon from <a href="javascript:;">Bootstrap Icons</a>, and using some <a href="javascript:;">flexbox utilities</a> to adjust the layout.</p>
+                            <div class="mt-4">
+                                <div class="toast align-items-center fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="d-flex">
+                                        <div class="toast-body">
+                                            Hello, world! This is a toast message.
+                                        </div>
+                                        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div class="toast align-items-center fade show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Color schemes</h4>
+                            <p>Building on the above example, you can create different toast color schemes with our <a href="javascript:;">color</a> and <a href="javascript:;">background</a>. Here we’ve added <code>.bg-primary</code> and <code>.text-white</code> to the <code>.toast</code>, and then added <code>.btn-close-white</code> to our close button. For a crisp edge, we remove the default border with <code>.border-0</code>.</p>
+                            <div class="mt-4">
+                                <div class="toast show fade align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="d-flex">
+                                        <div class="toast-body">
+                                            Hello, world! This is a toast message.
+                                        </div>
+                                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div class="toast fade show align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Placement</h4>
+                            <p>Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle. If you’re only ever going to show one toast at a time, put the positioning styles right on the <code>.toast</code>.</p>
+                            <div class="mt-4">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="selectToastPlacement">Toast placement</label>
+                                        <select class="form-select mt-2" id="selectToastPlacement">
+                                            <option value="" selected="">Select a position...</option>
+                                            <option value="top-0 start-0">Top left</option>
+                                            <option value="top-0 start-50 translate-middle-x">Top center</option>
+                                            <option value="top-0 end-0">Top right</option>
+                                            <option value="top-50 start-0 translate-middle-y">Middle left</option>
+                                            <option value="top-50 start-50 translate-middle">Middle center</option>
+                                            <option value="top-50 end-0 translate-middle-y">Middle right</option>
+                                            <option value="bottom-0 start-0">Bottom left</option>
+                                            <option value="bottom-0 start-50 translate-middle-x">Bottom center</option>
+                                            <option value="bottom-0 end-0">Bottom right</option>
+                                        </select>
+                                    </div>
+                                </form>
+                                <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts" style="min-height: 240px;">
+                                    <div class="toast-container position-absolute p-3" id="toastPlacement">
+                                        <div class="toast fade show">
+                                            <div class="toast-header">
+                                                <img src="static/picture/img-7.jpg" class="rounded me-2" alt="...">
+                                                <strong class="me-auto">Bootstrap</strong>
+                                                <small>11 mins ago</small>
+                                            </div>
+                                            <div class="toast-body">
+                                                Hello, world! This is a toast message.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><form>
+    <div class="mb-3">
+        <label for="selectToastPlacement">Toast placement</label>
+        <select class="form-select mt-2" id="selectToastPlacement">
+            <option value="" selected>Select a position...</option>
+            <option value="top-0 start-0">Top left</option>
+            <option value="top-0 start-50 translate-middle-x">Top center</option>
+            <option value="top-0 end-0">Top right</option>
+            <option value="top-50 start-0 translate-middle-y">Middle left</option>
+            <option value="top-50 start-50 translate-middle">Middle center</option>
+            <option value="top-50 end-0 translate-middle-y">Middle right</option>
+            <option value="bottom-0 start-0">Bottom left</option>
+            <option value="bottom-0 start-50 translate-middle-x">Bottom center</option>
+            <option value="bottom-0 end-0">Bottom right</option>
+        </select>
+    </div>
+</form>
+<div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts" style="min-height: 240px;">
+    <div class="toast-container position-absolute p-3" id="toastPlacement">
+        <div class="toast fade show">
+            <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+            </div>
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+    </div>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer START -->
+                <div class="footer">
+                    <div class="footer-content">
+                        <p class="mb-0">Copyright © 2021 Theme_Nate. All rights reserved.</p>
+                        <span>
+                            <a href="" class="text-gray me-3">Term &amp; Conditions</a>
+                            <a href="" class="text-gray">Privacy &amp; Policy</a>
+                        </span>
+                    </div>
+                </div>
+                <!-- Footer End -->
+            </div>
+            <!-- Content END -->
+
+            <!-- Quick View START -->
+            <div class="modal modal-right fade quick-view" id="quick-view">
+                <div class="modal-dialog right">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">Theme Config</h4>
+                            <button type="button" class="close pull-right" data-bs-dismiss="modal">
+                                <span>×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body scrollable">
+                            <div class="mb-4">
+                                <h5 class="mb-0">Header Color</h5>
+                                <p>Config header background color</p>
+                                <div class="theme-configurator d-flex mt-2">
+                                    <div class="radio">
+                                        <input id="header-default" name="header-theme" type="radio" checked="" value="#ffffff">
+                                        <label for="header-default"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-primary" name="header-theme" type="radio" value="#11a1fd">
+                                        <label for="header-primary"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-success" name="header-theme" type="radio" value="#00c569">
+                                        <label for="header-success"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-info" name="header-theme" type="radio" value="#5a75f9">
+                                        <label for="header-info"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-warning" name="header-theme" type="radio" value="#ffc833">
+                                        <label for="header-warning"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-danger" name="header-theme" type="radio" value="#f46363">
+                                        <label for="header-danger"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h5 class="mb-0">Side Nav Dark</h5>
+                                <p>Change Side Nav to dark</p>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="side-nav-theme-toggle" id="side-nav-theme-toggle">
+                                    <label class="form-check-label" for="side-nav-theme-toggle"></label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h5 class="mb-0">Folded Menu</h5>
+                                <p>Toggle Folded Menu</p>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="side-nav-fold-toogle" id="side-nav-fold-toogle">
+                                    <label class="form-check-label" for="side-nav-fold-toogle"></label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h5 class="mb-0">Horizontal Layout</h5>
+                                <p>Set Horizontal Layout</p>
+                                <div class="btn-group btn-group-sm">
+                                    <a href="#" class="btn btn-outline-primary active" aria-current="page">Vertical</a>
+                                    <a href="h-index.html" class="btn btn-outline-primary">Horizontal</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+            <!-- Quick View END -->
+        </div>
+    </div>
+
+    
+    <!-- Core Vendors JS -->
+    <script src="static/js/vendors.min.js"></script>
+
+    <!-- page js -->
+    <script>
+        document.getElementById('liveToastBtn').onclick = function () {
+            var myAlert = document.getElementById('liveToast')
+            var bsAlert = new bootstrap.Toast(myAlert)
+            bsAlert.show()
+        }
+
+        $('#selectToastPlacement').on('change', function() {
+            $('#toastPlacement').attr('class', 'toast-container position-absolute p-3');
+            $('#toastPlacement').addClass(this.value)
+        });
+    </script>
+
+    <!-- Core JS -->
+    <script src="static/js/app.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Espire - Admin Dashboard Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="static/image/logo/favicon.ico">
+
+    <!-- page css -->
+
+    <!-- Core css -->
+    <link href="static/css/app.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="layout">
+        <div class="horizontal-layout">
+            <!-- Header START -->
+            <div class="header-text-dark header-nav layout-horizon">
+                <div class="header-nav-wrap container">
+                    <div class="header-nav-left">
+                        <div class="nav-logo">
+                            <div class="w-100 logo">
+                                <img class="img-fluid" src="static/picture/logo.png" style="max-height: 70px;" alt="logo">
+                            </div>
+                        </div>
+                        <div class="header-nav-item mobile-toggle">
+                            <div class="header-nav-item-select cursor-pointer">
+                                <i class="nav-icon feather icon-menu icon-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-nav-right">
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select nav-notification">
+                                <div class="toggle-wrapper" id="nav-notification-dropdown" data-bs-toggle="dropdown">
+                                    <i class="header-nav-item-select nav-icon feather icon-bell"></i>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <div class="nav-notification-header">
+                                        <h5 class="mb-0">Notifications</h5>
+                                        <a href="#" class="font-size-sm">Mark All as Read</a>
+                                    </div>
+                                    <div class="nav-notification-body">
+                                        <div class="nav-notification-item ">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 40px; height: 40px; line-height: 40px;">
+                                                <img src="static/picture/thumb-8.jpg" alt="">
+                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark">Jean Bowman </span>
+                                                    <span>invited you to new project.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-primary feather font-size-lg icon-info avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Please submit your daily report.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-success feather font-size-lg icon-info avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Your request has been approved.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 40px; height: 40px; line-height: 40px;">
+                                                <img src="static/picture/thumb-4.jpg" alt="">
+                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark">Jenifer Ruiz </span>
+                                                    <span>mentioned you in comment.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-success feather font-size-lg icon-x-circle avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Your request has been rejected.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="nav-notification-footer">
+                                        <a href="#" class="font-size-sm">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="header-nav-item-select">
+                                <div class="toggle-wrapper" data-bs-toggle="modal" data-bs-target="#quick-view">
+                                    <i class="nav-icon feather icon-settings"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select">
+                                <div class="toggle-wrapper" id="nav-lang-dropdown" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-circle avatar-image" style="width: 22px; height: 22px; line-height: 22px;">
+                                        <img src="static/picture/en_US.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 18px; height: 18px; line-height: 18px;">
+                                                <img src="static/picture/en_US.png" alt="">
+                                            </div>
+                                            <span class="ms-2">English</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 18px; height: 18px; line-height: 18px;">
+                                                <img src="static/picture/fr_FR.png" alt="">
+                                            </div>
+                                            <span class="ms-2">French</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select nav-profile">
+                                <div class="toggle-wrapper" id="nav-profile-dropdown" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-circle avatar-image" style="width: 35px; height: 35px; line-height: 35px;">
+                                        <img src="static/picture/thumb-1.jpg" alt="">
+                                    </div>
+                                    <span class="fw-bold mx-1">Julio Baker</span>
+                                    <i class="feather icon-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <div class="nav-profile-header">
+                                       <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image">
+                                                <img src="static/picture/thumb-1.jpg" alt="">
+                                            </div>
+                                            <div class="d-flex flex-column ms-1">
+                                                <span class="fw-bold text-dark">Julio Baker</span>
+                                                <span class="font-size-sm">Julio@themenate.com</span>
+                                            </div>
+                                       </div>
+                                    </div>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center">
+                                           <i class="font-size-lg me-2 feather icon-user"></i>
+                                           <span>Profile</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center">
+                                           <i class="font-size-lg me-2 feather icon-settings"></i>
+                                           <span>Settings</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center"><i class="font-size-lg me-2 feather icon-life-buoy"></i>
+                                        <span>Support</span>
+                                    </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center"><i class="font-size-lg me-2 feather icon-power"></i>
+                                        <span>Sign Out</span>
+                                    </div>
+                                    </a>
+                                 </div>
+                            </div>
+                        </div>     
+                    </div>
+                </div>
+            </div>    
+            <!-- Header END -->
+
+            <!-- Header Navbar START -->
+            <div class="header-navbar nav-menu-light">
+                <div class="container">
+                    <ul class="nav-menu nav-menu-horizontal">
+                        <li class="nav-menu-item">
+                            <a href="h-index.html">
+                                <i class="feather icon-home"></i>
+                                <span class="nav-menu-item-title">Dashboard </span>
+                            </a>
+                        </li>
+                        <li class="nav-submenu">
+                            <div class="nav-submenu-title">
+                                <span>
+                                    <i class="feather icon-grid"></i>
+                                    <span>Apps</span>
+                                </span>
+                                <i class="nav-submenu-arrow caret-bottom"></i>
+                            </div>
+                            <ul class="nav-menu">
+                                <li class="nav-menu-item">
+                                    <a href="h-mail.html">
+                                        <i class="feather icon-mail"></i>
+                                        <span>Mail</span>
+                                    </a>
+                                </li>
+                                <li class="nav-menu-item">
+                                    <a href="h-chat.html">
+                                        <i class="feather icon-message-circle"></i>
+                                        <span>Chat</span>
+                                    </a>
+                                </li>
+                                <li class="nav-menu-item">
+                                    <a href="h-calendar.html">
+                                        <i class="feather icon-calendar"></i>
+                                        <span>Calendar</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-submenu">
+                            <div class="nav-submenu-title">
+                                <span>
+                                    <i class="feather icon-package"></i>
+                                    <span>User Interface</span>
+                                </span>
+                                <i class="nav-submenu-arrow caret-bottom"></i>
+                            </div>
+                            <ul class="nav-menu">
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-box"></i>
+                                            <span>UI Elements</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-avatar.html">Avatar</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-alert.html">Alert</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-badge.html">Badge</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-buttons.html">Buttons</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-cards.html">Cards</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-icons.html">Icons</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-lists.html">Lists</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-typography.html">Typography</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-package"></i>
+                                            <span>Components</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-accordion.html">Accordion</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-carousel.html">Carousel</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-dropdown.html">Dropdown</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-modals.html">Modals</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-toasts.html">Toasts</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-popover.html">Popover</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-progress.html">Progress</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-tabs.html">Tabs</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-tooltips.html">Tooltips</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-file-text"></i>
+                                            <span>Forms</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-form-elements.html">Form Elements</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-form-layouts.html">Form Layouts</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-form-validation.html">Form Validation</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-grid"></i>
+                                            <span>Tables</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-basic-table.html">Basic Table</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-data-table.html">Data Table</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="h-chart.html">
+                                <i class="feather icon-bar-chart"></i>
+                                <span class="nav-menu-item-title">Chart</span>
+                            </a>
+                        </li>
+                        <li class="nav-submenu">
+                            <div class="nav-submenu-title">
+                                <span>
+                                    <i class="feather icon-file"></i>
+                                    <span>Pages</span>
+                                </span>
+                                <i class="nav-submenu-arrow caret-bottom"></i>
+                            </div>
+                            <ul class="nav-menu">
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-settings"></i>
+                                            <span>Utility</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-profile-personal.html">Profile</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-invoice.html">Invoice</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="">FAQ</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-pricing.html">Pricing</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-user-list.html">User List</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-lock"></i>
+                                            <span>Auth</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="login.html">Login</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="login-v2.html">Login v2</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="login-v3.html">Login v3</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="register.html">Register</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="register-v2.html">Register v2</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="register-v3.html">Register v3</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-slash"></i>
+                                            <span>Errors</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="error.html">Error 1</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="error-v2.html">Error 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Header Navbar END -->
+
+            <!-- Side Nav START -->
+            <div class="side-nav vertical-menu nav-menu-light scrollable">
+                <div class="nav-logo">
+                    <div class="w-100 logo">
+                        <img class="img-fluid" src="static/picture/logo.png" style="max-height: 70px;" alt="logo">
+                    </div>
+                    <div class="mobile-close">
+                        <i class="icon-arrow-left feather"></i>
+                    </div>
+                 </div>
+                 <ul class="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="index.html">
+                            <i class="feather icon-home"></i>
+                            <span class="nav-menu-item-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">APPS</li>
+                    <li class="nav-menu-item">
+                        <a href="h-mail.html">
+                            <i class="feather icon-mail"></i>
+                            <span class="nav-menu-item-title">Mail</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="h-chat.html">
+                            <i class="feather icon-message-circle"></i>
+                            <span class="nav-menu-item-title">Chat</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="h-calendar.html">
+                            <i class="feather icon-calendar"></i>
+                            <span class="nav-menu-item-title">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">USER INTERFACE</li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-box"></i>
+                            <span>UI Elements</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-avatar.html">Avatar</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-alert.html">Alert</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-badge.html">Badge</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-buttons.html">Buttons</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-cards.html">Cards</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-icons.html">Icons</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-lists.html">Lists</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-typography.html">Typography</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-package"></i>
+                            <span>Components</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-accordion.html">Accordion</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-carousel.html">Carousel</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-dropdown.html">Dropdown</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-modals.html">Modals</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-toasts.html">Toasts</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-popover.html">Popover</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-progress.html">Progress</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-tabs.html">Tabs</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-tooltips.html">Tooltips</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-file-text"></i>
+                            <span>Forms</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-form-elements.html">Form Elements</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-form-layouts.html">Form Layouts</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-form-validation.html">Form Validation</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-grid"></i>
+                            <span>Tables</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-basic-table.html">Basic Table</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-data-table.html">Data Table</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="h-chart.html">
+                            <i class="feather icon-bar-chart"></i>
+                            <span class="nav-menu-item-title">Chart</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">PAGES</li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-settings"></i>
+                            <span>Utility</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-profile-personal.html">Profile</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-invoice.html">Invoice</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="">FAQ</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-pricing.html">Pricing</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-user-list.html">User List</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-lock"></i>
+                            <span>Auth</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="login.html">Login</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="login-v2.html">Login v2</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="login-v3.html">Login v3</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register.html">Register</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register-v2.html">Register v2</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register-v3.html">Register v3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-slash"></i>
+                            <span>Errors</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="error.html">Error 1</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="error-v2.html">Error 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Side Nav END -->
+
+            <!-- Content START -->
+            <div class="content container">
+                <div class="main">
+                    <div class="page-header">
+                        <h4 class="page-title">FAQ</h4>
+                        <div class="breadcrumb">
+                           <span class="me-1 text-gray"><i class="feather icon-home"></i></span>
+                           <div class="breadcrumb-item"><a href="index.html"> Home </a></div>
+                           <div class="breadcrumb-item"><a href="javascript:void(0)"> pages </a></div>
+                           <div class="breadcrumb-item"><a href=""> FAQ </a></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="text-center mt-4">
+                            <h3>Frequently Asked Questions</h3>
+                            <p>Find the most asked question &amp; their answer right here.</p>
+                        </div>
+                        <div class="mt-4 mx-auto" style="max-width: 800px;">
+                            <form>
+                            <div class="input-group mb-3">
+                                <input type="text" placeholder="Search your question here..." class="form-control form-control-lg">
+                                <button class="btn btn-primary">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="mt-5">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card card-clickable active">
+                                        <div class="card-body text-center">
+                                            <div class="d-inline-block rounded-circle" style="background-color: rgba(17, 161, 253, 0.1);">
+                                                <i class="h1 mb-0 p-3 las la-compass" style="color: rgb(17, 161, 253);"></i>
+                                            </div>
+                                            <h5 class="mt-3 mb-0">Navigation</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-clickable">
+                                        <div class="card-body text-center">
+                                            <div class="d-inline-block rounded-circle" style="background-color: rgba(90, 117, 249, 0.1);">
+                                                <i class="h1 mb-0 p-3 las la-tag" style="color: rgb(90, 117, 249);"></i>
+                                            </div>
+                                            <h5 class="mt-3 mb-0">Price & Plans</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-clickable">
+                                        <div class="card-body text-center">
+                                            <div class="d-inline-block rounded-circle" style="background-color: rgba(255, 152, 66, 0.1);">
+                                                <i class="h1 mb-0 p-3 las la-user-friends" style="color: rgb(255, 152, 66);"></i>
+                                            </div>
+                                            <h5 class="mt-3 mb-0">Affiliate</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-clickable">
+                                        <div class="card-body text-center">
+                                            <div class="d-inline-block rounded-circle" style="background-color: rgba(0, 197, 105, 0.1);">
+                                                <i class="h1 mb-0 p-3 las las la-book" style="color: rgb(0, 197, 105);"></i>
+                                            </div>
+                                            <h5 class="mt-3 mb-0">Usage</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="accordion panel-group" id="faqContent">
+                                        <div class="panel card">
+                                            <h2 class="card-header panel-heading">
+                                                <div class="panel-title">
+                                                    <div class="accordion-toggle">
+                                                        <button class="btn btn-link d-block w-100 text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item1">
+                                                            <i class="feather icon-chevron-right text-primary d-inline-block accordion-icon"></i>
+                                                            <span class="ms-2">What are the benefits of a navigation system?</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </h2>
+                                            <div id="item1" class="collapse" data-bs-parent="#faqContent">
+                                                <div class="accordion-body panel-body card-body">
+                                                    So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book. Aldus Corporation, which later merged with Adobe Systems, ushered lorem ipsum into the information age with its desktop publishing software Aldus PageMaker. The program came bundled with lorem ipsum dummy text for laying out page content, and other word processors like Microsoft Word followed suit.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel card">
+                                            <h2 class="card-header panel-heading">
+                                                <div class="panel-title">
+                                                    <div class="accordion-toggle">
+                                                        <button class="btn btn-link d-block w-100 text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item2">
+                                                            <i class="feather icon-chevron-right text-primary d-inline-block accordion-icon"></i>
+                                                            <span class="ms-2">Systems Accurate</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </h2>
+                                            <div id="item2" class="collapse" data-bs-parent="#faqContent">
+                                                <div class="accordion-body panel-body card-body">
+                                                    Twitch tail in permanent irritation poop on grasses, drink water out of the faucet, plays league of legends have my breakfast spaghetti yarn. Taco cat backwards spells taco cat stick butt in face.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel card">
+                                            <h2 class="card-header panel-heading">
+                                                <div class="panel-title">
+                                                    <div class="accordion-toggle">
+                                                        <button class="btn btn-link d-block w-100 text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item3">
+                                                            <i class="feather icon-chevron-right text-primary d-inline-block accordion-icon"></i>
+                                                            <span class="ms-2">How to start?</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </h2>
+                                            <div id="item3" class="collapse" data-bs-parent="#faqContent">
+                                                <div class="accordion-body panel-body card-body">
+                                                    One brave soul did take a stab at translating the almost-not-quite-Latin. According to The Guardian, Jaspreet Singh Boparai undertook the challenge with the goal of making the text “precisely as incoherent in English as it is in Latin - and to make it incoherent in the same way”. As a result, “the Greek 'eu' in Latin became the French 'bien' [...] and the '-ing' ending in 'lorem ipsum' seemed best rendered by an '-iendum' in English.”
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel card">
+                                            <h2 class="card-header panel-heading">
+                                                <div class="panel-title">
+                                                    <div class="accordion-toggle">
+                                                        <button class="btn btn-link d-block w-100 text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item4">
+                                                            <i class="feather icon-chevron-right text-primary d-inline-block accordion-icon"></i>
+                                                            <span class="ms-2">Where to find site map?</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </h2>
+                                            <div id="item4" class="collapse" data-bs-parent="#faqContent">
+                                                <div class="accordion-body panel-body card-body">
+                                                    It's difficult to find examples of lorem ipsum in use before Letraset made it popular as a dummy text in the 1960s, although McClintock says he remembers coming across the lorem ipsum passage in a book of old metal type samples. So far he hasn't relocated where he once saw the passage, but the popularity of Cicero in the 15th century supports the theory that the filler text has been used for centuries. 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel card">
+                                            <h2 class="card-header panel-heading">
+                                                <div class="panel-title">
+                                                    <div class="accordion-toggle">
+                                                        <button class="btn btn-link d-block w-100 text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item5">
+                                                            <i class="feather icon-chevron-right text-primary d-inline-block accordion-icon"></i>
+                                                            <span class="ms-2">How to apply?</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </h2>
+                                            <div id="item5" class="collapse" data-bs-parent="#faqContent">
+                                                <div class="accordion-body panel-body card-body">
+                                                    Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel card">
+                                            <h2 class="card-header panel-heading">
+                                                <div class="panel-title">
+                                                    <div class="accordion-toggle">
+                                                        <button class="btn btn-link d-block w-100 text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item6">
+                                                            <i class="feather icon-chevron-right text-primary d-inline-block accordion-icon"></i>
+                                                            <span class="ms-2">Is it secure?</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </h2>
+                                            <div id="item6" class="collapse" data-bs-parent="#faqContent">
+                                                <div class="accordion-body panel-body card-body">
+                                                    Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer START -->
+                <div class="footer">
+                    <div class="footer-content">
+                        <p class="mb-0">Copyright © 2021 Theme_Nate. All rights reserved.</p>
+                        <span>
+                            <a href="" class="text-gray me-3">Term &amp; Conditions</a>
+                            <a href="" class="text-gray">Privacy &amp; Policy</a>
+                        </span>
+                    </div>
+                </div>
+                <!-- Footer End -->
+            </div>
+            <!-- Content END -->
+
+            <!-- Quick View START -->
+            <div class="modal modal-right fade quick-view" id="quick-view">
+                <div class="modal-dialog right">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">Theme Config</h4>
+                            <button type="button" class="close pull-right" data-bs-dismiss="modal">
+                                <span>×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body scrollable">
+                            <div class="mb-4">
+                                <h5 class="mb-0">Header Color</h5>
+                                <p>Config header background color</p>
+                                <div class="theme-configurator d-flex mt-2">
+                                    <div class="radio">
+                                        <input id="header-default" name="header-theme" type="radio" checked="" value="#ffffff">
+                                        <label for="header-default"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-primary" name="header-theme" type="radio" value="#11a1fd">
+                                        <label for="header-primary"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-success" name="header-theme" type="radio" value="#00c569">
+                                        <label for="header-success"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-info" name="header-theme" type="radio" value="#5a75f9">
+                                        <label for="header-info"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-warning" name="header-theme" type="radio" value="#ffc833">
+                                        <label for="header-warning"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-danger" name="header-theme" type="radio" value="#f46363">
+                                        <label for="header-danger"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h5 class="mb-0">Header Navbar Dark</h5>
+                                <p>Change Header Navbar to dark</p>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="side-nav-theme-toggle" id="side-nav-theme-toggle">
+                                    <label class="form-check-label" for="side-nav-theme-toggle"></label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h5 class="mb-0">Vertical Layout</h5>
+                                <p>Set Vertical Layout</p>
+                                <div class="btn-group btn-group-sm">
+                                    <a href="index.html" class="btn btn-outline-primary" aria-current="page">Vertical</a>
+                                    <a href="#" class="btn btn-outline-primary active">Horizontal</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+            <!-- Quick View END -->
+        </div>
+    </div>
+
+    
+    <!-- Core Vendors JS -->
+    <script src="static/js/vendors.min.js"></script>
+
+    <!-- page js -->
+
+    <!-- Core JS -->
+    <script src="static/js/app.min.js"></script>
+
+</body>
+
+</html>

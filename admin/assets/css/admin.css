@@ -1,0 +1,1480 @@
+/* 管理员后台样式 */
+
+/* 全局样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 60px; /* 为顶部导航栏留出空间 */
+}
+
+/* 顶部导航栏样式 */
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    min-height: 60px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 侧边栏样式 - 基于Bootstrap 5 */
+.sidebar {
+    position: fixed;
+    top: 60px; /* 为顶部导航栏留出空间 */
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* 降低z-index，避免干扰切换按钮 */
+    padding: 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    background-color: #f8f9fa;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    width: 250px;
+}
+
+.sidebar .nav {
+    padding: 1rem 0;
+}
+
+/* 侧边栏导航链接样式 - 统一标准 */
+.sidebar .nav-link {
+    font-weight: 500 !important; /* 统一使用500中等粗细 */
+    color: #212529 !important;
+    padding: 10px 15px !important;
+    margin-bottom: 4px !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar .nav-link:hover {
+    color: #1976d2 !important;
+    background-color: #e3f2fd !important;
+    transform: translateX(5px) !important;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15) !important;
+}
+
+.sidebar .nav-link.active {
+    color: white !important;
+    background-color: #1976d2 !important;
+    box-shadow: 0 2px 12px rgba(25, 118, 210, 0.3) !important;
+}
+
+.sidebar .nav-link.active:hover {
+    background-color: #1565c0 !important;
+    transform: translateX(3px) !important;
+}
+
+.sidebar .nav-link i {
+    margin-right: 0.5rem;
+    width: 1.25rem;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.sidebar .nav-link:hover i {
+    transform: scale(1.1);
+}
+
+/* 主内容区域 */
+.main-content {
+    margin-left: 270px; /* 适配侧边栏宽度250px + 20px间距 */
+    padding-top: 20px; /* 为顶部导航栏留出空间 */
+    transition: all 0.3s ease;
+    min-height: calc(100vh - 60px);
+}
+
+@media (max-width: 767.98px) {
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .sidebar {
+        transform: translateX(-100%);
+        width: 100%;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+        display: block !important;
+        position: fixed !important;
+        width: 100%;
+        height: calc(100vh - 60px);
+        z-index: 1500;
+        top: 60px;
+    }
+}
+
+/* 移动端菜单按钮 */
+.mobile-toggle {
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    .mobile-toggle {
+        display: block;
+    }
+}
+
+/* 卡片样式优化 */
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border-radius: 0.5rem;
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem 1.25rem;
+}
+
+/* 表格样式优化 */
+.table th {
+    border-top: none;
+    font-weight: 600;
+    color: #495057;
+    background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* 统计卡片 */
+.stats-card {
+    transition: transform 0.2s;
+}
+
+.stats-card:hover {
+    transform: translateY(-2px);
+}
+
+.stats-card .card-body {
+    padding: 1.5rem;
+}
+
+.stats-number {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+/* 加载动画 */
+.loading-spinner {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 0.25rem solid #f3f3f3;
+    border-top: 0.25rem solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 筛选区域样式 */
+.filter-section {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* 图表容器 */
+.chart-container {
+    position: relative;
+    height: 400px;
+    margin: 1rem 0;
+}
+
+/* 交通报告页面专用样式 */
+/* 项目选择区域样式 */
+.project-selector {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.project-selector h4 {
+    color: #495057;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.project-selector .form-select {
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+}
+.project-selector .form-select:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 0.25rem rgba(25, 118, 210, 0.25);
+}
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+.project-status.selected {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+.project-status.not-selected {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
+/* 出行时间醒目样式 */
+.departure-time-highlight {
+    font-weight: 700;
+    color: #dc3545;
+    background-color: #fff3cd;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    border: 1px solid #ffc107;
+}
+
+/* 乘客数量蓝色边框样式 */
+.passenger-count-border {
+    display: inline-block;
+    padding: 0.125rem 0.375rem;
+    border: 1px solid #0d6efd;
+    border-radius: 0.25rem;
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #0d6efd;
+    font-size: 0.875rem;
+}
+
+/* 特殊要求列样式 */
+.special-requirements {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ffeaa7;
+    font-size: 0.875rem;
+}
+
+/* 日期分隔行样式 */
+.date-divider .stat-card {
+    background-color: #fff5f5;
+    border: 1px solid #f8d7da;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 1rem;
+}
+.date-divider .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+}
+.date-divider .stat-card .card-body {
+    padding: 0.75rem 1rem;
+}
+.date-divider .date-main {
+    font-size: 1rem;
+    font-weight: 600;
+}
+.date-divider .date-weekday, .date-divider .date-count {
+    font-size: 0.875rem;
+}
+
+/* 批量操作区域样式 */
+.batch-operation-bar {
+    background: linear-gradient(120deg, #e0f7fa, #bbdefb);
+    border-bottom: 2px solid #90caf9;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+/* 按钮组垂直排列 */
+.btn-group-vertical {
+    gap: 0.125rem;
+}
+.btn-group-vertical .btn {
+    margin-bottom: 0.125rem;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}
+
+/* 酒店报告记录卡片样式 */
+.record-card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+    background: white;
+    transition: box-shadow 0.3s ease;
+}
+
+.record-card:hover {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.record-card.border-warning {
+    border-color: #ffc107 !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+.record-header {
+    background-color: #f8f9fa;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: bold;
+    border-radius: 0.375rem 0.375rem 0 0;
+}
+
+.record-body {
+    padding: 1rem;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.btn-group-actions {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: 1rem;
+    border-top: 1px solid #dee2e6;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+.alert-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.alert-info li {
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.alert-info li:last-child {
+    border-bottom: none;
+}
+
+.badge {
+    font-size: 0.75em;
+}
+
+/* 按钮样式优化 */
+.btn {
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* 表单样式优化 */
+.form-control, .form-select {
+    border-radius: 0.375rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* 分页样式 */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 0.375rem !important;
+    margin: 0 0.125rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: #007bff !important;
+    border: 1px solid #007bff !important;
+    color: white !important;
+}
+
+/* 空数据提示 */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #6c757d;
+}
+
+.empty-state i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    font-size: 1.125rem;
+    margin-bottom: 0;
+}
+
+/* 项目选择区域样式 */
+.project-selector .form-select {
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.project-selector .form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* 项目状态样式 */
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.project-status.selected {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+.project-status.not-selected {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
+/* 顶部栏样式 */
+.top-bar {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.top-bar h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* 人员管理容器样式 */
+.reports-container {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.reports-header {
+    background-color: #f8f9fa;
+    color: #495057;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.reports-body {
+    padding: 1rem;
+}
+
+.project-assignment {
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f8f9fa;
+}
+
+.department-badge {
+    font-size: 0.875em;
+    margin-right: 0.25rem;
+}
+
+.project-department-cell {
+    max-width: 220px;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.5;
+    vertical-align: top;
+}
+
+.project-tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    align-items: flex-start;
+}
+
+.project-complete-tag {
+    display: inline-block;
+    background: #f8f9fa;
+    color: #495057;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: normal;
+    line-height: 1.4;
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+    border: 1px solid #e9ecef;
+}
+
+.project-complete-tag:hover {
+    background-color: #e9ecef;
+}
+
+.project-department-cell small {
+    display: block;
+    word-break: break-word;
+    hyphens: auto;
+    overflow-wrap: break-word;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* 优化表格样式 */
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    border-top: none;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 优化按钮样式 */
+.btn {
+    font-size: 0.875rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+}
+
+/* 优化徽章样式 */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.5rem;
+}
+
+/* 优化表单控件 */
+.form-control, .form-select {
+    border-radius: 0.375rem;
+    border: 1px solid #e9ecef;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.875rem;
+}
+
+/* 优化卡片样式 */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    color: #495057;
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+}
+
+/* 优化警告框 */
+.alert {
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* 部门管理样式 */
+.departments-container {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-top: 1.5rem;
+}
+
+.departments-header {
+    background-color: #f8f9fa;
+    color: #495057;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.departments-body {
+    padding: 1rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.department-card {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.department-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.sort-number {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    background-color: #1976d2;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.625rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.department-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #212529;
+    flex-grow: 0;
+}
+
+.department-desc {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+    min-height: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    flex-grow: 1;
+}
+
+.department-stats {
+    margin-bottom: 0.5rem;
+    flex-grow: 0;
+}
+
+.department-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    flex-grow: 0;
+}
+
+.btn-xs {
+    padding: 0.125rem 0.25rem;
+    font-size: 0.625rem;
+    border-radius: 0.1875rem;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100% !important;
+        position: relative !important;
+        height: auto !important;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .project-department-cell {
+        max-width: 150px;
+    }
+    
+    /* 移动端优化 */
+    .reports-body {
+        padding: 10px;
+    }
+    
+    .project-selector {
+        padding: 15px;
+    }
+    
+    .reports-header {
+        padding: 15px;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 0.375rem;
+    }
+}
+
+/* ===========================================
+   交通报告页面专用样式（新增）
+   =========================================== */
+
+/* 基础字体设置 */
+body {
+    font-size: 14px;
+}
+
+.table {
+    font-size: 14px;
+}
+
+.btn {
+    font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: calc(1rem + 0.2vw);
+}
+
+/* 交通报告页面表格优化 */
+.transportation-table {
+    font-size: 14px;
+    table-layout: auto;
+    width: 100%;
+    position: relative;
+}
+
+/* 确保表格在侧边栏状态变化时正确响应 */
+.sidebar-collapsed .transportation-table {
+    transition: all 0.3s ease;
+}
+
+.transportation-table th,
+.transportation-table td {
+    position: relative;
+    z-index: 1;
+}
+
+/* 确保所有交互元素可点击 */
+.transportation-table .form-check-input,
+.transportation-table .btn,
+.transportation-table .form-select,
+.batch-operation-bar .btn,
+.batch-operation-bar .form-check-input {
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* 批量操作栏优化 */
+.batch-operation-bar {
+    position: relative;
+    z-index: 5;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem;
+}
+
+/* 表格容器优化 */
+.table-responsive {
+    position: relative;
+    z-index: 1;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 侧边栏切换动画优化 */
+.main-content {
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-collapsed .main-content {
+    margin-left: 80px !important;
+}
+
+/* 日期分隔行样式（优化版）*/
+.date-divider {
+    background-color: #f8f9fa !important;
+}
+
+.date-divider td {
+    background-color: #e9ecef !important;
+    font-weight: 600;
+    color: #495057;
+}
+
+.date-divider .stat-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    color: #495057;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.date-main {
+    font-size: 1.1rem;
+    color: #495057;
+    font-weight: 600;
+}
+
+.date-weekday {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.date-count {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+    font-size: 0.8rem;
+}
+
+/* 确保在侧边栏状态变化时表格正确显示 */
+@media (min-width: 992px) {
+    .main-content {
+        margin-left: 270px !important;
+    }
+    
+    .sidebar-collapsed .main-content {
+        margin-left: 80px !important;
+    }
+    
+    /* 侧边栏展开状态的表格优化 */
+    body:not(.sidebar-collapsed) .transportation-table {
+        min-width: 1200px;
+    }
+    
+    /* 侧边栏收起状态的表格优化 */
+    body.sidebar-collapsed .transportation-table {
+        min-width: 1400px; /* 可以使用更大的宽度 */
+    }
+    
+    /* 侧边栏收起时的列宽调整 */
+    body.sidebar-collapsed .col-time { min-width: 130px; }
+    body.sidebar-collapsed .col-personnel { min-width: 250px; }
+    body.sidebar-collapsed .col-vehicle { min-width: 200px; }
+    body.sidebar-collapsed .col-route { min-width: 220px; }
+    body.sidebar-collapsed .col-count { min-width: 70px; }
+    body.sidebar-collapsed .col-requirements { min-width: 160px; }
+    body.sidebar-collapsed .col-reporter { min-width: 100px; }
+    body.sidebar-collapsed .col-actions { min-width: 140px; }
+}
+
+/* 出行时间高亮样式 */
+.departure-time-highlight {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #007bff;
+    background-color: #e3f2fd;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    display: inline-block;
+}
+
+/* 人数显示样式 */
+.passenger-count-border {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #007bff;
+    background-color: #ffffff;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    min-width: 3rem;
+    text-align: center;
+}
+
+/* 特殊要求样式 */
+.special-requirements {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 0.375rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ffeaa7;
+    font-style: italic;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* 表格行悬停效果优化 */
+.table tbody tr:hover {
+    background-color: #f5f5f5 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+}
+
+/* 批量操作栏样式 */
+.batch-operation-bar {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* 出行路线样式 */
+.travel-route {
+    line-height: 1.4;
+}
+
+.route-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.departure-info,
+.arrival-info {
+    font-size: 0.875rem;
+    padding: 0.125rem 0;
+}
+
+.departure-info strong,
+.arrival-info strong {
+    color: #495057;
+    font-weight: 600;
+    margin-right: 0.25rem;
+}
+
+/* 表格列宽优化 */
+.table {
+    table-layout: fixed;
+    width: 100%;
+    min-width: 1200px;
+}
+
+.table th,
+.table td {
+    padding: 0.5rem 0.75rem;
+    vertical-align: middle;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+/* 日期分隔行底色偏好 */
+.date-divider td {
+    background-color: #e9ecef !important;
+    font-weight: 600;
+    color: #495057;
+}
+
+/* 第一列和最后一列加边距 */
+.table th:first-child,
+.table td:first-child {
+    padding-left: 1rem;
+}
+
+.table th:last-child,
+.table td:last-child {
+    padding-right: 1rem;
+}
+
+
+
+/* 响应式表格容器 */
+.table-responsive {
+    position: relative;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #f8f9fa;
+}
+
+.table-responsive::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+}
+
+/* 确保表格内容不会溢出 */
+.table td {
+    position: relative;
+    text-overflow: ellipsis;
+}
+
+/* 优化出行路线显示 */
+.travel-route {
+    line-height: 1.4;
+    max-width: 100%;
+}
+
+.route-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* 优化乘车人员信息显示 */
+.project-tag-container {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.project-complete-tag {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* 表格内容自适应优化 */
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.075) !important;
+}
+
+/* 表格边框优化 */
+.table th,
+.table td {
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* 确保表格内的按钮组不会被挤压 */
+.table .d-flex {
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+}
+
+/* 车辆信息和乘车人员标签的响应式优化 */
+@media (max-width: 768px) {
+    .project-tag-container {
+        font-size: 0.75rem;
+    }
+    
+    .project-complete-tag {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.375rem;
+    }
+    
+    .route-info {
+        font-size: 0.75rem;
+        gap: 0.125rem;
+    }
+    
+    .departure-info,
+    .arrival-info {
+        font-size: 0.7rem;
+    }
+}
+
+/* 车队分配页面样式 */
+.assign-fleet-passenger-column {
+    min-width: 350px;
+}
+
+/* 已分配车辆列样式 */
+.assigned-vehicles-column {
+    min-width: 200px;
+}
+
+/* 乘车人员信息显示样式 */
+.passenger-tags {
+    font-size: 14px; /* 用户偏好：14px基础字体 */
+    line-height: 1.4;
+}
+
+.passenger-tags .department-group {
+    margin-bottom: 0.25rem;
+}
+
+.passenger-tags .dept-tag {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.passenger-tags .count-badge {
+    color: #6c757d;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.passenger-tags .names-list {
+    color: #495057;
+    font-size: 13px;
+}
+
+/* 车队分配表格响应式设计 */
+.assign-fleet-table {
+    font-size: 14px; /* 用户偏好：14px基础字体 */
+    table-layout: auto; /* 自动表格布局 */
+    min-width: 1100px; /* 移除日期列后调整最小宽度 */
+}
+
+/* 日期分隔行样式（用户偏好） */
+.assign-fleet-table .date-divider {
+    background-color: #e9ecef !important; /* 用户偏好颜色 */
+}
+
+.assign-fleet-table .date-divider .date-header {
+    background-color: #e9ecef !important;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.assign-fleet-table .date-divider .date-main {
+    font-size: 1.1rem;
+    color: #212529;
+}
+
+.assign-fleet-table .date-divider .date-weekday {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.assign-fleet-table .date-divider .date-count {
+    font-size: 0.8rem;
+}
+
+/* 表格第一列和最后一列边距优化（用户偏好） */
+.assign-fleet-table td:first-child,
+.assign-fleet-table th:first-child {
+    padding-left: 1rem;
+}
+
+.assign-fleet-table td:last-child,
+.assign-fleet-table th:last-child {
+    padding-right: 1rem;
+}
+
+/* 表格列宽度定义 - 移除日期列后重新分配 */
+.assign-fleet-table .col-time {
+    width: 30%; /* 时间列：调整宽度以适应合并后的车辆信息列 */
+    min-width: 240px;
+    max-width: 350px;
+    vertical-align: middle;
+}
+
+.assign-fleet-table .time-display {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.assign-fleet-table .transport-type-display {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #6c757d;
+}
+
+.assign-fleet-table .col-route {
+    width: 20%;
+    min-width: 180px;
+}
+
+.assign-fleet-table .col-passenger {
+    width: 20%;
+    min-width: 180px;
+}
+
+/* 新增：合并后的车辆信息列样式 */
+.assign-fleet-table .col-vehicle-info {
+    width: 19%;
+    min-width: 210px;
+}
+
+.assign-fleet-table .vehicle-requirements,
+.assign-fleet-table .assigned-vehicles {
+    margin-bottom: 8px;
+}
+
+.assign-fleet-table .vehicle-requirements:last-child,
+.assign-fleet-table .assigned-vehicles:last-child {
+    margin-bottom: 0;
+}
+
+.assign-fleet-table .col-actions {
+    width: 11%;
+    min-width: 100px;
+}
+
+/* 路线信息样式 */
+.route-info {
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.route-info .departure-info,
+.route-info .arrival-info {
+    margin-bottom: 0.25rem;
+    word-wrap: break-word;
+}
+
+.route-info .departure-info:last-child,
+.route-info .arrival-info:last-child {
+    margin-bottom: 0;
+}
+
+/* 大屏幕优化 (1200px - 1400px) */
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .assign-fleet-table {
+        min-width: 1150px;
+    }
+    
+    .assign-fleet-table .col-route {
+        width: 20%;
+        min-width: 200px;
+    }
+    
+    .assign-fleet-table .col-passenger {
+        width: 23%;
+        min-width: 230px;
+    }
+}
+
+/* 中等屏幕优化 (992px - 1199px) */
+@media (max-width: 1199px) {
+    .assign-fleet-table {
+        font-size: 13px;
+        min-width: 1000px;
+    }
+    
+    .assign-fleet-table .col-time {
+        width: 33%; /* 时间列：调整宽度以适应合并后的车辆信息列 */
+        min-width: 225px;
+        max-width: 300px;
+    }
+    
+    .assign-fleet-table .time-display {
+        font-size: 1rem;
+    }
+    
+    .assign-fleet-table .transport-type-display {
+        font-size: 0.8rem;
+    }
+    
+    .assign-fleet-table .col-route {
+        width: 20%;
+        min-width: 160px;
+    }
+    
+    .assign-fleet-table .col-passenger {
+        width: 18%;
+        min-width: 160px;
+    }
+    
+    /* 新增：合并后的车辆信息列样式 - 中等屏幕 */
+    .assign-fleet-table .col-vehicle-info {
+        width: 19%;
+        min-width: 190px;
+    }
+    
+    .assign-fleet-table .col-actions {
+        width: 10%;
+        min-width: 100px;
+    }
+}
+
+/* 小屏幕优化 (768px - 991px) */
+@media (max-width: 991px) {
+    .assign-fleet-table {
+        font-size: 12px;
+        min-width: 900px;
+    }
+    
+    .assign-fleet-table .col-time {
+        width: 35%; /* 时间列：调整宽度以适应合并后的车辆信息列 */
+        min-width: 210px;
+        max-width: 255px;
+    }
+    
+    .assign-fleet-table .time-display {
+        font-size: 0.95rem;
+    }
+    
+    .assign-fleet-table .transport-type-display {
+        font-size: 0.75rem;
+    }
+    
+    .assign-fleet-table .col-route {
+        width: 20%;
+        min-width: 150px;
+    }
+    
+    .assign-fleet-table .col-passenger {
+        width: 18%;
+        min-width: 170px;
+    }
+    
+    /* 新增：合并后的车辆信息列样式 - 小屏幕 */
+    .assign-fleet-table .col-vehicle-info {
+        width: 20%;
+        min-width: 180px;
+    }
+    
+    .assign-fleet-table .col-actions {
+        width: 7%;
+        min-width: 100px;
+    }
+    
+    .route-info {
+        font-size: 12px;
+    }
+}
+
+/* 移动端优化 (768px 以下) */
+@media (max-width: 767px) {
+    .assign-fleet-table {
+        font-size: 11px;
+        min-width: 800px; /* 在移动设备上允许水平滚动 */
+    }
+    
+    .assign-fleet-table .col-time {
+        width: 38%; /* 时间列：调整宽度以适应合并后的车辆信息列 */
+        min-width: 210px;
+        max-width: 255px;
+    }
+    
+    .assign-fleet-table .time-display {
+        font-size: 0.9rem;
+    }
+    
+    .assign-fleet-table .transport-type-display {
+        font-size: 0.7rem;
+    }
+    
+    .assign-fleet-table .col-route {
+        width: 18%;
+        min-width: 120px;
+    }
+    
+    .assign-fleet-table .col-passenger {
+        width: 15%;
+        min-width: 110px;
+    }
+    
+    /* 新增：合并后的车辆信息列样式 - 移动端 */
+    .assign-fleet-table .col-vehicle-info {
+        width: 21%;
+        min-width: 170px;
+    }
+    
+    .assign-fleet-table .col-actions {
+        width: 8%;
+        min-width: 90px;
+    }
+    
+    .route-info {
+        font-size: 11px;
+        line-height: 1.2;
+    }
+    
+    .passenger-tags {
+        font-size: 10px;
+    }
+    
+    .passenger-tags .count-badge {
+        font-size: 9px;
+    }
+    
+    .passenger-tags .names-list {
+        font-size: 10px;
+    }
+    
+    /* 移动端按钮优化 */
+    .assign-fleet-table .btn-sm {
+        font-size: 10px;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .assign-fleet-table .form-control-sm {
+        font-size: 10px;
+        padding: 0.2rem 0.4rem;
+    }
+}

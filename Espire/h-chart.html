@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Espire - Admin Dashboard Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="static/image/logo/favicon.ico">
+
+    <!-- page css -->
+
+    <!-- Core css -->
+    <link href="static/css/app.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="layout">
+        <div class="horizontal-layout">
+            <!-- Header START -->
+            <div class="header-text-dark header-nav layout-horizon">
+                <div class="header-nav-wrap container">
+                    <div class="header-nav-left">
+                        <div class="nav-logo">
+                            <div class="w-100 logo">
+                                <img class="img-fluid" src="static/picture/logo.png" style="max-height: 70px;" alt="logo">
+                            </div>
+                        </div>
+                        <div class="header-nav-item mobile-toggle">
+                            <div class="header-nav-item-select cursor-pointer">
+                                <i class="nav-icon feather icon-menu icon-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-nav-right">
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select nav-notification">
+                                <div class="toggle-wrapper" id="nav-notification-dropdown" data-bs-toggle="dropdown">
+                                    <i class="header-nav-item-select nav-icon feather icon-bell"></i>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <div class="nav-notification-header">
+                                        <h5 class="mb-0">Notifications</h5>
+                                        <a href="#" class="font-size-sm">Mark All as Read</a>
+                                    </div>
+                                    <div class="nav-notification-body">
+                                        <div class="nav-notification-item ">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 40px; height: 40px; line-height: 40px;">
+                                                <img src="static/picture/thumb-8.jpg" alt="">
+                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark">Jean Bowman </span>
+                                                    <span>invited you to new project.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-primary feather font-size-lg icon-info avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Please submit your daily report.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-success feather font-size-lg icon-info avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Your request has been approved.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 40px; height: 40px; line-height: 40px;">
+                                                <img src="static/picture/thumb-4.jpg" alt="">
+                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark">Jenifer Ruiz </span>
+                                                    <span>mentioned you in comment.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-success feather font-size-lg icon-x-circle avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Your request has been rejected.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="nav-notification-footer">
+                                        <a href="#" class="font-size-sm">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="header-nav-item-select">
+                                <div class="toggle-wrapper" data-bs-toggle="modal" data-bs-target="#quick-view">
+                                    <i class="nav-icon feather icon-settings"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select">
+                                <div class="toggle-wrapper" id="nav-lang-dropdown" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-circle avatar-image" style="width: 22px; height: 22px; line-height: 22px;">
+                                        <img src="static/picture/en_US.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 18px; height: 18px; line-height: 18px;">
+                                                <img src="static/picture/en_US.png" alt="">
+                                            </div>
+                                            <span class="ms-2">English</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 18px; height: 18px; line-height: 18px;">
+                                                <img src="static/picture/fr_FR.png" alt="">
+                                            </div>
+                                            <span class="ms-2">French</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select nav-profile">
+                                <div class="toggle-wrapper" id="nav-profile-dropdown" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-circle avatar-image" style="width: 35px; height: 35px; line-height: 35px;">
+                                        <img src="static/picture/thumb-1.jpg" alt="">
+                                    </div>
+                                    <span class="fw-bold mx-1">Julio Baker</span>
+                                    <i class="feather icon-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <div class="nav-profile-header">
+                                       <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image">
+                                                <img src="static/picture/thumb-1.jpg" alt="">
+                                            </div>
+                                            <div class="d-flex flex-column ms-1">
+                                                <span class="fw-bold text-dark">Julio Baker</span>
+                                                <span class="font-size-sm">Julio@themenate.com</span>
+                                            </div>
+                                       </div>
+                                    </div>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center">
+                                           <i class="font-size-lg me-2 feather icon-user"></i>
+                                           <span>Profile</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center">
+                                           <i class="font-size-lg me-2 feather icon-settings"></i>
+                                           <span>Settings</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center"><i class="font-size-lg me-2 feather icon-life-buoy"></i>
+                                        <span>Support</span>
+                                    </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center"><i class="font-size-lg me-2 feather icon-power"></i>
+                                        <span>Sign Out</span>
+                                    </div>
+                                    </a>
+                                 </div>
+                            </div>
+                        </div>     
+                    </div>
+                </div>
+            </div>    
+            <!-- Header END -->
+
+            <!-- Header Navbar START -->
+            <div class="header-navbar nav-menu-light">
+                <div class="container">
+                    <ul class="nav-menu nav-menu-horizontal">
+                        <li class="nav-menu-item">
+                            <a href="h-index.html">
+                                <i class="feather icon-home"></i>
+                                <span class="nav-menu-item-title">Dashboard </span>
+                            </a>
+                        </li>
+                        <li class="nav-submenu">
+                            <div class="nav-submenu-title">
+                                <span>
+                                    <i class="feather icon-grid"></i>
+                                    <span>Apps</span>
+                                </span>
+                                <i class="nav-submenu-arrow caret-bottom"></i>
+                            </div>
+                            <ul class="nav-menu">
+                                <li class="nav-menu-item">
+                                    <a href="h-mail.html">
+                                        <i class="feather icon-mail"></i>
+                                        <span>Mail</span>
+                                    </a>
+                                </li>
+                                <li class="nav-menu-item">
+                                    <a href="h-chat.html">
+                                        <i class="feather icon-message-circle"></i>
+                                        <span>Chat</span>
+                                    </a>
+                                </li>
+                                <li class="nav-menu-item">
+                                    <a href="h-calendar.html">
+                                        <i class="feather icon-calendar"></i>
+                                        <span>Calendar</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-submenu">
+                            <div class="nav-submenu-title">
+                                <span>
+                                    <i class="feather icon-package"></i>
+                                    <span>User Interface</span>
+                                </span>
+                                <i class="nav-submenu-arrow caret-bottom"></i>
+                            </div>
+                            <ul class="nav-menu">
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-box"></i>
+                                            <span>UI Elements</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-avatar.html">Avatar</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-alert.html">Alert</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-badge.html">Badge</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-buttons.html">Buttons</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-cards.html">Cards</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-icons.html">Icons</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-lists.html">Lists</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-typography.html">Typography</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-package"></i>
+                                            <span>Components</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-accordion.html">Accordion</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-carousel.html">Carousel</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-dropdown.html">Dropdown</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-modals.html">Modals</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-toasts.html">Toasts</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-popover.html">Popover</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-progress.html">Progress</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-tabs.html">Tabs</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-tooltips.html">Tooltips</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-file-text"></i>
+                                            <span>Forms</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-form-elements.html">Form Elements</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-form-layouts.html">Form Layouts</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-form-validation.html">Form Validation</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-grid"></i>
+                                            <span>Tables</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-basic-table.html">Basic Table</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-data-table.html">Data Table</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="">
+                                <i class="feather icon-bar-chart"></i>
+                                <span class="nav-menu-item-title">Chart</span>
+                            </a>
+                        </li>
+                        <li class="nav-submenu">
+                            <div class="nav-submenu-title">
+                                <span>
+                                    <i class="feather icon-file"></i>
+                                    <span>Pages</span>
+                                </span>
+                                <i class="nav-submenu-arrow caret-bottom"></i>
+                            </div>
+                            <ul class="nav-menu">
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-settings"></i>
+                                            <span>Utility</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-profile-personal.html">Profile</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-invoice.html">Invoice</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-faq.html">FAQ</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-pricing.html">Pricing</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-user-list.html">User List</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-lock"></i>
+                                            <span>Auth</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="login.html">Login</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="login-v2.html">Login v2</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="login-v3.html">Login v3</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="register.html">Register</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="register-v2.html">Register v2</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="register-v3.html">Register v3</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-slash"></i>
+                                            <span>Errors</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="error.html">Error 1</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="error-v2.html">Error 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Header Navbar END -->
+
+            <!-- Side Nav START -->
+            <div class="side-nav vertical-menu nav-menu-light scrollable">
+                <div class="nav-logo">
+                    <div class="w-100 logo">
+                        <img class="img-fluid" src="static/picture/logo.png" style="max-height: 70px;" alt="logo">
+                    </div>
+                    <div class="mobile-close">
+                        <i class="icon-arrow-left feather"></i>
+                    </div>
+                 </div>
+                 <ul class="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="index.html">
+                            <i class="feather icon-home"></i>
+                            <span class="nav-menu-item-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">APPS</li>
+                    <li class="nav-menu-item">
+                        <a href="h-mail.html">
+                            <i class="feather icon-mail"></i>
+                            <span class="nav-menu-item-title">Mail</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="h-chat.html">
+                            <i class="feather icon-message-circle"></i>
+                            <span class="nav-menu-item-title">Chat</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="h-calendar.html">
+                            <i class="feather icon-calendar"></i>
+                            <span class="nav-menu-item-title">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">USER INTERFACE</li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-box"></i>
+                            <span>UI Elements</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-avatar.html">Avatar</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-alert.html">Alert</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-badge.html">Badge</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-buttons.html">Buttons</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-cards.html">Cards</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-icons.html">Icons</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-lists.html">Lists</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-typography.html">Typography</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-package"></i>
+                            <span>Components</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-accordion.html">Accordion</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-carousel.html">Carousel</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-dropdown.html">Dropdown</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-modals.html">Modals</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-toasts.html">Toasts</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-popover.html">Popover</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-progress.html">Progress</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-tabs.html">Tabs</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-tooltips.html">Tooltips</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-file-text"></i>
+                            <span>Forms</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-form-elements.html">Form Elements</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-form-layouts.html">Form Layouts</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-form-validation.html">Form Validation</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-grid"></i>
+                            <span>Tables</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-basic-table.html">Basic Table</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-data-table.html">Data Table</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="">
+                            <i class="feather icon-bar-chart"></i>
+                            <span class="nav-menu-item-title">Chart</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">PAGES</li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-settings"></i>
+                            <span>Utility</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-profile-personal.html">Profile</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-invoice.html">Invoice</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-faq.html">FAQ</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-pricing.html">Pricing</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-user-list.html">User List</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-lock"></i>
+                            <span>Auth</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="login.html">Login</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="login-v2.html">Login v2</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="login-v3.html">Login v3</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register.html">Register</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register-v2.html">Register v2</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register-v3.html">Register v3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-slash"></i>
+                            <span>Errors</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="error.html">Error 1</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="error-v2.html">Error 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Side Nav END -->
+
+            <!-- Content START -->
+            <div class="content container">
+                <div class="main">
+                    <div class="page-header">
+                        <h4 class="page-title">Chart</h4>
+                        <div class="breadcrumb">
+                           <span class="me-1 text-gray"><i class="feather icon-home"></i></span>
+                           <div class="breadcrumb-item"><a href="index.html"> Home </a></div>
+                           <div class="breadcrumb-item"><a href=""> Chart </a></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Basic</h4>
+                            <div class="mt-4">
+                                <div id="basic-chart"></div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div id="basic-chart"></div></script></code></pre>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-js"><script type="text/plain">import { 
+    ApexStrokeDefault, 
+    ApexChartDefault,
+    COLOR_1
+} from '../constant/chart.constant';
+
+class Chart {
+
+    static init() {
+        const basicOptions = {
+            series: [
+                {
+                    name: "Desktops",
+                    data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
+                    color: COLOR_1
+                }
+            ],
+            chart: {
+                ...ApexChartDefault,
+                height: 350,
+                type: "line",
+                zoom: {
+                    enabled: false
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: ApexStrokeDefault,
+            title: {
+                text: "Product Trends by Month",
+                align: "left"
+            },
+            grid: {
+                row: {
+                colors: ["#f3f3f3", "transparent"],
+                    opacity: 0.5
+                }
+            },
+            xaxis: {
+                categories: [
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "Jul",
+                    "Aug",
+                    "Sep"
+                ]
+            }
+        };
+
+        new ApexCharts(document.querySelector("#basic-chart"), basicOptions).render();
+    }
+}
+
+$(() => { Chart.init(); });
+
+</script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Dash Line</h4>
+                            <p></p>
+                            <div class="mt-4">
+                                <div id="dashline-chart"></div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div id="dashline-chart"></div></script></code></pre>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-js"><script type="text/plain">import { 
+    ApexStrokeDefault, 
+    ApexChartDefault,
+    ApexColorDefault,
+    ApexDataLabelDefault
+    COLOR_1
+} from '../constant/chart.constant';
+
+class Chart {
+
+    static init() {
+        const dashLineOption = {
+            series: [
+                {
+                    name: "Session Duration",
+                    data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
+                },
+                {
+                    name: "Page Views",
+                    data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
+                },
+                {
+                    name: "Total Visits",
+                    data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
+                }
+            ],
+            chart: {
+                ...ApexChartDefault,
+                height: 350,
+                type: "line"
+            },
+            dataLabels: ApexDataLabelDefault,
+            stroke: {
+                ...ApexStrokeDefault,
+                dashArray: [0, 8, 5]
+            },
+            title: {
+                text: "Page Statistics",
+                align: "left"
+            },
+            color: ApexColorDefault,
+            legend: {
+                tooltipHoverFormatter: function(val, opts) {
+                    return (
+                        val +
+                        " - <strong>" +
+                        opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] +
+                        "</strong>"
+                    );
+                }
+            },
+            markers: {
+                size: 0,
+                hover: {
+                    sizeOffset: 6
+                }
+            },
+            xaxis: {
+                labels: {
+                    trim: false
+                },
+                categories: [
+                    "01 Jan",
+                    "02 Jan",
+                    "03 Jan",
+                    "04 Jan",
+                    "05 Jan",
+                    "06 Jan",
+                    "07 Jan",
+                    "08 Jan",
+                    "09 Jan",
+                    "10 Jan",
+                    "11 Jan",
+                    "12 Jan"
+                ]
+            },
+            tooltip: {
+                y: [
+                    {
+                    title: {
+                        formatter: function(val) {
+                            return val + " (mins)";
+                        }
+                    }
+                    },
+                    {
+                    title: {
+                        formatter: function(val) {
+                            return val + " per session";
+                        }
+                    }
+                    },
+                    {
+                    title: {
+                        formatter: function(val) {
+                            return val;
+                        }
+                    }
+                    }
+                ]
+            }
+        }
+        new ApexCharts(document.querySelector("#dashline-chart"), dashLineOption).render();
+    }
+}
+$(() => { Chart.init(); }); </script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Basic Area</h4>
+                            <div class="mt-4">
+                                <div id="basic-area-chart"></div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div id="basic-area-chart"></div></script></code></pre>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-js"><script type="text/plain">import { 
+    ApexStrokeDefault, 
+    ApexChartDefault,
+    ApexColorDefault,
+    ApexDataLabelDefault
+    COLOR_1
+} from '../constant/chart.constant';
+
+class Chart {
+
+    static init() {
+        const basicAreaOption = {
+            series: [
+                {
+                    name: "STOCK ABC",
+                    data: [
+                        8107.85,
+                        8128.0,
+                        8122.9,
+                        8165.5,
+                        8340.7,
+                        8423.7,
+                        8423.5,
+                        8514.3,
+                        8481.85,
+                        8487.7,
+                        8506.9,
+                        8626.2,
+                        8668.95,
+                        8602.3,
+                        8607.55,
+                        8512.9,
+                        8496.25,
+                        8600.65,
+                        8881.1,
+                        9340.85
+                    ],
+                    color: COLOR_1
+                }
+            ],
+            chart: {
+                ...ApexChartDefault,
+                type: "area",
+                height: 350,
+                zoom: {
+                    enabled: false
+                }
+            },
+            dataLabels: ApexDataLabelDefault,
+            title: {
+                text: "Fundamental Analysis of Stocks",
+                align: "left"
+            },
+            subtitle: {
+                text: "Price Movements",
+                align: "left"
+            },
+            labels: [
+                "13 Nov 2017",
+                "14 Nov 2017",
+                "15 Nov 2017",
+                "16 Nov 2017",
+                "17 Nov 2017",
+                "20 Nov 2017",
+                "21 Nov 2017",
+                "22 Nov 2017",
+                "23 Nov 2017",
+                "24 Nov 2017",
+                "27 Nov 2017",
+                "28 Nov 2017",
+                "29 Nov 2017",
+                "30 Nov 2017",
+                "01 Dec 2017",
+                "04 Dec 2017",
+                "05 Dec 2017",
+                "06 Dec 2017",
+                "07 Dec 2017",
+                "08 Dec 2017"
+            ],
+            xaxis: {
+                type: "datetime"
+            },
+            yaxis: {
+                opposite: true
+            },
+            legend: {
+                horizontalAlign: "left"
+            },
+            stroke: ApexStrokeDefault
+        }
+        new ApexCharts(document.querySelector("#basic-area-chart"), basicAreaOption).render();
+    }
+}
+$(() => { Chart.init(); }); </script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Spline Area</h4>
+                            <div class="mt-4">
+                                <div id="spline-area-chart"></div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div id="spline-area-chart"></div></script></code></pre>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-js"><script type="text/plain">import { 
+    ApexStrokeDefault, 
+    ApexChartDefault,
+    ApexColorDefault,
+    ApexDataLabelDefault
+    COLOR_1
+    COLOR_2
+} from '../constant/chart.constant';
+
+class Chart {
+
+    static init() {
+        const splineChartOption = {
+            series: [
+                {
+                    name: "series1",
+                    data: [31, 40, 28, 51, 42, 109, 100],
+                    color: COLOR_1
+                },
+                {
+                    name: "series2",
+                    data: [11, 32, 45, 32, 34, 52, 41],
+                    color: COLOR_2
+                }
+            ],
+            chart: {
+                ...ApexChartDefault,
+                height: 350,
+                type: "area"
+            },
+            dataLabels: ApexDataLabelDefault,
+            stroke: ApexStrokeDefault,
+            xaxis: {
+                type: "datetime",
+                categories: [
+                    "2018-09-19T00:00:00.000Z",
+                    "2018-09-19T01:30:00.000Z",
+                    "2018-09-19T02:30:00.000Z",
+                    "2018-09-19T03:30:00.000Z",
+                    "2018-09-19T04:30:00.000Z",
+                    "2018-09-19T05:30:00.000Z",
+                    "2018-09-19T06:30:00.000Z"
+                ]
+            },
+            tooltip: {
+                x: {
+                    format: "dd/MM/yy HH:mm"
+                }
+            }
+        }
+        new ApexCharts(document.querySelector("#spline-area-chart"), splineChartOption).render();
+    }
+}
+$(() => { Chart.init(); }); </script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Basic Column</h4>
+                            <div class="mt-4">
+                                <div id="basic-column-chart"></div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div id="basic-column-chart"></div></script></code></pre>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-js"><script type="text/plain">import { 
+    ApexStrokeDefault, 
+    ApexChartDefault,
+    ApexColorDefault,
+    ApexDataLabelDefault,
+    ApexBarDefault,
+    COLOR_1,
+    COLOR_3
+} from '../constant/chart.constant';
+
+class Chart {
+
+    static init() {
+        const basicColumnOption = {
+            series: [
+                {
+                    name: "Net Profit",
+                    data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
+                    color: COLOR_1
+                },
+                {
+                    name: "Revenue",
+                    data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
+                    color: COLOR_2
+                },
+                {
+                    name: "Free Cash Flow",
+                    data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+                    color: COLOR_3
+                }
+            ],
+            chart: {
+                ...ApexChartDefault,
+                type: "bar",
+                height: 350
+            },
+            plotOptions: ApexBarDefault,
+            dataLabels: ApexDataLabelDefault,
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ["transparent"]
+            },
+            xaxis: {
+                categories: [
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "Jul",
+                    "Aug",
+                    "Sep",
+                    "Oct"
+                ]
+            },
+            yaxis: {
+                title: {
+                    text: "$ (thousands)"
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return "$ " + val + " thousands";
+                    }
+                }
+            }
+        }
+        new ApexCharts(document.querySelector("#basic-column-chart"), basicColumnOption).render();
+    }
+}
+$(() => { Chart.init(); }); </script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Stack Column</h4>
+                            <div class="mt-4">
+                                <div id="stack-column-chart"></div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div id="stack-column-chart"></div></script></code></pre>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-js"><script type="text/plain">import { 
+    ApexStrokeDefault, 
+    ApexChartDefault,
+    ApexColorDefault,
+    ApexDataLabelDefault
+    COLOR_1,
+    COLOR_2,
+    COLOR_3,
+    COLOR_4
+} from '../constant/chart.constant';
+
+class Chart {
+
+    static init() {
+        const stackColumnOption = {
+            series: [
+                {
+                    name: "PRODUCT A",
+                    data: [44, 55, 41, 67, 22, 43],
+                    color: COLOR_1
+                },
+                {
+                    name: "PRODUCT B",
+                    data: [13, 23, 20, 8, 13, 27],
+                    color: COLOR_2
+                },
+                {
+                    name: "PRODUCT C",
+                    data: [11, 17, 15, 15, 21, 14],
+                    color: COLOR_3
+                },
+                {
+                    name: "PRODUCT D",
+                    data: [21, 7, 25, 13, 22, 8],
+                    color: COLOR_4
+                }
+            ],
+            chart: {
+                type: "bar",
+                height: 350,
+                stacked: true,
+                toolbar: {
+                    show: true
+                },
+                zoom: {
+                    enabled: true
+                }
+            },
+            responsive: [
+                {
+                    breakpoint: 480,
+                    options: {
+                        legend: {
+                            position: "bottom",
+                            offsetX: -10,
+                            offsetY: 0
+                        }
+                    }
+                }
+            ],
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '20px'
+                }
+            },
+            xaxis: {
+                type: "category",
+                categories: [
+                    "01/2011",
+                    "02/2011",
+                    "03/2011",
+                    "04/2011",
+                    "05/2011",
+                    "06/2011"
+                ]
+            },
+            legend: {
+                position: "right",
+                offsetY: 40
+            },
+            fill: {
+                opacity: 1
+            }
+        }
+        new ApexCharts(document.querySelector("#stack-column-chart"), stackColumnOption).render();
+    }
+}
+$(() => { Chart.init(); }); </script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Basic Bar</h4>
+                            <div class="mt-4">
+                                <div id="basic-bar-chart"></div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div id="basic-bar-chart"></div></script></code></pre>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-js"><script type="text/plain">import { 
+    ApexStrokeDefault, 
+    ApexChartDefault,
+    ApexColorDefault,
+    ApexDataLabelDefault
+    COLOR_1
+} from '../constant/chart.constant';
+
+class Chart {
+
+    static init() {
+        const basicBarOption = {
+            series: [
+                {
+                    name: "basic",
+                    data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
+                    color: COLOR_1
+                }
+            ],
+            chart: {
+                ...ApexChartDefault,
+                type: "bar",
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: true
+                }
+            },
+            dataLabels: ApexDataLabelDefault,
+            xaxis: {
+                categories: [
+                    "South Korea",
+                    "Canada",
+                    "United Kingdom",
+                    "Netherlands",
+                    "Italy",
+                    "France",
+                    "Japan",
+                    "United States",
+                    "China",
+                    "Germany"
+                ]
+            }
+        }
+        new ApexCharts(document.querySelector("#basic-bar-chart"), basicBarOption).render();
+    }
+}
+$(() => { Chart.init(); }); </script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Grouped Bar</h4>
+                            <div class="mt-4">
+                                <div id="grouped-bar-chart"></div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div id="grouped-bar-chart"></div></script></code></pre>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-js"><script type="text/plain">import { 
+    ApexStrokeDefault, 
+    ApexChartDefault,
+    ApexColorDefault,
+    ApexDataLabelDefault
+    COLOR_1,
+    COLOR_2
+} from '../constant/chart.constant';
+
+class Chart {
+
+    static init() {
+        const groupedBarOption = {
+            series: [
+                {
+                    name: "serie1",
+                    data: [44, 55, 41, 64, 22, 43, 21],
+                    color: COLOR_1
+                },
+                {
+                    name: "serie2",
+ 
+                    data: [53, 32, 33, 52, 13, 44, 32],
+                    color: COLOR_2
+                }
+            ],
+            chart: {
+                ...ApexChartDefault,
+                type: "bar",
+                height: 430
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                    dataLabels: {
+                        position: "top"
+                    }
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                offsetX: -6,
+                style: {
+                    fontSize: "12px",
+                    colors: ["#fff"]
+                }
+            },
+            stroke: {
+                show: true,
+                width: 1,
+                colors: ["#fff"]
+            },
+            xaxis: {
+                categories: [2001, 2002, 2003, 2004, 2005, 2006, 2007]
+            }
+        }
+        new ApexCharts(document.querySelector("#grouped-bar-chart"), groupedBarOption).render();
+    }
+}
+$(() => { Chart.init(); }); </script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Simple pie</h4>
+                            <div class="mt-4">
+                                <div id="simple-pie"></div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div id="simple-pie"></div></script></code></pre>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-js"><script type="text/plain">import { 
+    ApexStrokeDefault, 
+    ApexChartDefault,
+    ApexColorDefault,
+    ApexDataLabelDefault
+    COLOR_1
+} from '../constant/chart.constant';
+
+class Chart {
+
+    static init() {
+        const simplePieOption = {
+            series: [44, 55, 13, 43, 22],
+            chart: {
+                ...ApexChartDefault,
+                width: 380,
+                type: "pie"
+            },
+            labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+            responsive: [
+                {
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 200
+                        },
+                        legend: {
+                            position: "bottom"
+                        }
+                    }
+                }
+            ]
+        }
+        new ApexCharts(document.querySelector("#simple-pie"), simplePieOption).render();
+    }
+}
+$(() => { Chart.init(); }); </script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Simple donut</h4>
+                            <div class="mt-4">
+                                <div id="simple-donut" style="max-width: 380px;"></div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div id="simple-donut"></div></script></code></pre>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-js"><script type="text/plain">import { 
+    ApexStrokeDefault, 
+    ApexChartDefault,
+    ApexColorDefault,
+    ApexDataLabelDefault
+    COLOR_1
+} from '../constant/chart.constant';
+
+class Chart {
+
+    static init() {
+        const simpleDonutOption ={
+            series: [44, 55, 13, 43, 22],
+            chart: {
+                ...ApexChartDefault,
+                type: "donut"
+            },
+            labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+            responsive: [
+                {
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 200
+                        },
+                        legend: {
+                            position: "bottom"
+                        }
+                    }
+                }
+            ]
+        }
+        new ApexCharts(document.querySelector("#simple-donut"), simpleDonutOption).render();
+    }
+}
+$(() => { Chart.init(); }); </script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer START -->
+                <div class="footer">
+                    <div class="footer-content">
+                        <p class="mb-0">Copyright © 2021 Theme_Nate. All rights reserved.</p>
+                        <span>
+                            <a href="" class="text-gray me-3">Term &amp; Conditions</a>
+                            <a href="" class="text-gray">Privacy &amp; Policy</a>
+                        </span>
+                    </div>
+                </div>
+                <!-- Footer End -->
+            </div>
+            <!-- Content END -->
+
+            <!-- Quick View START -->
+            <div class="modal modal-right fade quick-view" id="quick-view">
+                <div class="modal-dialog right">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">Theme Config</h4>
+                            <button type="button" class="close pull-right" data-bs-dismiss="modal">
+                                <span>×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body scrollable">
+                            <div class="mb-4">
+                                <h5 class="mb-0">Header Color</h5>
+                                <p>Config header background color</p>
+                                <div class="theme-configurator d-flex mt-2">
+                                    <div class="radio">
+                                        <input id="header-default" name="header-theme" type="radio" checked="" value="#ffffff">
+                                        <label for="header-default"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-primary" name="header-theme" type="radio" value="#11a1fd">
+                                        <label for="header-primary"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-success" name="header-theme" type="radio" value="#00c569">
+                                        <label for="header-success"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-info" name="header-theme" type="radio" value="#5a75f9">
+                                        <label for="header-info"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-warning" name="header-theme" type="radio" value="#ffc833">
+                                        <label for="header-warning"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-danger" name="header-theme" type="radio" value="#f46363">
+                                        <label for="header-danger"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h5 class="mb-0">Header Navbar Dark</h5>
+                                <p>Change Header Navbar to dark</p>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="side-nav-theme-toggle" id="side-nav-theme-toggle">
+                                    <label class="form-check-label" for="side-nav-theme-toggle"></label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h5 class="mb-0">Vertical Layout</h5>
+                                <p>Set Vertical Layout</p>
+                                <div class="btn-group btn-group-sm">
+                                    <a href="index.html" class="btn btn-outline-primary" aria-current="page">Vertical</a>
+                                    <a href="#" class="btn btn-outline-primary active">Horizontal</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+            <!-- Quick View END -->
+        </div>
+    </div>
+
+    
+    <!-- Core Vendors JS -->
+    <script src="static/js/vendors.min.js"></script>
+
+    <!-- page js -->
+    <script src="static/js/apexcharts.min.js"></script>
+    <script src="static/js/chart.js"></script>
+
+    <!-- Core JS -->
+    <script src="static/js/app.min.js"></script>
+
+</body>
+
+</html>

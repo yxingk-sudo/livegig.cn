@@ -1,0 +1,361 @@
+/* 项目管理页面优化样式 - 基于Espire模板设计风格 */
+
+/* 主色调定义 */
+:root {
+    --primary-color: #11a1fd;
+    --success-color: #00c569;
+    --warning-color: #ff9842;
+    --danger-color: #f46363;
+    --info-color: #5a75f9;
+    --light-color: #f3f7f9;
+    --dark-color: #343a40;
+    --gray-color: #7d9eb5;
+    --text-color: #486f88;
+    --border-color: #edf4f9;
+    --card-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --hover-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* 页面容器 */
+.container-fluid {
+    padding: 1.5rem;
+}
+
+/* 卡片样式优化 */
+.card {
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1.5rem;
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: var(--hover-shadow);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* 标题样式 */
+.card-header h5 {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 0;
+}
+
+/* 按钮样式优化 */
+.btn {
+    font-weight: 600;
+    border-radius: 0.375rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.15s ease-in-out;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #0d8de0;
+    border-color: #0d8de0;
+}
+
+.btn-warning {
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+}
+
+.btn-warning:hover {
+    background-color: #ff831a;
+    border-color: #ff831a;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+    background-color: #f24d4d;
+    border-color: #f24d4d;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.76563rem;
+}
+
+/* 表格样式优化 */
+.table {
+    color: var(--text-color);
+    margin-bottom: 0;
+    table-layout: fixed; /* 固定表格布局 */
+}
+
+.table th {
+    font-weight: 600;
+    color: var(--dark-color);
+    border-top: none;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table td {
+    vertical-align: middle;
+    border-top: 1px solid var(--border-color);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(204, 223, 234, 0.15);
+}
+
+.table-responsive {
+    border-radius: 0.375rem;
+    overflow-x: auto;
+}
+
+/* 表格列宽控制 */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+    width: 15%; /* 项目名称/代码列 */
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+    width: 10%; /* 所属公司列 */
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+    width: 10%; /* 项目场地列 */
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+    width: 15%; /* 指定酒店列 */
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+    width: 10%; /* 开始日期列 */
+}
+
+.table th:nth-child(6),
+.table td:nth-child(6) {
+    width: 10%; /* 结束日期列 */
+}
+
+.table th:nth-child(7),
+.table td:nth-child(7) {
+    width: 8%; /* 状态列 */
+}
+
+.table th:nth-child(8),
+.table td:nth-child(8) {
+    width: 12%; /* 创建时间列 */
+}
+
+.table th:nth-child(9),
+.table td:nth-child(9) {
+    width: 10%; /* 操作列 */
+}
+
+/* 项目名称/代码列样式 */
+td > div:first-child {
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+td > div:last-child {
+    margin-top: 0.25rem;
+}
+
+/* 指定酒店列样式 */
+td > div:not(:first-child):not(:last-child) {
+    margin-bottom: 0.1rem;
+}
+
+/* 指定酒店列容器样式 */
+td:nth-child(4) {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* 状态徽章样式 */
+.badge {
+    font-weight: 600;
+    padding: 0.35em 0.65em;
+    border-radius: 0.25rem;
+}
+
+.badge-success {
+    background-color: var(--success-color);
+}
+
+.badge-secondary {
+    background-color: var(--gray-color);
+}
+
+.badge-info {
+    background-color: var(--info-color);
+}
+
+/* 代码标签样式 */
+code {
+    background-color: var(--light-color);
+    border-radius: 0.25rem;
+    padding: 0.2em 0.4em;
+    font-size: 87.5%;
+}
+
+/* 警告框样式 */
+.alert {
+    border-radius: 0.375rem;
+    border: 1px solid transparent;
+}
+
+.alert-success {
+    color: #0a6198;
+    background-color: #cfecff;
+    border-color: #b8e3fe;
+}
+
+.alert-danger {
+    color: #923b3b;
+    background-color: #fde0e0;
+    border-color: #fcd0d0;
+}
+
+.alert-dismissible .btn-close {
+    padding: 1rem;
+}
+
+/* 空状态样式 */
+.text-center.py-4 {
+    padding: 2rem 0 !important;
+}
+
+.text-center.py-4 .display-1 {
+    font-size: 3rem;
+    color: var(--gray-color);
+    opacity: 0.5;
+}
+
+.text-center.py-4 h5 {
+    color: var(--dark-color);
+    margin: 1rem 0;
+}
+
+.text-center.py-4 p {
+    color: var(--text-color);
+}
+
+/* 操作列按钮间距 */
+.btn-sm + .btn-sm {
+    margin-left: 0.25rem;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 1rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .card-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .table th,
+    .table td {
+        padding: 0.5rem;
+    }
+    
+    /* 移动端项目名称/代码列优化 */
+    td > div:first-child {
+        font-size: 0.9rem;
+    }
+    
+    td > div:last-child {
+        font-size: 0.8rem;
+    }
+    
+    /* 移动端表格列宽调整 */
+    .table th:nth-child(1),
+    .table td:nth-child(1) {
+        width: 25%;
+    }
+    
+    .table th:nth-child(2),
+    .table td:nth-child(2) {
+        width: 15%;
+    }
+    
+    .table th:nth-child(3),
+    .table td:nth-child(3) {
+        width: 15%;
+    }
+    
+    .table th:nth-child(4),
+    .table td:nth-child(4) {
+        width: 20%;
+    }
+    
+    .table th:nth-child(5),
+    .table td:nth-child(5) {
+        width: 15%;
+    }
+    
+    .table th:nth-child(6),
+    .table td:nth-child(6) {
+        width: 15%;
+    }
+    
+    .table th:nth-child(7),
+    .table td:nth-child(7) {
+        width: 10%;
+    }
+    
+    .table th:nth-child(8),
+    .table td:nth-child(8) {
+        width: 15%;
+    }
+    
+    .table th:nth-child(9),
+    .table td:nth-child(9) {
+        width: 10%;
+    }
+}
+
+/* 大屏幕优化 */
+@media (min-width: 1200px) {
+    .table th:nth-child(1),
+    .table td:nth-child(1) {
+        width: 18%;
+    }
+    
+    .table th:nth-child(4),
+    .table td:nth-child(4) {
+        width: 12%;
+    }
+    
+    .table th:nth-child(8),
+    .table td:nth-child(8) {
+        width: 10%;
+    }
+}

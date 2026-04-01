@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Espire - Admin Dashboard Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="static/image/logo/favicon.ico">
+
+    <!-- page css -->
+
+    <!-- Core css -->
+    <link href="static/css/app.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="layout">
+        <div class="horizontal-layout">
+            <!-- Header START -->
+            <div class="header-text-dark header-nav layout-horizon">
+                <div class="header-nav-wrap container">
+                    <div class="header-nav-left">
+                        <div class="nav-logo">
+                            <div class="w-100 logo">
+                                <img class="img-fluid" src="static/picture/logo.png" style="max-height: 70px;" alt="logo">
+                            </div>
+                        </div>
+                        <div class="header-nav-item mobile-toggle">
+                            <div class="header-nav-item-select cursor-pointer">
+                                <i class="nav-icon feather icon-menu icon-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-nav-right">
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select nav-notification">
+                                <div class="toggle-wrapper" id="nav-notification-dropdown" data-bs-toggle="dropdown">
+                                    <i class="header-nav-item-select nav-icon feather icon-bell"></i>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <div class="nav-notification-header">
+                                        <h5 class="mb-0">Notifications</h5>
+                                        <a href="#" class="font-size-sm">Mark All as Read</a>
+                                    </div>
+                                    <div class="nav-notification-body">
+                                        <div class="nav-notification-item ">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 40px; height: 40px; line-height: 40px;">
+                                                <img src="static/picture/thumb-8.jpg" alt="">
+                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark">Jean Bowman </span>
+                                                    <span>invited you to new project.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-primary feather font-size-lg icon-info avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Please submit your daily report.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-success feather font-size-lg icon-info avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Your request has been approved.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 40px; height: 40px; line-height: 40px;">
+                                                <img src="static/picture/thumb-4.jpg" alt="">
+                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark">Jenifer Ruiz </span>
+                                                    <span>mentioned you in comment.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-success feather font-size-lg icon-x-circle avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Your request has been rejected.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="nav-notification-footer">
+                                        <a href="#" class="font-size-sm">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="header-nav-item-select">
+                                <div class="toggle-wrapper" data-bs-toggle="modal" data-bs-target="#quick-view">
+                                    <i class="nav-icon feather icon-settings"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select">
+                                <div class="toggle-wrapper" id="nav-lang-dropdown" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-circle avatar-image" style="width: 22px; height: 22px; line-height: 22px;">
+                                        <img src="static/picture/en_US.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 18px; height: 18px; line-height: 18px;">
+                                                <img src="static/picture/en_US.png" alt="">
+                                            </div>
+                                            <span class="ms-2">English</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 18px; height: 18px; line-height: 18px;">
+                                                <img src="static/picture/fr_FR.png" alt="">
+                                            </div>
+                                            <span class="ms-2">French</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select nav-profile">
+                                <div class="toggle-wrapper" id="nav-profile-dropdown" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-circle avatar-image" style="width: 35px; height: 35px; line-height: 35px;">
+                                        <img src="static/picture/thumb-1.jpg" alt="">
+                                    </div>
+                                    <span class="fw-bold mx-1">Julio Baker</span>
+                                    <i class="feather icon-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <div class="nav-profile-header">
+                                       <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image">
+                                                <img src="static/picture/thumb-1.jpg" alt="">
+                                            </div>
+                                            <div class="d-flex flex-column ms-1">
+                                                <span class="fw-bold text-dark">Julio Baker</span>
+                                                <span class="font-size-sm">Julio@themenate.com</span>
+                                            </div>
+                                       </div>
+                                    </div>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center">
+                                           <i class="font-size-lg me-2 feather icon-user"></i>
+                                           <span>Profile</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center">
+                                           <i class="font-size-lg me-2 feather icon-settings"></i>
+                                           <span>Settings</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center"><i class="font-size-lg me-2 feather icon-life-buoy"></i>
+                                        <span>Support</span>
+                                    </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center"><i class="font-size-lg me-2 feather icon-power"></i>
+                                        <span>Sign Out</span>
+                                    </div>
+                                    </a>
+                                 </div>
+                            </div>
+                        </div>     
+                    </div>
+                </div>
+            </div>    
+            <!-- Header END -->
+
+            <!-- Header Navbar START -->
+            <div class="header-navbar nav-menu-light">
+                <div class="container">
+                    <ul class="nav-menu nav-menu-horizontal">
+                        <li class="nav-menu-item">
+                            <a href="h-index.html">
+                                <i class="feather icon-home"></i>
+                                <span class="nav-menu-item-title">Dashboard </span>
+                            </a>
+                        </li>
+                        <li class="nav-submenu">
+                            <div class="nav-submenu-title">
+                                <span>
+                                    <i class="feather icon-grid"></i>
+                                    <span>Apps</span>
+                                </span>
+                                <i class="nav-submenu-arrow caret-bottom"></i>
+                            </div>
+                            <ul class="nav-menu">
+                                <li class="nav-menu-item">
+                                    <a href="h-mail.html">
+                                        <i class="feather icon-mail"></i>
+                                        <span>Mail</span>
+                                    </a>
+                                </li>
+                                <li class="nav-menu-item">
+                                    <a href="h-chat.html">
+                                        <i class="feather icon-message-circle"></i>
+                                        <span>Chat</span>
+                                    </a>
+                                </li>
+                                <li class="nav-menu-item">
+                                    <a href="h-calendar.html">
+                                        <i class="feather icon-calendar"></i>
+                                        <span>Calendar</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-submenu">
+                            <div class="nav-submenu-title">
+                                <span>
+                                    <i class="feather icon-package"></i>
+                                    <span>User Interface</span>
+                                </span>
+                                <i class="nav-submenu-arrow caret-bottom"></i>
+                            </div>
+                            <ul class="nav-menu">
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-box"></i>
+                                            <span>UI Elements</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-avatar.html">Avatar</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-alert.html">Alert</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-badge.html">Badge</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-buttons.html">Buttons</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-cards.html">Cards</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-icons.html">Icons</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-lists.html">Lists</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="">Typography</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-package"></i>
+                                            <span>Components</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-accordion.html">Accordion</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-carousel.html">Carousel</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-dropdown.html">Dropdown</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-modals.html">Modals</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-toasts.html">Toasts</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-popover.html">Popover</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-progress.html">Progress</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-tabs.html">Tabs</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-tooltips.html">Tooltips</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-file-text"></i>
+                                            <span>Forms</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-form-elements.html">Form Elements</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-form-layouts.html">Form Layouts</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-form-validation.html">Form Validation</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-grid"></i>
+                                            <span>Tables</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-basic-table.html">Basic Table</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-data-table.html">Data Table</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="h-chart.html">
+                                <i class="feather icon-bar-chart"></i>
+                                <span class="nav-menu-item-title">Chart</span>
+                            </a>
+                        </li>
+                        <li class="nav-submenu">
+                            <div class="nav-submenu-title">
+                                <span>
+                                    <i class="feather icon-file"></i>
+                                    <span>Pages</span>
+                                </span>
+                                <i class="nav-submenu-arrow caret-bottom"></i>
+                            </div>
+                            <ul class="nav-menu">
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-settings"></i>
+                                            <span>Utility</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-profile-personal.html">Profile</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-invoice.html">Invoice</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-faq.html">FAQ</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-pricing.html">Pricing</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-user-list.html">User List</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-lock"></i>
+                                            <span>Auth</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="login.html">Login</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="login-v2.html">Login v2</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="login-v3.html">Login v3</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="register.html">Register</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="register-v2.html">Register v2</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="register-v3.html">Register v3</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-slash"></i>
+                                            <span>Errors</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="error.html">Error 1</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="error-v2.html">Error 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Header Navbar END -->
+
+            <!-- Side Nav START -->
+            <div class="side-nav vertical-menu nav-menu-light scrollable">
+                <div class="nav-logo">
+                    <div class="w-100 logo">
+                        <img class="img-fluid" src="static/picture/logo.png" style="max-height: 70px;" alt="logo">
+                    </div>
+                    <div class="mobile-close">
+                        <i class="icon-arrow-left feather"></i>
+                    </div>
+                 </div>
+                 <ul class="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="index.html">
+                            <i class="feather icon-home"></i>
+                            <span class="nav-menu-item-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">APPS</li>
+                    <li class="nav-menu-item">
+                        <a href="h-mail.html">
+                            <i class="feather icon-mail"></i>
+                            <span class="nav-menu-item-title">Mail</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="h-chat.html">
+                            <i class="feather icon-message-circle"></i>
+                            <span class="nav-menu-item-title">Chat</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="h-calendar.html">
+                            <i class="feather icon-calendar"></i>
+                            <span class="nav-menu-item-title">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">USER INTERFACE</li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-box"></i>
+                            <span>UI Elements</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-avatar.html">Avatar</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-alert.html">Alert</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-badge.html">Badge</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-buttons.html">Buttons</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-cards.html">Cards</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-icons.html">Icons</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-lists.html">Lists</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="">Typography</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-package"></i>
+                            <span>Components</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-accordion.html">Accordion</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-carousel.html">Carousel</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-dropdown.html">Dropdown</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-modals.html">Modals</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-toasts.html">Toasts</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-popover.html">Popover</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-progress.html">Progress</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-tabs.html">Tabs</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-tooltips.html">Tooltips</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-file-text"></i>
+                            <span>Forms</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-form-elements.html">Form Elements</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-form-layouts.html">Form Layouts</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-form-validation.html">Form Validation</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-grid"></i>
+                            <span>Tables</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-basic-table.html">Basic Table</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-data-table.html">Data Table</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="h-chart.html">
+                            <i class="feather icon-bar-chart"></i>
+                            <span class="nav-menu-item-title">Chart</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">PAGES</li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-settings"></i>
+                            <span>Utility</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-profile-personal.html">Profile</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-invoice.html">Invoice</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-faq.html">FAQ</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-pricing.html">Pricing</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-user-list.html">User List</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-lock"></i>
+                            <span>Auth</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="login.html">Login</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="login-v2.html">Login v2</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="login-v3.html">Login v3</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register.html">Register</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register-v2.html">Register v2</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register-v3.html">Register v3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-slash"></i>
+                            <span>Errors</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="error.html">Error 1</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="error-v2.html">Error 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Side Nav END -->
+
+            <!-- Content START -->
+            <div class="content container">
+                <div class="main">
+                    <div class="page-header">
+                        <h4 class="page-title">Typography</h4>
+                        <div class="breadcrumb">
+                           <span class="me-1 text-gray"><i class="feather icon-home"></i></span>
+                           <div class="breadcrumb-item"><a href="index.html"> Home </a></div>
+                           <div class="breadcrumb-item"><a href="javascript:void(0)"> UI Elements </a></div>
+                           <div class="breadcrumb-item"><a href=""> Typography </a></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Heading</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, are available.</p>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="m-t-20">
+                                        <h1>h1. Heading 1</h1>
+                                        <h2>h2. Heading 2</h2>
+                                        <h3>h3. Heading 3</h3>
+                                        <h4>h4. Heading 4</h4>
+                                        <h5>h5. Heading 5</h5>
+                                        <h6>h5. Heading 6</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="m-t-20">
+                                        <h1 class="h1">h1. Heading 1</h1>
+                                        <h2 class="h2">h2. Heading 2</h2>
+                                        <h3 class="h3">h3. Heading 3</h3>
+                                        <h4 class="h4">h4. Heading 4</h4>
+                                        <h5 class="h5">h5. Heading 5</h5>
+                                        <h6 class="h6">h5. Heading 6</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><h1>h1. Heading 1</h1>
+<h2>h2. Heading 2</h2>
+<h3>h3. Heading 3</h3>
+<h4>h4. Heading 4</h4>
+<h5>h5. Heading 5</h5>
+<h6>h5. Heading 6</h6>
+
+<h1 class="h1">h1. Heading 1</h1>
+<h2 class="h2">h2. Heading 2</h2>
+<h3 class="h3">h3. Heading 3</h3>
+<h4 class="h4">h4. Heading 4</h4>
+<h5 class="h5">h5. Heading 5</h5>
+<h6 class="h6">h5. Heading 6</h6>
+                                </script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Customizing headings</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Make a paragraph stand out by adding <code>.lead</code>.</p>
+                            <h3>
+                                <span>Fancy display heading</span>
+                                <small class="text-muted">With faded secondary text</small>
+                            </h3>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><h3>
+    <span>Fancy display heading</span>
+    <small class="text-muted">With faded secondary text</small>
+</h3></script></code></pre>
+                            </div>
+                        </div>
+                    </div>        
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Display Heading</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Traditional heading elements are designed to work best in the meat of your page content. When you need a heading to stand out, consider using a <strong>display heading</strong>—a larger, slightly more opinionated heading style.</p>
+                            <div>
+                                <span class="display-1">Display 1</span>
+                            </div>
+                            <div>
+                                <span class="display-2">Display 2</span>
+                            </div>
+                            <div>
+                                <span class="display-3">Display 3</span>
+                            </div>
+                            <div>
+                                <span class="display-4">Display 4</span>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div>
+    <span class="display-1">Display 1</span>
+</div>
+<div>
+    <span class="display-2">Display 2</span>
+</div>
+<div>
+    <span class="display-3">Display 3</span>
+</div>
+<div>
+    <span class="display-4">Display 4</span>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Lead</h4>
+                            <p>Make a paragraph stand out by adding <code>.lead</code>.</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">
+                                This is a lead paragraph. It stands out from regular paragraphs.
+                            </p>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><p class="lead">
+    This is a lead paragraph. It stands out from regular paragraphs.
+</p></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Inline text elements</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Styling for common inline HTML5 elements.</p>
+                            <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+                            <p><del>This line of text is meant to be treated as deleted text.</del></p>
+                            <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+                            <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+                            <p><u>This line of text will render as underlined.</u></p>
+                            <p><small>This line of text is meant to be treated as fine print.</small></p>
+                            <p><strong>This line rendered as bold text.</strong></p>
+                            <p><em>This line rendered as italicized text.</em></p>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><p>You can use the mark tag to <mark>highlight</mark> text.</p>
+<p><del>This line of text is meant to be treated as deleted text.</del></p>
+<p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+<p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+<p><u>This line of text will render as underlined.</u></p>
+<p><small>This line of text is meant to be treated as fine print.</small></p>
+<p><strong>This line rendered as bold text.</strong></p>
+<p><em>This line rendered as italicized text.</em></p></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Text Ultilities</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5 class="mb-3">Text Colors</h5>
+                                    <p class="text-gray">Text Gray</p>
+                                    <p class="text-body-color">Text Body Color</p>
+                                    <p class="text-dark">Text Dark</p>
+                                    <p class="text-primary">Text Primary</p>
+                                    <p class="text-secondary">Text Secondary</p>
+                                    <p class="text-success">Text Success</p>
+                                    <p class="text-info">Text Info</p>
+                                    <p class="text-warning">Text Warning</p>
+                                    <p class="text-danger">Text Danger</p>
+                                    <p class="text-white bg-dark d-inline-block">Text White</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5 class="mb-3">Font Weight</h5>
+                                    <p class="font-weight-light">Font Weight Light</p>
+                                    <p class="font-weight-normal">Font Weight Normal</p>
+                                    <p class="font-weight-semibold">Font Weight Semibold</p>
+                                    <p class="font-weight-bold">Font Weight Bold</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5 class="mb-3">Text Transformation</h5>
+                                    <p class="text-lowercase">Text Lowercase</p>
+                                    <p class="text-uppercase">Text Uppercase</p>
+                                    <p class="text-capitalize">Text Capitalize</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5 class="mb-3">Text wrapping and overflow</h5>
+                                    <div class="badge badge-primary text-wrap" style="width: 6rem;">
+                                        This text should wrap.
+                                    </div>
+                                    <div class="text-nowrap border m-t-20" style="width: 8rem;">
+                                        This text should overflow the parent.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><!-- Text Colors -->
+<p class="text-gray">Text Gray</p>
+<p class="text-body-color">Text Body Color</p>
+<p class="text-dark">Text Dark</p>
+<p class="text-primary">Text Primary</p>
+<p class="text-secondary">Text Secondary</p>
+<p class="text-success">Text Success</p>
+<p class="text-info">Text Info</p>
+<p class="text-warning">Text Warning</p>
+<p class="text-danger">Text Danger</p>
+<p class="text-white bg-dark d-inline-block">Text White</p>
+
+<!-- Font Weight -->
+<p class="font-weight-light">Font Weight Light</p>
+<p class="font-weight-normal">Font Weight Normal</p>
+<p class="font-weight-semibold">Font Weight Semibold</p>
+<p class="font-weight-bold">Font Weight Bold</p>
+
+<!-- Text Transformation -->
+<p class="text-lowercase">Text Lowercase</p>
+<p class="text-uppercase">Text Uppercase</p>
+<p class="text-capitalize">Text Capitalize</p>
+
+<!-- Text wrapping and overflow -->
+<div class="badge badge-primary text-wrap" style="width: 6rem;">
+    This text should wrap.
+</div>
+<div class="text-nowrap border" style="width: 8rem;">
+    This text should overflow the parent.
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Text Alignment</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="mb-3">Text Alignment</h5>
+                                    <p class="text-left p-3 border">Text Left</p>
+                                    <p class="text-center p-3 border">Text Center</p>
+                                    <p class="text-right p-3 border">Text Right</p>
+                                    <div class="p-3 border">
+                                        <p class="text-justify mb-0">Text Justify: The ship is almost finished. Two or Three more things and we're in great shape. The sooner the better. Something's wrong here. No one has seen or knows anything about Threepio. He's been gone too long to have gotten lost. Relax</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><p class="text-left">Left aligned text on all viewport sizes.</p>
+<p class="text-center">Center aligned text on all viewport sizes.</p>
+<p class="text-right">Right aligned text on all viewport sizes.</p>
+
+<p class="text-sm-left">Left aligned text on viewports sized SM (small) or wider.</p>
+<p class="text-md-left">Left aligned text on viewports sized MD (medium) or wider.</p>
+<p class="text-lg-left">Left aligned text on viewports sized LG (large) or wider.</p>
+<p class="text-xl-left">Left aligned text on viewports sized XL (extra-large) or wider.</p></script></code></pre>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Abbreviations</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Stylized implementation of HTML’s <code>&lt;abbr&gt;</code> element for abbreviations and acronyms to show the expanded version on hover. Abbreviations have a default underline and gain a help cursor to provide additional context on hover and to users of assistive technologies.</p>
+                            <p>Add <code>.initialism</code> to an abbreviation for a slightly smaller font-size.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p><abbr title="attribute">attr</abbr></p>
+                                    <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><p><abbr title="attribute">attr</abbr></p>
+<p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p></script></code></pre>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Blockquotes</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>For quoting blocks of content from another source within your document. Wrap <code>&lt;blockquote class="blockquote"&gt;</code> around any <abbr title="HyperText Markup Language">HTML</abbr> as the quote.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <blockquote class="blockquote">
+                                        <p>A well-known quote, contained in a blockquote element.</p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><blockquote class="blockquote">
+    <p>A well-known quote, contained in a blockquote element.</p>
+</blockquote></script></code></pre>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Naming a source</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>The HTML spec requires that blockquote attribution be placed outside the <code>&lt;blockquote&gt;</code>. When providing attribution, wrap your <code>&lt;blockquote&gt;</code> in a <code>&lt;figure&gt;</code> and use a <code>&lt;figcaption&gt;</code> or a block level element (e.g., <code>&lt;p&gt;</code>) with the <code>.blockquote-footer</code> class. Be sure to wrap the name of the source work in <code>&lt;cite&gt;</code> as well.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <figure>
+                                        <blockquote class="blockquote">
+                                            <p>A well-known quote, contained in a blockquote element.</p>
+                                        </blockquote>
+                                        <figcaption class="blockquote-footer">
+                                            Someone famous in <cite title="Source Title">Source Title</cite>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><figure>
+    <blockquote class="blockquote">
+        <p>A well-known quote, contained in a blockquote element.</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+        Someone famous in <cite title="Source Title">Source Title</cite>
+    </figcaption>
+</figure></script></code></pre>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Alignment</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Use text utilities as needed to change the alignment of your blockquote.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <figure class="text-center">
+                                        <blockquote class="blockquote">
+                                            <p>A well-known quote, contained in a blockquote element.</p>
+                                        </blockquote>
+                                        <figcaption class="blockquote-footer">
+                                            Someone famous in <cite title="Source Title">Source Title</cite>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><figure class="text-center">
+    <blockquote class="blockquote">
+        <p>A well-known quote, contained in a blockquote element.</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+        Someone famous in <cite title="Source Title">Source Title</cite>
+    </figcaption>
+</figure></script></code></pre>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Lists Unstyled</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Remove the default <code>list-style</code> and left margin on list items (immediate children only). <strong>This only applies to immediate children list items</strong>, meaning you will need to add the class for any nested lists as well.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li>This is a list.</li>
+                                        <li>It appears completely unstyled.</li>
+                                        <li>Structurally, it's still a list.</li>
+                                        <li>However, this style only applies to immediate child elements.</li>
+                                        <li>Nested lists:
+                                            <ul>
+                                                <li>are unaffected by this style</li>
+                                                <li>will still show a bullet</li>
+                                                <li>and have appropriate left margin</li>
+                                            </ul>
+                                        </li>
+                                        <li>This may still come in handy in some situations.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><ul class="list-unstyled">
+    <li>This is a list.</li>
+    <li>It appears completely unstyled.</li>
+    <li>Structurally, it's still a list.</li>
+    <li>However, this style only applies to immediate child elements.</li>
+    <li>Nested lists:
+        <ul>
+            <li>are unaffected by this style</li>
+            <li>will still show a bullet</li>
+            <li>and have appropriate left margin</li>
+        </ul>
+    </li>
+    <li>This may still come in handy in some situations.</li>
+</ul></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Lists Unstyled</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Remove a list’s bullets and apply some light <code>margin</code> with a combination of two classes, <code>.list-inline</code> and <code>.list-inline-item</code>.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">This is a list item.</li>
+                                        <li class="list-inline-item">And another one.</li>
+                                        <li class="list-inline-item">But they're displayed inline.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><ul class="list-inline">
+    <li class="list-inline-item">This is a list item.</li>
+    <li class="list-inline-item">And another one.</li>
+    <li class="list-inline-item">But they're displayed inline.</li>
+</ul></script></code></pre>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Description list alignment</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Align terms and descriptions horizontally by using our grid system’s predefined classes (or semantic mixins). For longer terms, you can optionally add a <code>.text-truncate</code> class to truncate the text with an ellipsis.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <dl class="row">
+                                        <dt class="col-sm-3">Description lists</dt>
+                                        <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+                                        
+                                        <dt class="col-sm-3">Term</dt>
+                                        <dd class="col-sm-9">
+                                            <p>Definition for the term.</p>
+                                            <p>And some more placeholder definition text.</p>
+                                        </dd>
+                                        
+                                        <dt class="col-sm-3">Another term</dt>
+                                        <dd class="col-sm-9">This definition is short, so no extra paragraphs or anything.</dd>
+                                        
+                                        <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
+                                        <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>
+                                        
+                                        <dt class="col-sm-3">Nesting</dt>
+                                        <dd class="col-sm-9">
+                                            <dl class="row">
+                                                <dt class="col-sm-4">Nested definition list</dt>
+                                                <dd class="col-sm-8">I heard you like definition lists. Let me put a definition list inside your definition list.</dd>
+                                            </dl>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><dl class="row">
+    <dt class="col-sm-3">Description lists</dt>
+    <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+    
+    <dt class="col-sm-3">Term</dt>
+    <dd class="col-sm-9">
+        <p>Definition for the term.</p>
+        <p>And some more placeholder definition text.</p>
+    </dd>
+    
+    <dt class="col-sm-3">Another term</dt>
+    <dd class="col-sm-9">This definition is short, so no extra paragraphs or anything.</dd>
+    
+    <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
+    <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>
+    
+    <dt class="col-sm-3">Nesting</dt>
+    <dd class="col-sm-9">
+        <dl class="row">
+            <dt class="col-sm-4">Nested definition list</dt>
+            <dd class="col-sm-8">I heard you like definition lists. Let me put a definition list inside your definition list.</dd>
+        </dl>
+    </dd>
+</dl></script></code></pre>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <!-- Footer START -->
+                <div class="footer">
+                    <div class="footer-content">
+                        <p class="mb-0">Copyright © 2021 Theme_Nate. All rights reserved.</p>
+                        <span>
+                            <a href="" class="text-gray me-3">Term &amp; Conditions</a>
+                            <a href="" class="text-gray">Privacy &amp; Policy</a>
+                        </span>
+                    </div>
+                </div>
+                <!-- Footer End -->
+            </div>
+            <!-- Content END -->
+
+            <!-- Quick View START -->
+            <div class="modal modal-right fade quick-view" id="quick-view">
+                <div class="modal-dialog right">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">Theme Config</h4>
+                            <button type="button" class="close pull-right" data-bs-dismiss="modal">
+                                <span>×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body scrollable">
+                            <div class="mb-4">
+                                <h5 class="mb-0">Header Color</h5>
+                                <p>Config header background color</p>
+                                <div class="theme-configurator d-flex mt-2">
+                                    <div class="radio">
+                                        <input id="header-default" name="header-theme" type="radio" checked="" value="#ffffff">
+                                        <label for="header-default"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-primary" name="header-theme" type="radio" value="#11a1fd">
+                                        <label for="header-primary"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-success" name="header-theme" type="radio" value="#00c569">
+                                        <label for="header-success"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-info" name="header-theme" type="radio" value="#5a75f9">
+                                        <label for="header-info"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-warning" name="header-theme" type="radio" value="#ffc833">
+                                        <label for="header-warning"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-danger" name="header-theme" type="radio" value="#f46363">
+                                        <label for="header-danger"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h5 class="mb-0">Header Navbar Dark</h5>
+                                <p>Change Header Navbar to dark</p>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="side-nav-theme-toggle" id="side-nav-theme-toggle">
+                                    <label class="form-check-label" for="side-nav-theme-toggle"></label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h5 class="mb-0">Vertical Layout</h5>
+                                <p>Set Vertical Layout</p>
+                                <div class="btn-group btn-group-sm">
+                                    <a href="index.html" class="btn btn-outline-primary" aria-current="page">Vertical</a>
+                                    <a href="#" class="btn btn-outline-primary active">Horizontal</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+            <!-- Quick View END -->
+        </div>
+    </div>
+
+    
+    <!-- Core Vendors JS -->
+    <script src="static/js/vendors.min.js"></script>
+
+    <!-- page js -->
+
+    <!-- Core JS -->
+    <script src="static/js/app.min.js"></script>
+
+</body>
+
+</html>

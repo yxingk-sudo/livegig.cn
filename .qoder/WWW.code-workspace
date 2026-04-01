@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"php.suggest.basic": false,
+		"php.problems.exclude": {
+			"**/vendor/**": true
+		},
+		"files.associations": {
+			"*.php": "php",
+			"*.phtml": "php"
+		},
+		"emmet.includeLanguages": {
+			"php": "html"
+		},
+		"workbench.colorTheme": "Default High Contrast",
+		"git.ignoreLimitWarning": true
+	}
+}

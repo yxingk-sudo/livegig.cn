@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Espire - Admin Dashboard Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="static/image/logo/favicon.ico">
+
+    <!-- page css -->
+
+    <!-- Core css -->
+    <link href="static/css/app.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="layout">
+        <div class="horizontal-layout">
+            <!-- Header START -->
+            <div class="header-text-dark header-nav layout-horizon">
+                <div class="header-nav-wrap container">
+                    <div class="header-nav-left">
+                        <div class="nav-logo">
+                            <div class="w-100 logo">
+                                <img class="img-fluid" src="static/picture/logo.png" style="max-height: 70px;" alt="logo">
+                            </div>
+                        </div>
+                        <div class="header-nav-item mobile-toggle">
+                            <div class="header-nav-item-select cursor-pointer">
+                                <i class="nav-icon feather icon-menu icon-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-nav-right">
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select nav-notification">
+                                <div class="toggle-wrapper" id="nav-notification-dropdown" data-bs-toggle="dropdown">
+                                    <i class="header-nav-item-select nav-icon feather icon-bell"></i>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <div class="nav-notification-header">
+                                        <h5 class="mb-0">Notifications</h5>
+                                        <a href="#" class="font-size-sm">Mark All as Read</a>
+                                    </div>
+                                    <div class="nav-notification-body">
+                                        <div class="nav-notification-item ">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 40px; height: 40px; line-height: 40px;">
+                                                <img src="static/picture/thumb-8.jpg" alt="">
+                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark">Jean Bowman </span>
+                                                    <span>invited you to new project.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-primary feather font-size-lg icon-info avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Please submit your daily report.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-success feather font-size-lg icon-info avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Your request has been approved.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 40px; height: 40px; line-height: 40px;">
+                                                <img src="static/picture/thumb-4.jpg" alt="">
+                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark">Jenifer Ruiz </span>
+                                                    <span>mentioned you in comment.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nav-notification-item ">
+                                            <div class="bg-success feather font-size-lg icon-x-circle avatar avatar-circle" style="width: 40px; height: 40px; line-height: 40px;">                                            </div>
+                                            <div class="ms-2">
+                                                <span>
+                                                    <span class="fw-bolder text-dark"> </span>
+                                                    <span>Your request has been rejected.</span>
+                                                </span>
+                                                <div class="font-size-sm fw-bold mt-1">
+                                                    <i class="feather icon-clock"></i>
+                                                    <span class="ms-1">4 months ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="nav-notification-footer">
+                                        <a href="#" class="font-size-sm">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="header-nav-item-select">
+                                <div class="toggle-wrapper" data-bs-toggle="modal" data-bs-target="#quick-view">
+                                    <i class="nav-icon feather icon-settings"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select">
+                                <div class="toggle-wrapper" id="nav-lang-dropdown" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-circle avatar-image" style="width: 22px; height: 22px; line-height: 22px;">
+                                        <img src="static/picture/en_US.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 18px; height: 18px; line-height: 18px;">
+                                                <img src="static/picture/en_US.png" alt="">
+                                            </div>
+                                            <span class="ms-2">English</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image" style="width: 18px; height: 18px; line-height: 18px;">
+                                                <img src="static/picture/fr_FR.png" alt="">
+                                            </div>
+                                            <span class="ms-2">French</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-item">
+                            <div class="dropdown header-nav-item-select nav-profile">
+                                <div class="toggle-wrapper" id="nav-profile-dropdown" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-circle avatar-image" style="width: 35px; height: 35px; line-height: 35px;">
+                                        <img src="static/picture/thumb-1.jpg" alt="">
+                                    </div>
+                                    <span class="fw-bold mx-1">Julio Baker</span>
+                                    <i class="feather icon-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <div class="nav-profile-header">
+                                       <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-circle avatar-image">
+                                                <img src="static/picture/thumb-1.jpg" alt="">
+                                            </div>
+                                            <div class="d-flex flex-column ms-1">
+                                                <span class="fw-bold text-dark">Julio Baker</span>
+                                                <span class="font-size-sm">Julio@themenate.com</span>
+                                            </div>
+                                       </div>
+                                    </div>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center">
+                                           <i class="font-size-lg me-2 feather icon-user"></i>
+                                           <span>Profile</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center">
+                                           <i class="font-size-lg me-2 feather icon-settings"></i>
+                                           <span>Settings</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center"><i class="font-size-lg me-2 feather icon-life-buoy"></i>
+                                        <span>Support</span>
+                                    </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item">
+                                       <div class="d-flex align-items-center"><i class="font-size-lg me-2 feather icon-power"></i>
+                                        <span>Sign Out</span>
+                                    </div>
+                                    </a>
+                                 </div>
+                            </div>
+                        </div>     
+                    </div>
+                </div>
+            </div>    
+            <!-- Header END -->
+
+            <!-- Header Navbar START -->
+            <div class="header-navbar nav-menu-light">
+                <div class="container">
+                    <ul class="nav-menu nav-menu-horizontal">
+                        <li class="nav-menu-item">
+                            <a href="h-index.html">
+                                <i class="feather icon-home"></i>
+                                <span class="nav-menu-item-title">Dashboard </span>
+                            </a>
+                        </li>
+                        <li class="nav-submenu">
+                            <div class="nav-submenu-title">
+                                <span>
+                                    <i class="feather icon-grid"></i>
+                                    <span>Apps</span>
+                                </span>
+                                <i class="nav-submenu-arrow caret-bottom"></i>
+                            </div>
+                            <ul class="nav-menu">
+                                <li class="nav-menu-item">
+                                    <a href="h-mail.html">
+                                        <i class="feather icon-mail"></i>
+                                        <span>Mail</span>
+                                    </a>
+                                </li>
+                                <li class="nav-menu-item">
+                                    <a href="h-chat.html">
+                                        <i class="feather icon-message-circle"></i>
+                                        <span>Chat</span>
+                                    </a>
+                                </li>
+                                <li class="nav-menu-item">
+                                    <a href="h-calendar.html">
+                                        <i class="feather icon-calendar"></i>
+                                        <span>Calendar</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-submenu">
+                            <div class="nav-submenu-title">
+                                <span>
+                                    <i class="feather icon-package"></i>
+                                    <span>User Interface</span>
+                                </span>
+                                <i class="nav-submenu-arrow caret-bottom"></i>
+                            </div>
+                            <ul class="nav-menu">
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-box"></i>
+                                            <span>UI Elements</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-avatar.html">Avatar</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-alert.html">Alert</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-badge.html">Badge</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-buttons.html">Buttons</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-cards.html">Cards</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-icons.html">Icons</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-lists.html">Lists</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-typography.html">Typography</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-package"></i>
+                                            <span>Components</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-accordion.html">Accordion</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-carousel.html">Carousel</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="">Dropdown</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-modals.html">Modals</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-toasts.html">Toasts</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-popover.html">Popover</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-progress.html">Progress</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-tabs.html">Tabs</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-tooltips.html">Tooltips</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-file-text"></i>
+                                            <span>Forms</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-form-elements.html">Form Elements</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-form-layouts.html">Form Layouts</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-form-validation.html">Form Validation</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-grid"></i>
+                                            <span>Tables</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-basic-table.html">Basic Table</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-data-table.html">Data Table</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="h-chart.html">
+                                <i class="feather icon-bar-chart"></i>
+                                <span class="nav-menu-item-title">Chart</span>
+                            </a>
+                        </li>
+                        <li class="nav-submenu">
+                            <div class="nav-submenu-title">
+                                <span>
+                                    <i class="feather icon-file"></i>
+                                    <span>Pages</span>
+                                </span>
+                                <i class="nav-submenu-arrow caret-bottom"></i>
+                            </div>
+                            <ul class="nav-menu">
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-settings"></i>
+                                            <span>Utility</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="h-profile-personal.html">Profile</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-invoice.html">Invoice</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-faq.html">FAQ</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-pricing.html">Pricing</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="h-user-list.html">User List</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-lock"></i>
+                                            <span>Auth</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="login.html">Login</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="login-v2.html">Login v2</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="login-v3.html">Login v3</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="register.html">Register</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="register-v2.html">Register v2</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="register-v3.html">Register v3</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-submenu">
+                                    <div class="nav-submenu-title">
+                                        <span>
+                                            <i class="feather icon-slash"></i>
+                                            <span>Errors</span>
+                                        </span>
+                                        <i class="nav-submenu-arrow caret-right"></i>
+                                    </div>
+                                    <ul class="nav-menu">
+                                        <li class="nav-menu-item">
+                                            <a href="error.html">Error 1</a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="error-v2.html">Error 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Header Navbar END -->
+
+            <!-- Side Nav START -->
+            <div class="side-nav vertical-menu nav-menu-light scrollable">
+                <div class="nav-logo">
+                    <div class="w-100 logo">
+                        <img class="img-fluid" src="static/picture/logo.png" style="max-height: 70px;" alt="logo">
+                    </div>
+                    <div class="mobile-close">
+                        <i class="icon-arrow-left feather"></i>
+                    </div>
+                 </div>
+                 <ul class="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="index.html">
+                            <i class="feather icon-home"></i>
+                            <span class="nav-menu-item-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">APPS</li>
+                    <li class="nav-menu-item">
+                        <a href="h-mail.html">
+                            <i class="feather icon-mail"></i>
+                            <span class="nav-menu-item-title">Mail</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="h-chat.html">
+                            <i class="feather icon-message-circle"></i>
+                            <span class="nav-menu-item-title">Chat</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="h-calendar.html">
+                            <i class="feather icon-calendar"></i>
+                            <span class="nav-menu-item-title">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">USER INTERFACE</li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-box"></i>
+                            <span>UI Elements</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-avatar.html">Avatar</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-alert.html">Alert</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-badge.html">Badge</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-buttons.html">Buttons</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-cards.html">Cards</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-icons.html">Icons</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-lists.html">Lists</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-typography.html">Typography</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-package"></i>
+                            <span>Components</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-accordion.html">Accordion</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-carousel.html">Carousel</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="">Dropdown</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-modals.html">Modals</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-toasts.html">Toasts</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-popover.html">Popover</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-progress.html">Progress</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-tabs.html">Tabs</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-tooltips.html">Tooltips</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-file-text"></i>
+                            <span>Forms</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-form-elements.html">Form Elements</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-form-layouts.html">Form Layouts</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-form-validation.html">Form Validation</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-grid"></i>
+                            <span>Tables</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-basic-table.html">Basic Table</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-data-table.html">Data Table</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="h-chart.html">
+                            <i class="feather icon-bar-chart"></i>
+                            <span class="nav-menu-item-title">Chart</span>
+                        </a>
+                    </li>
+                    <li class="nav-group-title">PAGES</li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-settings"></i>
+                            <span>Utility</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="h-profile-personal.html">Profile</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-invoice.html">Invoice</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-faq.html">FAQ</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-pricing.html">Pricing</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="h-user-list.html">User List</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-lock"></i>
+                            <span>Auth</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="login.html">Login</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="login-v2.html">Login v2</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="login-v3.html">Login v3</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register.html">Register</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register-v2.html">Register v2</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="register-v3.html">Register v3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-submenu">
+                        <a class="nav-submenu-title">
+                            <i class="feather icon-slash"></i>
+                            <span>Errors</span>
+                            <i class="nav-submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-menu menu-collapse">
+                            <li class="nav-menu-item">
+                                <a href="error.html">Error 1</a>
+                            </li>
+                            <li class="nav-menu-item">
+                                <a href="error-v2.html">Error 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Side Nav END -->
+
+            <!-- Content START -->
+            <div class="content container">
+                <div class="main">
+                    <div class="page-header">
+                        <h4 class="page-title">Dropdown</h4>
+                        <div class="breadcrumb">
+                           <span class="me-1 text-gray"><i class="feather icon-home"></i></span>
+                           <div class="breadcrumb-item"><a href="index.html"> Home </a></div>
+                           <div class="breadcrumb-item"><a href="javascript:void(0)"> Components </a></div>
+                           <div class="breadcrumb-item"><a href=""> Dropdown </a></div>
+                        </div>
+                    </div>
+                    <!-- <div class="card">
+                        <div class="card-body">
+                            <h4></h4>
+                            <p></p>
+                            <div class="mt-4">
+                                
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"></script></code></pre>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Single button</h4>
+                            <p>Any single <code>.btn</code> can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either <code>&lt;button&gt;</code> elements:</p>
+                            <div class="mt-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown button
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown button
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Split button</h4>
+                            <p>Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of <code>.dropdown-toggle-split</code> for proper spacing around the dropdown caret.</p>
+                            <p>We use this extra class to reduce the horizontal <code>padding</code> on either side of the caret by 25% and remove the <code>margin-left</code> that’s added for regular button dropdowns. Those extra changes keep the caret centered in the split button and provide a more appropriately sized hit area next to the main button.</p>
+                            <div class="mt-4">
+                                <!-- Example split danger button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger">Action</button>
+                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><!-- Example split danger button -->
+<div class="btn-group">
+    <button type="button" class="btn btn-danger">Action</button>
+    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="visually-hidden">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+    </ul>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Sizing</h4>
+                            <p>Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.</p>
+                            <div class="mt-4">
+                                <!-- Large button groups (default and split) -->
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Large button
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary btn-lg" type="button">
+                                        Large split button
+                                    </button>
+                                    <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Small button
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary btn-sm" type="button">
+                                        Small split button
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><!-- Large button groups (default and split) -->
+<div class="btn-group">
+    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Large button
+    </button>
+    <ul class="dropdown-menu">
+        ...
+    </ul>
+</div>
+<div class="btn-group">
+    <button class="btn btn-secondary btn-lg" type="button">
+        Large split button
+    </button>
+    <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="visually-hidden">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+        ...
+    </ul>
+</div>
+<br>
+<br>
+<div class="btn-group">
+    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Small button
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+    </ul>
+</div>
+<div class="btn-group">
+    <button class="btn btn-secondary btn-sm" type="button">
+        Small split button
+    </button>
+    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="visually-hidden">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+    </ul>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Dropup</h4>
+                            <p>Trigger dropdown menus above elements by adding <code>.dropup</code> to the parent element.</p>
+                            <div class="mt-4">
+                                <!-- Default dropup button -->
+                                <div class="btn-group dropup">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropup
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Split dropup button -->
+                                <div class="btn-group dropup">
+                                    <button type="button" class="btn btn-secondary">
+                                        Split dropup
+                                    </button>
+                                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><!-- Default dropup button -->
+<div class="btn-group dropup">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropup
+    </button>
+    <ul class="dropdown-menu">
+        <!-- Dropdown menu links -->
+    </ul>
+</div>
+
+<!-- Split dropup button -->
+<div class="btn-group dropup">
+    <button type="button" class="btn btn-secondary">
+        Split dropup
+    </button>
+    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="visually-hidden">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+        <!-- Dropdown menu links -->
+    </ul>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Dropright</h4>
+                            <p>Trigger dropdown menus at the right of the elements by adding <code>.dropend</code> to the parent element.</p>
+                            <div class="mt-4">
+                                <div class="btn-group dropend">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropright
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Split dropend button -->
+                                <div class="btn-group dropend">
+                                    <button type="button" class="btn btn-secondary">
+                                        Split dropend
+                                    </button>
+                                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropright</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div class="btn-group dropend">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropright
+    </button>
+    <ul class="dropdown-menu">
+    <!-- Dropdown menu links -->
+    </ul>
+</div>
+
+<!-- Split dropend button -->
+<div class="btn-group dropend">
+    <button type="button" class="btn btn-secondary">
+        Split dropend
+    </button>
+    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="visually-hidden">Toggle Dropright</span>
+    </button>
+    <ul class="dropdown-menu">
+    <!-- Dropdown menu links -->
+    </ul>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Dropleft</h4>
+                            <p>Trigger dropdown menus at the left of the elements by adding <code>.dropstart</code> to the parent element.</p>
+                            <div class="mt-4">
+                                <!-- Default dropstart button -->
+                                <div class="btn-group dropstart">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropstart
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Split dropstart button -->
+                                <div class="btn-group">
+                                    <div class="btn-group dropstart" role="group">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="visually-hidden">Toggle Dropstart</span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                        </ul>
+                                    </div>
+                                    <button type="button" class="btn btn-secondary">
+                                        Split dropstart
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><!-- Default dropstart button -->
+<div class="btn-group dropstart">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropstart
+    </button>
+    <ul class="dropdown-menu">
+    <!-- Dropdown menu links -->
+    </ul>
+</div>
+
+<!-- Split dropstart button -->
+<div class="btn-group">
+    <div class="btn-group dropstart" role="group">
+        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropstart</span>
+        </button>
+        <ul class="dropdown-menu">
+            <!-- Dropdown menu links -->
+        </ul>
+    </div>
+    <button type="button" class="btn btn-secondary">
+        Split dropstart
+    </button>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Menu items</h4>
+                            <p>Historically dropdown menu contents <em>had</em> to be links, but that’s no longer the case with v4. Now you can optionally use <code>&lt;button&gt;</code> elements in your dropdowns instead of just <code>&lt;a&gt;</code>s.</p>
+                            <p>You can also create non-interactive dropdown items with <code>.dropdown-item-text</code>. Feel free to style further with custom CSS or text utilities.</p>
+                            <div class="mt-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><span class="dropdown-item-text">Dropdown item text</span></li>
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown
+    </button>
+    <ul class="dropdown-menu">
+        <li><span class="dropdown-item-text">Dropdown item text</span></li>
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Active</h4>
+                            <p>Add <code>.active</code> to items in the dropdown to <strong>style them as active</strong>. To convey the active state to assistive technologies, use the <code>aria-current</code> attribute — using the <code>page</code> value for the current page, or <code>true</code> for the current item in a set.</p>
+                            <div class="mt-4">
+                                <ul class="dropdown-menu position-static d-block">
+                                    <li><a class="dropdown-item" href="#">Regular link</a></li>
+                                    <li><a class="dropdown-item active" href="#" aria-current="true">Active link</a></li>
+                                    <li><a class="dropdown-item" href="#">Another link</a></li>
+                                </ul>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Regular link</a></li>
+    <li><a class="dropdown-item active" href="#" aria-current="true">Active link</a></li>
+    <li><a class="dropdown-item" href="#">Another link</a></li>
+</ul></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Disabled</h4>
+                            <p>Add <code>.disabled</code> to items in the dropdown to <strong>style them as disabled</strong>.</p>
+                            <div class="mt-4">
+                                <ul class="dropdown-menu position-static d-block">
+                                    <li><a class="dropdown-item" href="#">Regular link</a></li>
+                                    <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Disabled link</a></li>
+                                    <li><a class="dropdown-item" href="#">Another link</a></li>
+                                </ul>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Regular link</a></li>
+    <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Disabled link</a></li>
+    <li><a class="dropdown-item" href="#">Another link</a></li>
+</ul></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Menu alignment</h4>
+                            <p>By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. You can change this with the directional <code>.drop*</code> classes, but you can also control them with additional modifier classes.</p>
+                            <p>Add <code>.dropdown-menu-end</code> to a <code>.dropdown-menu</code> to right align the dropdown menu. Directions are mirrored when using Bootstrap in RTL, meaning <code>.dropdown-menu-end</code> will appear on the left side.</p>
+                            <div class="mt-4">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Right-aligned menu example
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><button class="dropdown-item" type="button">Action</button></li>
+                                        <li><button class="dropdown-item" type="button">Another action</button></li>
+                                        <li><button class="dropdown-item" type="button">Something else here</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Right-aligned menu example
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end">
+        <li><button class="dropdown-item" type="button">Action</button></li>
+        <li><button class="dropdown-item" type="button">Another action</button></li>
+        <li><button class="dropdown-item" type="button">Something else here</button></li>
+    </ul>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Responsive alignment</h4>
+                            <p>If you want to use responsive alignment, disable dynamic positioning by adding the <code>data-bs-display="static"</code> attribute and use the responsive variation classes.</p>
+                            <p>To align <strong>right</strong> the dropdown menu with the given breakpoint or larger, add <code>.dropdown-menu{-sm|-md|-lg|-xl|-xxl}-end</code>.</p>
+                            <p>To align <strong>left</strong> the dropdown menu with the given breakpoint or larger, add <code>.dropdown-menu-end</code> and <code>.dropdown-menu{-sm|-md|-lg|-xl|-xxl}-start</code>.</p>
+                            <div class="mt-4">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                        Left-aligned but right aligned when large screen
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-lg-end">
+                                        <li><button class="dropdown-item" type="button">Action</button></li>
+                                        <li><button class="dropdown-item" type="button">Another action</button></li>
+                                        <li><button class="dropdown-item" type="button">Something else here</button></li>
+                                    </ul>
+                                </div> 
+                                <br>
+                                <br>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                        Right-aligned but left aligned when large screen
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                                        <li><button class="dropdown-item" type="button">Action</button></li>
+                                        <li><button class="dropdown-item" type="button">Another action</button></li>
+                                        <li><button class="dropdown-item" type="button">Something else here</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+        Left-aligned but right aligned when large screen
+    </button>
+    <ul class="dropdown-menu dropdown-menu-lg-end">
+        <li><button class="dropdown-item" type="button">Action</button></li>
+        <li><button class="dropdown-item" type="button">Another action</button></li>
+        <li><button class="dropdown-item" type="button">Something else here</button></li>
+    </ul>
+</div> 
+<br>
+<br>
+<div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+        Right-aligned but left aligned when large screen
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+        <li><button class="dropdown-item" type="button">Action</button></li>
+        <li><button class="dropdown-item" type="button">Another action</button></li>
+        <li><button class="dropdown-item" type="button">Something else here</button></li>
+    </ul>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Alignment options</h4>
+                            <p>Taking most of the options shown above, here’s a small kitchen sink demo of various dropdown alignment options in one place.</p>
+                            <div class="mt-4">
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Right-aligned menu
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                        Left-aligned, right-aligned lg
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-lg-end">
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                        Right-aligned, left-aligned lg
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="btn-group dropstart">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropstart
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="btn-group dropend">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropend
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="btn-group dropup">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropup
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div class="btn-group">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+    </ul>
+</div>
+
+<div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Right-aligned menu
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+    </ul>
+</div>
+
+<div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+        Left-aligned, right-aligned lg
+    </button>
+    <ul class="dropdown-menu dropdown-menu-lg-end">
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+    </ul>
+</div>
+
+<div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+        Right-aligned, left-aligned lg
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+    </ul>
+</div>
+
+<div class="btn-group dropstart">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropstart
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+    </ul>
+</div>
+
+<div class="btn-group dropend">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropend
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+    </ul>
+</div>
+
+<div class="btn-group dropup">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropup
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+    </ul>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Menu content header</h4>
+                            <p>Add a header to label sections of actions in any dropdown menu.</p>
+                            <div class="mt-4">
+                                <ul class="dropdown-menu position-static d-block">
+                                    <li><h6 class="dropdown-header">Dropdown header</h6></li>
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                </ul>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><ul class="dropdown-menu">
+    <li><h6 class="dropdown-header">Dropdown header</h6></li>
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+</ul></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Dividers</h4>
+                            <p>Separate groups of related menu items with a divider.</p>
+                            <div class="mt-4">
+                                <ul class="dropdown-menu position-static d-block">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                </ul>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Separated link</a></li>
+</ul></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Dropdown options</h4>
+                            <p>Use <code>data-bs-offset</code> or <code>data-bs-reference</code> to change the location of the dropdown.</p>
+                            <div class="mt-4">
+                                <div class="d-flex">
+                                    <div class="dropdown me-1">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
+                                            Offset
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary">Reference</button>
+                                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent">
+                                            <span class="visually-hidden">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-example">
+                                <pre><code class="language-markup"><script type="text/plain"><div class="d-flex">
+    <div class="dropdown me-1">
+        <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
+            Offset
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-secondary">Reference</button>
+        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent">
+            <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Separated link</a></li>
+        </ul>
+    </div>
+</div></script></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer START -->
+                <div class="footer">
+                    <div class="footer-content">
+                        <p class="mb-0">Copyright © 2021 Theme_Nate. All rights reserved.</p>
+                        <span>
+                            <a href="" class="text-gray me-3">Term &amp; Conditions</a>
+                            <a href="" class="text-gray">Privacy &amp; Policy</a>
+                        </span>
+                    </div>
+                </div>
+                <!-- Footer End -->
+            </div>
+            <!-- Content END -->
+
+            <!-- Quick View START -->
+            <div class="modal modal-right fade quick-view" id="quick-view">
+                <div class="modal-dialog right">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">Theme Config</h4>
+                            <button type="button" class="close pull-right" data-bs-dismiss="modal">
+                                <span>×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body scrollable">
+                            <div class="mb-4">
+                                <h5 class="mb-0">Header Color</h5>
+                                <p>Config header background color</p>
+                                <div class="theme-configurator d-flex mt-2">
+                                    <div class="radio">
+                                        <input id="header-default" name="header-theme" type="radio" checked="" value="#ffffff">
+                                        <label for="header-default"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-primary" name="header-theme" type="radio" value="#11a1fd">
+                                        <label for="header-primary"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-success" name="header-theme" type="radio" value="#00c569">
+                                        <label for="header-success"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-info" name="header-theme" type="radio" value="#5a75f9">
+                                        <label for="header-info"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-warning" name="header-theme" type="radio" value="#ffc833">
+                                        <label for="header-warning"></label>
+                                    </div>
+                                    <div class="radio">
+                                        <input id="header-danger" name="header-theme" type="radio" value="#f46363">
+                                        <label for="header-danger"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h5 class="mb-0">Header Navbar Dark</h5>
+                                <p>Change Header Navbar to dark</p>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="side-nav-theme-toggle" id="side-nav-theme-toggle">
+                                    <label class="form-check-label" for="side-nav-theme-toggle"></label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h5 class="mb-0">Vertical Layout</h5>
+                                <p>Set Vertical Layout</p>
+                                <div class="btn-group btn-group-sm">
+                                    <a href="index.html" class="btn btn-outline-primary" aria-current="page">Vertical</a>
+                                    <a href="#" class="btn btn-outline-primary active">Horizontal</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+            <!-- Quick View END -->
+        </div>
+    </div>
+
+    
+    <!-- Core Vendors JS -->
+    <script src="static/js/vendors.min.js"></script>
+
+    <!-- page js -->
+
+    <!-- Core JS -->
+    <script src="static/js/app.min.js"></script>
+
+</body>
+
+</html>

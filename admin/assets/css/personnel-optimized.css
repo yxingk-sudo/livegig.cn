@@ -1,0 +1,512 @@
+/* 人员管理页面优化样式 - 基于Espire模板设计风格 */
+
+/* 主色调定义 */
+:root {
+    --primary-color: #11a1fd;
+    --success-color: #00c569;
+    --warning-color: #ff9842;
+    --danger-color: #f46363;
+    --info-color: #5a75f9;
+    --light-color: #f3f7f9;
+    --dark-color: #343a40;
+    --gray-color: #7d9eb5;
+    --text-color: #486f88;
+    --border-color: #edf4f9;
+    --card-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --hover-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* 页面容器 */
+.container-fluid {
+    padding: 1.5rem;
+}
+
+/* 增加项目选择区域和人员管理区域之间的间距 */
+.reports-container {
+    margin-top: 2rem;
+}
+
+/* 卡片样式优化 */
+.card {
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1.5rem;
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+/* 筛选区域样式 */
+.form-label {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.form-select {
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    transition: border-color 0.15s ease-in-out;
+}
+
+.form-select:focus {
+    border-color: var(--primary-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(17, 161, 253, 0.25);
+}
+
+/* 卡片容器样式 */
+.card {
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1.5rem;
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.25rem;
+}
+
+.card-header h6 {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 0;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card:hover {
+    box-shadow: var(--hover-shadow);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* 标题样式 */
+.card-header h5 {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 0;
+}
+
+/* 按钮样式优化 */
+.btn {
+    font-weight: 600;
+    border-radius: 0.375rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.15s ease-in-out;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #0d8de0;
+    border-color: #0d8de0;
+}
+
+.btn-warning {
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+}
+
+.btn-warning:hover {
+    background-color: #ff831a;
+    border-color: #ff831a;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+    background-color: #f24d4d;
+    border-color: #f24d4d;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.76563rem;
+}
+
+/* 表格样式优化 */
+.table {
+    color: var(--text-color);
+    margin-bottom: 0;
+    table-layout: fixed; /* 固定表格布局 */
+}
+
+.table th {
+    font-weight: 600;
+    color: var(--dark-color);
+    border-top: none;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table td {
+    vertical-align: middle;
+    border-top: 1px solid var(--border-color);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(204, 223, 234, 0.15);
+}
+
+.table-responsive {
+    border-radius: 0.375rem;
+    overflow-x: auto;
+}
+
+/* 表格列宽控制 */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+    width: 40px; /* 复选框列 */
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+    width: 15%; /* 姓名列 */
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+    width: 80px; /* 性别列 */
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+    width: 100px; /* 部门列 - 缩小宽度 */
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+    width: 25%; /* 项目/部门列 */
+}
+
+.table th:nth-child(6),
+.table td:nth-child(6) {
+    width: 100px; /* 项目账户列 - 缩小宽度 */
+}
+
+.table th:nth-child(7),
+.table td:nth-child(7) {
+    width: 150px; /* 操作列 */
+}
+
+/* 项目部门列样式 */
+.project-department-cell {
+    min-width: 120px; /* 缩小最小宽度 */
+}
+
+.project-tag-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-complete-tag {
+    display: inline-block;
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 0.25em 0.4em;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.25rem;
+    white-space: normal; /* 允许换行 */
+    word-break: break-word; /* 长单词换行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.project-complete-tag:hover {
+    background-color: #dee2e6;
+}
+
+/* 特殊部门样式 - 艺人/嘉宾 */
+.artist-badge {
+    background-color: #dc3545 !important; /* 红色背景 */
+    color: white !important;
+    position: relative;
+    padding-left: 1.2em !important;
+}
+
+.artist-badge::before {
+    content: "★"; /* 星号 */
+    position: absolute;
+    left: 0.4em;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 0.8em;
+}
+
+.department-position {
+    display: block;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+/* 项目账户列样式 */
+.project-access-container {
+    position: relative;
+    display: inline-block;
+    width: 100px; /* 缩小宽度 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.project-access-details {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    min-width: 200px;
+    max-width: 300px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.project-access-container.active .project-access-details {
+    display: block !important; /* 增加优先级 */
+}
+
+.project-access-details .project-complete-tag {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.8rem;
+    background-color: #f8f9fa;
+}
+
+.project-access-details .project-complete-tag:last-child {
+    margin-bottom: 0;
+}
+
+/* 状态徽章样式 */
+.badge {
+    font-weight: 600;
+    padding: 0.35em 0.65em;
+    border-radius: 0.25rem;
+}
+
+.badge-success {
+    background-color: var(--success-color);
+}
+
+.badge-secondary {
+    background-color: var(--gray-color);
+}
+
+.badge-info {
+    background-color: var(--info-color);
+}
+
+/* 代码标签样式 */
+code {
+    background-color: var(--light-color);
+    border-radius: 0.25rem;
+    padding: 0.2em 0.4em;
+    font-size: 87.5%;
+}
+
+/* 警告框样式 */
+.alert {
+    border-radius: 0.375rem;
+    border: 1px solid transparent;
+}
+
+.alert-success {
+    color: #0a6198;
+    background-color: #cfecff;
+    border-color: #b8e3fe;
+}
+
+.alert-danger {
+    color: #923b3b;
+    background-color: #fde0e0;
+    border-color: #fcd0d0;
+}
+
+.alert-dismissible .btn-close {
+    padding: 1rem;
+}
+
+/* 空状态样式 */
+.text-center.py-4 {
+    padding: 2rem 0 !important;
+}
+
+.text-center.py-4 .display-1 {
+    font-size: 3rem;
+    color: var(--gray-color);
+    opacity: 0.5;
+}
+
+.text-center.py-4 h5 {
+    color: var(--dark-color);
+    margin: 1rem 0;
+}
+
+.text-center.py-4 p {
+    color: var(--text-color);
+}
+
+/* 操作列按钮间距 */
+.btn-sm + .btn-sm {
+    margin-left: 0.25rem;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 1rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .card-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .table th,
+    .table td {
+        padding: 0.5rem;
+    }
+    
+    /* 移动端表格列宽调整 */
+    .table th:nth-child(1),
+    .table td:nth-child(1) {
+        width: 30px;
+    }
+    
+    .table th:nth-child(2),
+    .table td:nth-child(2) {
+        width: 25%;
+    }
+    
+    .table th:nth-child(3),
+    .table td:nth-child(3) {
+        width: 70px;
+    }
+    
+    .table th:nth-child(4),
+    .table td:nth-child(4) {
+        width: 90px; /* 部门列 - 进一步缩小 */
+    }
+    
+    .table th:nth-child(5),
+    .table td:nth-child(5) {
+        width: 30%;
+    }
+    
+    .table th:nth-child(6),
+    .table td:nth-child(6) {
+        width: 90px; /* 项目账户列 - 进一步缩小 */
+    }
+    
+    .table th:nth-child(7),
+    .table td:nth-child(7) {
+        width: 120px;
+    }
+    
+    .project-department-cell {
+        min-width: 100px;
+    }
+    
+    .project-access-container {
+        width: 70px; /* 在小屏幕上进一步缩小 */
+    }
+    
+    .project-access-details {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 90vw;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    /* 移动端特殊部门样式优化 */
+    .artist-badge {
+        font-size: 0.7rem;
+        padding: 0.25em 0.5em !important;
+    }
+    
+    .artist-badge::before {
+        font-size: 0.7em;
+        left: 0.3em;
+    }
+    
+    .department-position {
+        font-size: 0.7rem;
+        margin-top: 0.2rem;
+    }
+}
+
+/* 针对大屏幕的优化 */
+@media (min-width: 1200px) {
+    .project-department-cell {
+        min-width: 150px; /* 在大屏幕上适当增加最小宽度 */
+    }
+    
+    .project-access-container {
+        width: 110px; /* 在大屏幕上适当增加宽度 */
+    }
+    
+    /* 大屏幕表格列宽调整 */
+    .table th:nth-child(2),
+    .table td:nth-child(2) {
+        width: 18%;
+    }
+    
+    .table th:nth-child(4),
+    .table td:nth-child(4) {
+        width: 110px; /* 部门列 */
+    }
+    
+    .table th:nth-child(5),
+    .table td:nth-child(5) {
+        width: 28%;
+    }
+    
+    .table th:nth-child(6),
+    .table td:nth-child(6) {
+        width: 110px; /* 项目账户列 */
+    }
+    
+    .table th:nth-child(7),
+    .table td:nth-child(7) {
+        width: 160px;
+    }
+    
+    .department-position {
+        font-size: 0.8rem;
+    }
+}
