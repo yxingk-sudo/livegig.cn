@@ -1,0 +1,1156 @@
+<?php
+session_start();
+require_once '../config/database.php';
+require_once '../includes/functions.php';
+require_once 'page_functions.php';
+
+// 开启错误报告用于调试
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if (!isset($_SESSION['admin_logged_in'])) {
+    header("Location: login.php");
+    exit;
+}
+
+$database = new Database();
+$db = $database->getConnection();
+
+$message = '';
+$error = '';
+
+// 处理GET请求中的删除操作
+if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['ids'])) {
+    try {
+        $ids_str = $_GET['ids'];
+        // 调试信息
+        error_log("删除操作 - IDs字符串: " . $ids_str);
+        
+        $ids = explode(',', $ids_str);
+        $ids = array_map('intval', $ids);
+        
+        // 调试信息
+        error_log("删除操作 - 解析后的IDs数组: " . print_r($ids, true));
+        
+        if (count($ids) > 0) {
+            // 开始事务
+            $db->beginTransaction();
+            
+            $placeholders = implode(',', array_fill(0, count($ids), '?'));
+            $query = "DELETE FROM hotel_reports WHERE id IN ($placeholders)";
+            
+            // 调试信息
+            error_log("删除操作 - SQL查询: " . $query);
+            
+            $stmt = $db->prepare($query);
+            
+            if ($stmt->execute($ids)) {
+                // 提交事务
+                $db->commit();
+                $message = '记录删除成功！';
+                
+                // 调试信息
+                error_log("删除操作 - 成功删除记录，IDs: " . implode(',', $ids));
+            } else {
+                // 回滚事务
+                $db->rollback();
+                $error = '删除失败，请重试！';
+                
+                // 调试信息
+                error_log("删除操作 - 删除失败，错误信息: " . print_r($stmt->errorInfo(), true));
+            }
+        } else {
+            $error = '无效的记录ID！';
+        }
+    } catch (Exception $e) {
+        // 回滚事务
+        if ($db->inTransaction()) {
+            $db->rollback();
+        }
+        $error = '删除过程中发生错误：' . $e->getMessage();
+        
+        // 调试信息
+        error_log("删除操作 - 异常: " . $e->getMessage());
+    }
+    
+    // 重定向以避免重复删除
+    header("Location: hotel_reports.php");
+    exit;
+}
+
+// 处理AJAX请求 - 新的筛选功能支持
+if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
+    // 返回JSON格式数据
+    header('Content-Type: application/json');
+    
+    // 处理AJAX GET请求（获取数据）
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        // 获取筛选参数
+        $project_id = $_GET['project_id'] ?? null;
+        $status_filter = $_GET['status'] ?? '';
+        $checkin_filter = $_GET['check_in_date'] ?? '';
+        $checkout_filter = $_GET['check_out_date'] ?? '';
+        
+        // 构建查询条件
+        $where_conditions = [];
+        $params = [];
+        
+        if ($project_id) {
+            $where_conditions[] = "hr.project_id = :project_id";
+            $params[':project_id'] = $project_id;
+        }
+        
+        if ($status_filter) {
+            $where_conditions[] = "hr.status = :status";
+            $params[':status'] = $status_filter;
+        }
+        
+        if ($checkin_filter) {
+            $where_conditions[] = "hr.check_in_date >= :check_in_date";
+            $params[':check_in_date'] = $checkin_filter;
+        }
+        
+        if ($checkout_filter) {
+            $where_conditions[] = "hr.check_out_date <= :check_out_date";
+            $params[':check_out_date'] = $checkout_filter;
+        }
+        
+        $where_clause = $where_conditions ? "WHERE " . implode(' AND ', $where_conditions) : "";
+        
+        // 获取报酒店列表
+        $query = "SELECT 
+            MIN(hr.id) as id,
+            hr.hotel_name,
+            hr.room_type,
+            hr.check_in_date,
+            hr.check_out_date,
+            hr.room_count,
+            hr.status,
+            hr.special_requirements,
+            hr.created_at,
+            hr.updated_at,
+            hr.reported_by,
+            hr.project_id,
+            p.name as project_name,
+            p.code as project_code,
+            GROUP_CONCAT(DISTINCT pr.name ORDER BY pr.name SEPARATOR '、') as personnel_name,
+            GROUP_CONCAT(DISTINCT pr.id ORDER BY pr.name SEPARATOR ',') as personnel_ids,
+            COUNT(DISTINCT hr.personnel_id) as personnel_count,
+            pu.username as reporter_name,
+            GROUP_CONCAT(DISTINCT hr.id ORDER BY hr.id) as record_ids
+        FROM hotel_reports hr
+        JOIN projects p ON hr.project_id = p.id
+        JOIN personnel pr ON hr.personnel_id = pr.id
+        JOIN project_users pu ON hr.reported_by = pu.id
+        $where_clause
+        GROUP BY hr.hotel_name, hr.room_type, hr.check_in_date, hr.check_out_date, hr.project_id, hr.shared_room_info
+        ORDER BY MIN(hr.created_at) DESC";
+        
+        $stmt = $db->prepare($query);
+        foreach ($params as $key => $value) {
+            $stmt->bindValue($key, $value);
+        }
+        $stmt->execute();
+        $reports = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        // 构建统计查询的WHERE条件
+        $stats_where_conditions = $where_conditions;
+        $stats_where_conditions[] = "hr.hotel_name IS NOT NULL";
+        $stats_where_conditions[] = "hr.status != 'cancelled'";
+        $stats_where_clause = $stats_where_conditions ? "WHERE " . implode(' AND ', $stats_where_conditions) : "";
+        
+        // 获取项目总统计
+        $project_total_query = "
+            SELECT 
+                COUNT(DISTINCT hr.personnel_id) as total_checkins,
+                COALESCE(SUM(
+                    CASE 
+                        WHEN hr.room_type IN ('双床房','双人房','套房') AND hr.shared_room_info IS NOT NULL AND hr.shared_room_info != '' THEN 1
+                        ELSE hr.room_count
+                    END
+                ), 0) as total_booked_rooms,
+                COUNT(*) as total_bookings,
+                COALESCE(SUM(DATEDIFF(hr.check_out_date, hr.check_in_date) * 
+                    CASE 
+                        WHEN hr.room_type IN ('双床房','双人房','套房') AND hr.shared_room_info IS NOT NULL AND hr.shared_room_info != '' THEN 1
+                        ELSE hr.room_count
+                    END
+                ), 0) as total_room_nights
+            FROM hotel_reports hr
+            $stats_where_clause
+        ";
+        
+        $project_total_stmt = $db->prepare($project_total_query);
+        foreach ($params as $key => $value) {
+            $project_total_stmt->bindValue($key, $value);
+        }
+        $project_total_stmt->execute();
+        $project_total = $project_total_stmt->fetch(PDO::FETCH_ASSOC);
+        
+        // 返回数据
+        echo json_encode([
+            'success' => true,
+            'reports' => $reports,
+            'stats' => $project_total
+        ]);
+        exit;
+    }
+    
+    // 处理AJAX POST请求（执行操作）
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $action = $_POST['action'] ?? '';
+        $response = ['success' => false, 'message' => '未知操作'];
+        
+        // 单个状态更新
+        if ($action === 'update_status' && isset($_POST['id'], $_POST['status'])) {
+            $id = intval($_POST['id']);
+            $status = $_POST['status'];
+            
+            if (in_array($status, ['pending', 'confirmed', 'cancelled'])) {
+                $query = "UPDATE hotel_reports SET status = :status WHERE id = :id";
+                $stmt = $db->prepare($query);
+                $stmt->bindParam(':status', $status);
+                $stmt->bindParam(':id', $id);
+                
+                if ($stmt->execute()) {
+                    $response['success'] = true;
+                    $response['message'] = '状态更新成功！';
+                } else {
+                    $response['message'] = '更新失败，请重试！';
+                }
+            } else {
+                $response['message'] = '无效的状态值！';
+            }
+        }
+        
+        // 批量确认
+        if ($action === 'batch_confirm' && isset($_POST['ids'])) {
+            $ids_str = $_POST['ids'];
+            $ids = explode(',', $ids_str);
+            $ids = array_map('intval', $ids);
+            
+            if (count($ids) > 0) {
+                $placeholders = implode(',', array_fill(0, count($ids), '?'));
+                $query = "UPDATE hotel_reports SET status = 'confirmed' WHERE id IN ($placeholders)";
+                $stmt = $db->prepare($query);
+                if ($stmt->execute($ids)) {
+                    $response['success'] = true;
+                    $response['message'] = '批量确认成功！';
+                } else {
+                    $response['message'] = '批量确认失败，请重试！';
+                }
+            } else {
+                $response['message'] = '请选择至少一条记录！';
+            }
+        }
+        
+        // 删除操作
+        if ($action === 'delete' && isset($_POST['id'])) {
+            $id = intval($_POST['id']);
+            
+            $query = "DELETE FROM hotel_reports WHERE id = :id";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':id', $id);
+            
+            if ($stmt->execute()) {
+                $response['success'] = true;
+                $response['message'] = '记录删除成功！';
+            } else {
+                $response['message'] = '删除失败，请重试！';
+            }
+        }
+        
+        // 批量删除
+        if ($action === 'batch_delete' && isset($_POST['ids'])) {
+            $ids_str = $_POST['ids'];
+            $ids = explode(',', $ids_str);
+            $ids = array_map('intval', $ids);
+            
+            if (count($ids) > 0) {
+                $placeholders = implode(',', array_fill(0, count($ids), '?'));
+                $query = "DELETE FROM hotel_reports WHERE id IN ($placeholders)";
+                $stmt = $db->prepare($query);
+                if ($stmt->execute($ids)) {
+                    $response['success'] = true;
+                    $response['message'] = '批量删除成功！';
+                } else {
+                    $response['message'] = '批量删除失败，请重试！';
+                }
+            } else {
+                $response['message'] = '请选择至少一条记录！';
+            }
+        }
+        
+        // 输出响应
+        echo json_encode($response);
+        exit;
+    }
+}
+
+// 处理传统表单请求（保持向后兼容性）
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_GET['ajax'])) {
+    $action = $_POST['action'] ?? '';
+    
+    // 处理单个状态更新
+    if ($action === 'update_status') {
+        $id = intval($_POST['id']);
+        $status = $_POST['status'];
+        
+        if (in_array($status, ['pending', 'confirmed', 'cancelled'])) {
+            $query = "UPDATE hotel_reports SET status = :status WHERE id = :id";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':status', $status);
+            $stmt->bindParam(':id', $id);
+            
+            if ($stmt->execute()) {
+                $message = '报酒店状态更新成功！';
+            } else {
+                $error = '更新失败，请重试！';
+            }
+        }
+    }
+    
+    // 处理批量状态更新
+    if ($action === 'batch_status_update') {
+        $ids = $_POST['ids'] ?? [];
+        $status = $_POST['status'] ?? '';
+        
+        if (is_array($ids) && count($ids) > 0 && in_array($status, ['pending', 'confirmed', 'cancelled'])) {
+            $placeholders = implode(',', array_fill(0, count($ids), '?'));
+            $query = "UPDATE hotel_reports SET status = ? WHERE id IN ($placeholders)";
+            $stmt = $db->prepare($query);
+            
+            // 绑定参数：状态 + IDs
+            $params = array_merge([$status], $ids);
+            
+            if ($stmt->execute($params)) {
+                // 如果是AJAX请求，返回JSON
+                if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+                    strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                    header('Content-Type: application/json');
+                    echo json_encode(['success' => true, 'message' => '状态更新成功！']);
+                    exit;
+                }
+                $message = '状态更新成功！';
+            } else {
+                if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+                    strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                    header('Content-Type: application/json');
+                    echo json_encode(['success' => false, 'message' => '更新失败，请重试！']);
+                    exit;
+                }
+                $error = '更新失败，请重试！';
+            }
+        }
+    }
+    // 批量确认
+    if ($action === 'batch_confirm') {
+        $ids = $_POST['ids'] ?? [];
+        if (is_array($ids) && count($ids) > 0) {
+            $placeholders = implode(',', array_fill(0, count($ids), '?'));
+            $query = "UPDATE hotel_reports SET status = 'confirmed' WHERE id IN ($placeholders)";
+            $stmt = $db->prepare($query);
+            if ($stmt->execute($ids)) {
+                $message = '批量确认成功！';
+            } else {
+                $error = '批量确认失败，请重试！';
+            }
+        }
+    }
+    // 删除操作
+    if ($action === 'delete') {
+        $id = intval($_POST['id']);
+        
+        $query = "DELETE FROM hotel_reports WHERE id = :id";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':id', $id);
+        
+        if ($stmt->execute()) {
+            $message = '报酒店记录删除成功！';
+        } else {
+            $error = '删除失败，请重试！';
+        }
+    }
+    // 批量删除
+    if ($action === 'batch_delete') {
+        $ids = $_POST['ids'] ?? [];
+        if (is_array($ids) && count($ids) > 0) {
+            $placeholders = implode(',', array_fill(0, count($ids), '?'));
+            $query = "DELETE FROM hotel_reports WHERE id IN ($placeholders)";
+            $stmt = $db->prepare($query);
+            if ($stmt->execute($ids)) {
+                $message = '批量删除成功！';
+            } else {
+                $error = '批量删除失败，请重试！';
+            }
+        }
+    }
+}
+
+// 获取筛选参数
+$project_id = $_GET['project_id'] ?? null;
+$status_filter = $_GET['status'] ?? '';
+$checkin_filter = $_GET['check_in_date'] ?? '';
+$checkout_filter = $_GET['check_out_date'] ?? '';
+
+// 构建查询条件
+$where_conditions = [];
+$params = [];
+
+if ($project_id) {
+    $where_conditions[] = "hr.project_id = :project_id";
+    $params[':project_id'] = $project_id;
+}
+
+if ($status_filter) {
+    $where_conditions[] = "hr.status = :status";
+    $params[':status'] = $status_filter;
+}
+
+if ($checkin_filter) {
+    $where_conditions[] = "hr.check_in_date >= :check_in_date";
+    $params[':check_in_date'] = $checkin_filter;
+}
+
+if ($checkout_filter) {
+    $where_conditions[] = "hr.check_out_date <= :check_out_date";
+    $params[':check_out_date'] = $checkout_filter;
+}
+
+$where_clause = $where_conditions ? "WHERE " . implode(' AND ', $where_conditions) : "";
+
+// 获取报酒店列表 - 合并双床房/双人房共享房间人员
+$query = "SELECT 
+    MIN(hr.id) as id,
+    hr.hotel_name,
+    hr.room_type,
+    hr.check_in_date,
+    hr.check_out_date,
+    hr.room_count,
+    hr.status,
+    hr.special_requirements,
+    hr.created_at,
+    hr.updated_at,
+    hr.reported_by,
+    hr.project_id,
+    p.name as project_name,
+    p.code as project_code,
+    GROUP_CONCAT(DISTINCT pr.name ORDER BY pr.name SEPARATOR '、') as personnel_name,
+    GROUP_CONCAT(DISTINCT pr.id ORDER BY pr.name SEPARATOR ',') as personnel_ids,
+    COUNT(DISTINCT hr.personnel_id) as personnel_count,
+    pu.username as reporter_name,
+    GROUP_CONCAT(DISTINCT hr.id ORDER BY hr.id) as record_ids
+FROM hotel_reports hr
+JOIN projects p ON hr.project_id = p.id
+JOIN personnel pr ON hr.personnel_id = pr.id
+JOIN project_users pu ON hr.reported_by = pu.id
+$where_clause
+GROUP BY hr.hotel_name, hr.room_type, hr.check_in_date, hr.check_out_date, hr.project_id, hr.shared_room_info
+ORDER BY MIN(hr.created_at) DESC";
+
+$stmt = $db->prepare($query);
+$stmt->execute($params);
+$reports = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// 获取统计信息 - 按照hotel_statistics.php的方式合并双床房计算
+$stats = [];
+
+// 构建统计查询的WHERE条件（包含固定条件）
+$stats_where_conditions = $where_conditions;
+$stats_where_conditions[] = "hr.hotel_name IS NOT NULL";
+$stats_where_conditions[] = "hr.status != 'cancelled'";
+$stats_where_clause = $stats_where_conditions ? "WHERE " . implode(' AND ', $stats_where_conditions) : "";
+
+// 1. 基本统计（合并双床房共享房间计算）
+$basic_stats_query = "SELECT 
+    hr.hotel_name,
+    COUNT(DISTINCT hr.personnel_id) as total_checkins,
+    COALESCE(SUM(
+        CASE 
+            WHEN hr.room_type IN ('双床房','双人房','套房') AND hr.shared_room_info IS NOT NULL AND hr.shared_room_info != '' THEN 1
+            ELSE hr.room_count
+        END
+    ), 0) as total_booked_rooms,
+    COUNT(*) as total_bookings,
+    COALESCE(SUM(DATEDIFF(hr.check_out_date, hr.check_in_date) * 
+        CASE 
+            WHEN hr.room_type IN ('双床房','双人房','套房') AND hr.shared_room_info IS NOT NULL AND hr.shared_room_info != '' THEN 1
+            ELSE hr.room_count
+        END
+    ), 0) as total_room_nights
+FROM hotel_reports hr
+$stats_where_clause
+GROUP BY hr.hotel_name
+ORDER BY total_bookings DESC";
+
+$basic_stats_stmt = $db->prepare($basic_stats_query);
+foreach ($params as $key => $value) {
+    $basic_stats_stmt->bindValue($key, $value);
+}
+$basic_stats_stmt->execute();
+$basic_stats = $basic_stats_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// 2. 房型统计（合并双床房计算）
+$room_type_stats_query = "SELECT 
+    hr.hotel_name,
+    hr.room_type,
+    COUNT(*) as bookings_count,
+    COALESCE(SUM(
+        CASE 
+            WHEN hr.room_type IN ('双床房','双人房','套房') AND hr.shared_room_info IS NOT NULL AND hr.shared_room_info != '' THEN 1
+            ELSE hr.room_count
+        END
+    ), 0) as total_rooms,
+    COALESCE(SUM(DATEDIFF(hr.check_out_date, hr.check_in_date) * 
+        CASE 
+            WHEN hr.room_type IN ('双床房','双人房','套房') AND hr.shared_room_info IS NOT NULL AND hr.shared_room_info != '' THEN 1
+            ELSE hr.room_count
+        END
+    ), 0) as total_room_nights,
+    MIN(hr.check_in_date) as earliest_checkin,
+    MAX(hr.check_out_date) as latest_checkout
+FROM hotel_reports hr
+$stats_where_clause
+GROUP BY hr.hotel_name, hr.room_type
+ORDER BY hr.hotel_name, bookings_count DESC";
+
+$room_type_stats_stmt = $db->prepare($room_type_stats_query);
+foreach ($params as $key => $value) {
+    $room_type_stats_stmt->bindValue($key, $value);
+}
+$room_type_stats_stmt->execute();
+$room_type_stats = $room_type_stats_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// 3. 项目总统计（当前筛选条件下的总计）
+$project_total_query = "
+    SELECT 
+        COUNT(DISTINCT hr.personnel_id) as total_checkins,
+        COALESCE(SUM(
+            CASE 
+                WHEN hr.room_type IN ('双床房','双人房','套房') AND hr.shared_room_info IS NOT NULL AND hr.shared_room_info != '' THEN 1
+                ELSE hr.room_count
+            END
+        ), 0) as total_booked_rooms,
+        COUNT(*) as total_bookings,
+        COALESCE(SUM(DATEDIFF(hr.check_out_date, hr.check_in_date) * 
+            CASE 
+                WHEN hr.room_type IN ('双床房','双人房','套房') AND hr.shared_room_info IS NOT NULL AND hr.shared_room_info != '' THEN 1
+                ELSE hr.room_count
+            END
+        ), 0) as total_room_nights
+    FROM hotel_reports hr
+    $stats_where_clause
+";
+
+$project_total_stmt = $db->prepare($project_total_query);
+foreach ($params as $key => $value) {
+    $project_total_stmt->bindValue($key, $value);
+}
+$project_total_stmt->execute();
+$project_total = $project_total_stmt->fetch(PDO::FETCH_ASSOC);
+
+// 获取项目列表用于筛选
+$projects_query = "SELECT id, name, code FROM projects ORDER BY name ASC";
+$projects_stmt = $db->prepare($projects_query);
+$projects_stmt->execute();
+$projects = $projects_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// 获取人员列表用于编辑表单
+$personnel_query = "SELECT id, name FROM personnel ORDER BY name ASC";
+$personnel_stmt = $db->prepare($personnel_query);
+$personnel_stmt->execute();
+$personnel_list = $personnel_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// 检查project_hotels表是否存在
+$check_table_query = "SHOW TABLES LIKE 'project_hotels'";
+$check_stmt = $db->prepare($check_table_query);
+$check_stmt->execute();
+$table_exists = ($check_stmt->rowCount() > 0);
+
+// 获取项目对应的酒店数据
+if ($table_exists) {
+    // 使用project_hotels关联表
+    $project_hotels_query = "SELECT 
+        h.id as hotel_id,
+        h.hotel_name_cn as hotel_name,
+        h.room_types,
+        p.id as project_id,
+        p.name as project_name
+    FROM hotels h
+    JOIN project_hotels ph ON h.id = ph.hotel_id
+    JOIN projects p ON ph.project_id = p.id
+    ORDER BY p.name ASC, h.hotel_name_cn ASC";
+} else {
+    // 使用projects表的hotel_id字段（向后兼容）
+    $project_hotels_query = "SELECT 
+        h.id as hotel_id,
+        h.hotel_name_cn as hotel_name,
+        h.room_types,
+        p.id as project_id,
+        p.name as project_name
+    FROM hotels h
+    JOIN projects p ON h.id = p.hotel_id
+    ORDER BY p.name ASC, h.hotel_name_cn ASC";
+}
+
+// 获取所有酒店数据作为备选
+$all_hotels_query = "SELECT 
+    h.id as hotel_id,
+    h.hotel_name_cn as hotel_name,
+    h.room_types,
+    'all' as project_id,
+    '所有酒店' as project_name
+FROM hotels h
+WHERE h.hotel_name_cn IS NOT NULL AND h.hotel_name_cn != ''
+ORDER BY h.hotel_name_cn ASC";
+$all_hotels_stmt = $db->prepare($all_hotels_query);
+$all_hotels_stmt->execute();
+$all_hotels_data = $all_hotels_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$project_hotels_stmt = $db->prepare($project_hotels_query);
+$project_hotels_stmt->execute();
+$project_hotels_data = $project_hotels_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// 整理项目酒店数据为JSON格式
+$project_hotels_json = [];
+foreach ($project_hotels_data as $hotel) {
+    $project_id = $hotel['project_id'];
+    if (!isset($project_hotels_json[$project_id])) {
+        $project_hotels_json[$project_id] = [];
+    }
+    
+    $room_types = json_decode($hotel['room_types'], true) ?? [];
+    $project_hotels_json[$project_id][] = [
+        'hotel_id' => $hotel['hotel_id'],
+        'hotel_name' => $hotel['hotel_name'],
+        'room_types' => $room_types
+    ];
+}
+
+// 添加所有酒店到特殊项目ID
+$project_hotels_json['all'] = [];
+foreach ($all_hotels_data as $hotel) {
+    $room_types = json_decode($hotel['room_types'], true) ?? [];
+    $project_hotels_json['all'][] = [
+        'hotel_id' => $hotel['hotel_id'],
+        'hotel_name' => $hotel['hotel_name'],
+        'room_types' => $room_types
+    ];
+}
+
+
+
+// 状态映射
+$status_map = [
+    'pending' => ['label' => '待确认', 'class' => 'warning'],
+    'confirmed' => ['label' => '已确认', 'class' => 'success'],
+    'cancelled' => ['label' => '已取消', 'class' => 'danger']
+];
+
+// 处理登出
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: login.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒店预订管理 - 管理后台</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100% !important;
+                position: relative !important;
+                height: auto !important;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <div class="sidebar position-fixed top-0 start-0 h-100" style="width: 250px;">
+            <?php require_once 'sidebar.php'; ?>
+        </div>
+        
+        <div class="main-content flex-grow-1">
+            <!-- 顶部栏 -->
+            <div class="d-flex justify-content-between align-items-center mb-4 p-3 bg-white rounded shadow-sm">
+                <h1 class="h3 mb-0"><i class="bi bi-house-door"></i> <?php echo get_current_page_title(); ?></h1>
+                <div>
+                    <span class="text-muted me-3">
+                        <i class="bi bi-person-circle"></i> 管理员: <?php echo htmlspecialchars($_SESSION['admin_username']); ?>
+                    </span>
+                    <a href="?logout=1" class="btn btn-sm btn-outline-danger">
+                        <i class="bi bi-box-arrow-right"></i> 退出登录
+                    </a>
+                </div>
+            </div>
+                <!-- 页面标题和筛选 -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1><i class="bi bi-building"></i> <?php echo get_current_page_title(); ?></h1>
+                </div>
+
+                <?php if ($message): ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="bi bi-check-circle-fill"></i> <?php echo htmlspecialchars($message); ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($error): ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill"></i> <?php echo htmlspecialchars($error); ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                <?php endif; ?>
+
+                <!-- 加载状态遮罩 -->
+                <div id="loadingOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.8); z-index: 9999; justify-content: center; align-items: center;">
+                    <div class="text-center">
+                        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"></div>
+                        <p class="mt-3">加载中，请稍候...</p>
+                    </div>
+                </div>
+                
+                <!-- 错误消息容器 -->
+                <div id="errorContainer" class="alert alert-danger" style="display: none; margin-bottom: 15px;"></div>
+                
+                <!-- 筛选表单 -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-funnel"></i> 筛选条件</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-2">
+                                <label for="project_id" class="form-label">项目</label>
+                                <select class="form-select" id="project_id">
+                                    <!-- 改进后的选中逻辑，确保在所有情况下都能正确设置 -->
+                                    <option value="" <?php echo (is_null($project_id) || $project_id === '' || $project_id === false) ? 'selected' : ''; ?>>所有项目</option>
+                                    <?php foreach ($projects as $project): ?>
+                                        <option value="<?php echo $project['id']; ?>" 
+                                                <?php echo (!is_null($project_id) && $project_id !== '' && $project_id != false && $project_id == $project['id']) ? 'selected' : ''; ?>>
+                                            <?php echo htmlspecialchars($project['name']); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="status" class="form-label">状态</label>
+                                <select class="form-select" id="status">
+                                    <option value="">所有状态</option>
+                                    <option value="pending" <?php echo ($status_filter === 'pending') ? 'selected' : ''; ?>>待确认</option>
+                                    <option value="confirmed" <?php echo ($status_filter === 'confirmed') ? 'selected' : ''; ?>>已确认</option>
+                                    <option value="cancelled" <?php echo ($status_filter === 'cancelled') ? 'selected' : ''; ?>>已取消</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="check_in_date" class="form-label">入住日期</label>
+                                <input type="date" class="form-control" id="check_in_date" 
+                                       value="<?php echo htmlspecialchars($checkin_filter); ?>">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="check_out_date" class="form-label">退房日期</label>
+                                <input type="date" class="form-control" id="check_out_date" 
+                                       value="<?php echo htmlspecialchars($checkout_filter); ?>">
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <button id="filterButton" type="button" class="btn btn-primary me-2">
+                                    <i class="bi bi-search"></i> 筛选
+                                </button>
+                                <button id="resetButton" type="button" class="btn btn-secondary">
+                                    <i class="bi bi-arrow-clockwise"></i> 重置
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 报酒店列表容器 -->
+                <div id="reportsContainer">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">报酒店记录列表</h5>
+                        </div>
+                        <div class="card-body">
+                        <?php if (empty($reports)): ?>
+                            <div class="text-center py-4">
+                                <i class="bi bi-inbox display-1 text-muted"></i>
+                                <h5 class="text-muted">暂无报酒店记录</h5>
+                                <p class="text-muted">请先添加报酒店记录</p>
+                            </div>
+                        <?php else: ?>
+                            <form id="batchConfirmForm" method="POST">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th width="30"><input type="checkbox" id="selectAll" onclick="toggleAllCheckboxes(this)"></th>
+                                            <th>项目名称</th>
+                                            <th>人员姓名</th>
+                                            <th>酒店名称</th>
+                                            <th>房型</th>
+                                            <th>入住日期</th>
+                                            <th>退房日期</th>
+                                            <th>房间数</th>
+                                            <th>共享房间</th>
+                                            <th>特殊要求</th>
+                                            <th>状态</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (empty($reports)): ?>
+                                            <tr>
+                                                <td colspan="12" class="text-center text-muted">暂无数据</td>
+                                            </tr>
+                                        <?php else: ?>
+                                            <?php foreach ($reports as $report): ?>
+                                                <tr>
+                                                    <td><input type="checkbox" name="ids[]" value="<?php echo $report['record_ids']; ?>" class="row-checkbox"></td>
+                                                    <td><?php echo htmlspecialchars($report['project_name']); ?></td>
+                                                    <td><?php echo htmlspecialchars($report['personnel_name']); ?></td>
+                                                    <td>
+                                                        <?php 
+                                                        $hotelName = $report['hotel_name']; 
+                                                        if (strpos($hotelName, ' - ') !== false) {
+                                                            $parts = explode(' - ', $hotelName, 2);
+                                                            $cn = $parts[0];
+                                                            $en = $parts[1];
+                                                            echo htmlspecialchars($cn) . '<br><small class="text-muted">' . htmlspecialchars($en) . '</small>';
+                                                        } else {
+                                                            echo htmlspecialchars($hotelName);
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td><?php echo htmlspecialchars($report['room_type']); ?></td>
+                                                    <td><?php echo $report['check_in_date']; ?></td>
+                                                    <td><?php echo $report['check_out_date']; ?></td>
+                                                    <td>
+    <?php 
+    // 应用双床房共享逻辑：双床房/双人房且有共享信息时按1间计算，否则按实际房间数计算
+    if (in_array($report['room_type'], ['双床房','双人房']) && !empty($report['shared_room_info'])) {
+        echo '1';
+    } else {
+        echo $report['room_count'];
+    }
+    ?>
+</td>
+                                                    <td>
+    <?php 
+    $badge_class = '';
+    $badge_text = '';
+    
+    if ($report['room_type'] === '双床房') {
+        $badge_class = 'bg-success';
+        $badge_text = '双床房';
+    } elseif ($report['room_type'] === '双人房') {
+        $badge_class = 'bg-primary';
+        $badge_text = '双人房';
+    } else {
+        $badge_class = 'bg-secondary';
+        $badge_text = $report['room_type'];
+    }
+    
+    echo '<span class="badge ' . $badge_class . '">' . htmlspecialchars($badge_text) . '</span>';
+    
+    if (!empty($report['shared_room_info'])) {
+        echo '<br><small class="text-muted" title="共享房间信息">' . htmlspecialchars($report['shared_room_info']) . '</small>';
+    }
+    ?>
+</td>
+                                                    <td><?php echo htmlspecialchars($report['special_requirements']); ?></td>
+                                                    <td>
+                                                        <select class="form-select form-select-sm status-update" data-ids="<?php echo $report['record_ids']; ?>">
+                                                            <option value="pending" <?php echo $report['status'] == 'pending' ? 'selected' : ''; ?>>待确认</option>
+                                                            <option value="confirmed" <?php echo $report['status'] == 'confirmed' ? 'selected' : ''; ?>>已确认</option>
+                                                            <option value="cancelled" <?php echo $report['status'] == 'cancelled' ? 'selected' : ''; ?>>已取消</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <a href="hotel_reports.php?action=edit&ids=<?php echo $report['record_ids']; ?>" class="btn btn-sm btn-warning">编辑</a>
+                                                        <a href="hotel_reports.php?action=delete&ids=<?php echo $report['record_ids']; ?>" 
+                                                           class="btn btn-sm btn-danger" 
+                                                           onclick="return confirm('确定要删除这组共享房间记录吗？')">删除</a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- 批量操作按钮区域 -->
+                            <div class="mt-3">
+                                <button type="button" class="btn btn-success me-2" onclick="performBatchAction('batch_confirm')">
+                                    <i class="bi bi-check2-square"></i> 批量确认
+                                </button>
+                                <button type="button" class="btn btn-danger" onclick="performBatchAction('batch_delete')">
+                                    <i class="bi bi-trash"></i> 批量删除
+                                </button>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 统计概览 - 按照hotel_statistics.php的方式 -->
+    <?php if (!empty($reports)): ?>
+    <div class="row mb-4">
+        <div class="col-12 mb-3">
+            <div class="card bg-light">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0"><i class="bi bi-graph-up"></i> 统计概览</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-3">
+                            <h3 class="text-primary mb-1"><?php echo number_format($project_total['total_bookings']); ?></h3>
+                            <small class="text-muted">总预订次数</small>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="text-success mb-1"><?php echo number_format($project_total['total_booked_rooms']); ?></h3>
+                            <small class="text-muted">总房间数（合并共享）</small>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="text-info mb-1"><?php echo number_format($project_total['total_checkins']); ?></h3>
+                            <small class="text-muted">总入住人次</small>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="text-warning mb-1"><?php echo number_format($project_total['total_room_nights']); ?></h3>
+                            <small class="text-muted">总房晚数</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 各酒店统计 -->
+    <?php if (!empty($basic_stats)): ?>
+    <div class="row mb-4">
+        <?php foreach ($basic_stats as $hotel): ?>
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h6 class="mb-0"><?php echo htmlspecialchars($hotel['hotel_name']); ?></h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-3">
+                                <h5 class="text-primary mb-1"><?php echo number_format($hotel['total_bookings']); ?></h5>
+                                <small class="text-muted">预订次数</small>
+                            </div>
+                            <div class="col-3">
+                                <h5 class="text-success mb-1"><?php echo number_format($hotel['total_booked_rooms']); ?></h5>
+                                <small class="text-muted">房间数</small>
+                            </div>
+                            <div class="col-3">
+                                <h5 class="text-info mb-1"><?php echo number_format($hotel['total_checkins']); ?></h5>
+                                <small class="text-muted">入住人次</small>
+                            </div>
+                            <div class="col-3">
+                                <h5 class="text-warning mb-1"><?php echo number_format($hotel['total_room_nights']); ?></h5>
+                                <small class="text-muted">总房晚</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+
+    <!-- 房型统计 -->
+    <?php if (!empty($room_type_stats)): ?>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0"><i class="bi bi-house-door"></i> 房型统计（合并共享房间）</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th>酒店</th>
+                            <th>房型</th>
+                            <th class="text-center">预订次数</th>
+                            <th class="text-center">总房间数</th>
+                            <th class="text-center">房晚数</th>
+                            <th>入住时间范围</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($room_type_stats as $room_type): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($room_type['hotel_name']); ?></td>
+                                <td><?php echo htmlspecialchars($room_type['room_type']); ?></td>
+                                <td class="text-center"><?php echo $room_type['bookings_count']; ?></td>
+                                <td class="text-center"><?php echo $room_type['total_rooms']; ?></td>
+                                <td class="text-center"><?php echo $room_type['total_room_nights']; ?></td>
+                                <td><?php echo $room_type['earliest_checkin'] . ' 至 ' . $room_type['latest_checkout']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+    <?php endif; ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // 全选/取消全选
+    function toggleAllCheckboxes(master) {
+        const checkboxes = document.querySelectorAll('.row-checkbox');
+        checkboxes.forEach(cb => {
+            if (!cb.disabled) cb.checked = master.checked;
+        });
+    }
+    
+    // 批量确认前校验
+    function confirmBatch() {
+        const checked = document.querySelectorAll('.row-checkbox:checked');
+        if (checked.length === 0) {
+            alert('请至少选择一条待确认的记录！');
+            return false;
+        }
+        return confirm('确定要批量确认选中的记录吗？');
+    }
+    
+    // 删除确认
+    function confirmDelete() {
+        return confirm('确定要删除这条记录吗？此操作不可撤销！');
+    }
+    
+    // 批量删除
+    function confirmBatchDelete() {
+        const checked = document.querySelectorAll('.row-checkbox:checked');
+        if (checked.length === 0) {
+            alert('请至少选择一条要删除的记录！');
+            return false;
+        }
+        
+        if (confirm('确定要批量删除选中的记录吗？此操作不可撤销！')) {
+            // 创建新的表单提交批量删除请求
+            const form = document.createElement('form');
+            form.method = 'POST';
+            
+            // 添加action字段
+            const actionInput = document.createElement('input');
+            actionInput.type = 'hidden';
+            actionInput.name = 'action';
+            actionInput.value = 'batch_delete';
+            form.appendChild(actionInput);
+            
+            // 添加所有选中的ID
+            checked.forEach(checkbox => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'ids[]';
+                input.value = checkbox.value;
+                form.appendChild(input);
+            });
+            
+            document.body.appendChild(form);
+            form.submit();
+        }
+        return false;
+    }
+    // 状态更新 - 支持多个记录ID
+    document.addEventListener('DOMContentLoaded', function() {
+        const statusSelects = document.querySelectorAll('.status-update');
+        statusSelects.forEach(select => {
+            select.addEventListener('change', function() {
+                const ids = this.dataset.ids.split(',');
+                const status = this.value;
+                
+                if (confirm(`确定要将这${ids.length}条记录的状态更新为"${status}"吗？`)) {
+                    // 批量更新状态
+                    updateStatus(ids, status, this);
+                } else {
+                    // 恢复原来的选择
+                    this.value = this.dataset.originalValue || 'pending';
+                }
+            });
+            
+            // 保存原始值
+            select.dataset.originalValue = select.value;
+        });
+    });
+    
+    function updateStatus(ids, status, selectElement) {
+        // 创建表单数据
+        const formData = new FormData();
+        formData.append('action', 'batch_status_update');
+        formData.append('status', status);
+        ids.forEach(id => formData.append('ids[]', id));
+        
+        // 发送AJAX请求
+        fetch('hotel_reports.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // 更新成功，刷新页面
+                location.reload();
+            } else {
+                alert('更新失败：' + (data.message || '未知错误'));
+                // 恢复原来的选择
+                selectElement.value = selectElement.dataset.originalValue;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('更新失败：网络错误');
+            // 恢复原来的选择
+            selectElement.value = selectElement.dataset.originalValue;
+        });
+    }
+    
+    // 重置筛选条件
+    function resetFilters() {
+        // 重置项目选择为"所有项目"
+        document.getElementById('project_id').value = '';
+        
+        // 重置状态选择为"所有状态"
+        document.getElementById('status').value = '';
+        
+        // 清空日期输入
+        document.getElementById('check_in_date').value = '';
+        document.getElementById('check_out_date').value = '';
+        
+        // 提交表单以应用重置
+        document.querySelector('form[method="GET"]').submit();
+    }
+    </script>
+
+    <?php include 'includes/footer.php'; ?>
+</body>
+</html>

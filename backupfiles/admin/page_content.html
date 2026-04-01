@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目访问管理 - 袁星</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            background-color: #fff;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+            min-height: 100vh;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+        }
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+        }
+        .project-card {
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+        }
+        .project-card.enabled {
+            border-color: #0d6efd;
+            border-left: 4px solid #0d6efd;
+        }
+        .access-url {
+            font-family: monospace;
+            font-size: 0.875rem;
+            background-color: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <div class="sidebar position-fixed top-0 start-0 h-100" style="width: 250px; z-index: 1000;">
+        
+<!-- 固定侧边栏样式 -->
+<style>
+/* 固定侧边栏容器 */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 主内容区域偏移 */
+.main-content {
+    margin-left: 250px;
+    min-height: 100vh;
+}
+
+/* 侧边栏菜单交互样式 */
+.sidebar-menu {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    font-weight: 500 !important;
+}
+
+.sidebar-menu:hover {
+    background-color: #e3f2fd !important;
+    color: #1976d2 !important;
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+}
+
+.sidebar-menu.active {
+    background-color: #1976d2 !important;
+    color: white !important;
+    box-shadow: 0 2px 12px rgba(25, 118, 210, 0.3);
+}
+
+.sidebar-menu.active:hover {
+    background-color: #1565c0 !important;
+    transform: translateX(3px);
+}
+
+.sidebar-menu i {
+    transition: transform 0.3s ease;
+}
+
+.sidebar-menu:hover i {
+    transform: scale(1.1);
+}
+
+/* 图标动画效果 */
+.sidebar-menu .bi {
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu:hover .bi {
+    transform: translateX(3px);
+}
+
+/* 响应式设计 - 移动端汉堡菜单按钮 */
+@media (max-width: 991.98px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .sidebar-menu:hover {
+        transform: none;
+    }
+    
+    /* 汉堡菜单按钮 */
+    .menu-toggle {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1001;
+        display: block;
+        background: #1976d2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        font-size: 1.2rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        cursor: pointer;
+    }
+    
+    .menu-toggle:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.25);
+    }
+}
+
+/* 大屏幕设备保持原有样式 */
+@media (min-width: 992px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* 滚动条样式优化 */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+</style>
+
+<!-- 汉堡菜单按钮 (仅在移动端显示) -->
+<button class="menu-toggle d-lg-none" type="button" id="menuToggle" title="切换侧边栏菜单" aria-label="切换菜单">
+    <i class="bi bi-list"></i>
+</button>
+
+<!-- 固定侧边栏 -->
+<div class="sidebar" id="sidebar">
+    <div class="mb-4 p-3">
+        <h5 class="text-primary mb-0">
+            <i class="bi bi-grid-3x3-gap-fill"></i>
+            管理后台
+        </h5>
+        <small class="text-muted">项目管理系统</small>
+    </div>
+    
+    <ul class="nav nav-pills flex-column mb-auto px-2">
+        <li class="nav-item mb-1">
+            <a href="index.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-speedometer2 me-2"></i>控制台
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="companies.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-building me-2"></i>公司管理
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="projects.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-folder me-2"></i>项目管理
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="personnel_enhanced.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-people me-2"></i>人员管理
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="departments_enhanced.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-diagram-3 me-2"></i>部门管理
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="meal_reports.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-cup-hot me-2"></i>用餐管理
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="meal_packages.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-box-seam me-2"></i>套餐管理
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="meal_statistics.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-bar-chart me-2"></i>用餐统计
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="hotel_management.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-building me-2"></i>酒店管理
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="hotel_reports_new.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-calendar-check me-2"></i>酒店预订管理
+            </a>
+        </li>
+        <!-- 管理员酒店统计功能 - 新增页面链接 -->
+        <li class="nav-item mb-1">
+            <a href="hotel_statistics_admin.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-bar-chart me-2"></i>酒店统计管理
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="transportation_reports.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-car-front me-2"></i>交通管理
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="transportation_statistics.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-bar-chart-line me-2"></i>交通统计
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="fleet_management.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-truck me-2"></i>车队管理
+            </a>
+        </li>
+        <li class="nav-item mb-1">
+            <a href="project_access.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-key me-2"></i>项目访问管理
+            </a>
+        </li>
+        <!-- 个人资料已移至顶部导航栏管理员名称处 -->
+        <li class="nav-item">
+            <a href="site_config.php" class="nav-link sidebar-menu text-dark">
+                <i class="bi bi-gear me-2"></i>网站配置
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script>
+// 移动端菜单切换功能
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    // 确保元素存在
+    if (menuToggle && sidebar) {
+        // 为按钮添加点击事件
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            sidebar.classList.toggle('active');
+            console.log('菜单按钮被点击，当前状态：', sidebar.classList.contains('active'));
+        });
+        
+        // 点击菜单项后自动隐藏侧边栏
+        const menuItems = sidebar.querySelectorAll('.sidebar-menu');
+        menuItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+                console.log('菜单项被点击，隐藏侧边栏');
+            });
+        });
+        
+        // 点击侧边栏外部区域隐藏侧边栏
+        document.addEventListener('click', function(e) {
+            if (sidebar.classList.contains('active') && 
+                !sidebar.contains(e.target) && 
+                e.target !== menuToggle) {
+                sidebar.classList.remove('active');
+                console.log('点击外部区域，隐藏侧边栏');
+            }
+        });
+    } else {
+        console.log('未找到菜单按钮或侧边栏元素');
+    }
+});
+</script>    </div>
+    
+    <!-- 主内容区域 -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h1 class="h2 mb-1">
+                                <i class="bi bi-key-fill text-primary"></i> 项目访问管理
+                            </h1>
+                            <p class="text-muted mb-0">为 <strong>袁星</strong> 配置项目访问权限</p>
+                        </div>
+                        <div>
+                            <a href="personnel_enhanced.php" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left"></i> 返回人员列表
+                            </a>
+                        </div>
+                    </div>
+
+                    
+                    
+                    <!-- 当前访问权限 -->
+                                            <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="bi bi-shield-check"></i> 当前项目访问权限</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                                                            <div class="col-md-6 mb-3">
+                                            <div class="border rounded p-3 bg-light">
+                                                <h6 class="text-primary mb-2">
+                                                    <i class="bi bi-folder2-open"></i> 陈奕迅FEAR and DREAMS世界巡回演唱会 广州站                                                </h6>
+                                                <p class="mb-1"><strong>用户名:</strong> 袁星_TEN20241201000002</p>
+                                                <p class="mb-1"><strong>显示名:</strong> 袁星</p>
+                                                <p class="mb-1"><strong>角色:</strong> 
+                                                    <span class="badge bg-info">
+                                                        普通用户                                                    </span>
+                                                </p>
+                                                <p class="mb-0"><strong>访问地址:</strong><br>
+                                                    <code class="small">http://192.168.1.179/user/project_login.php?code=TEN20241201000002</code>
+                                                </p>
+                                            </div>
+                                        </div>
+                                                                            <div class="col-md-6 mb-3">
+                                            <div class="border rounded p-3 bg-light">
+                                                <h6 class="text-primary mb-2">
+                                                    <i class="bi bi-folder2-open"></i> AGA Onederful Live 2024 佛山站                                                </h6>
+                                                <p class="mb-1"><strong>用户名:</strong> 袁星_TEST001</p>
+                                                <p class="mb-1"><strong>显示名:</strong> 袁星</p>
+                                                <p class="mb-1"><strong>角色:</strong> 
+                                                    <span class="badge bg-info">
+                                                        普通用户                                                    </span>
+                                                </p>
+                                                <p class="mb-0"><strong>访问地址:</strong><br>
+                                                    <code class="small">http://192.168.1.179/user/project_login.php?code=TEST001</code>
+                                                </p>
+                                            </div>
+                                        </div>
+                                                                            <div class="col-md-6 mb-3">
+                                            <div class="border rounded p-3 bg-light">
+                                                <h6 class="text-primary mb-2">
+                                                    <i class="bi bi-folder2-open"></i> AGA Onederful Live 江海迦中国巡回演唱会深圳站                                                </h6>
+                                                <p class="mb-1"><strong>用户名:</strong> 袁星_AGA20250809140353</p>
+                                                <p class="mb-1"><strong>显示名:</strong> 袁星</p>
+                                                <p class="mb-1"><strong>角色:</strong> 
+                                                    <span class="badge bg-danger">
+                                                        管理员                                                    </span>
+                                                </p>
+                                                <p class="mb-0"><strong>访问地址:</strong><br>
+                                                    <code class="small">http://192.168.1.179/user/project_login.php?code=AGA20250809140353</code>
+                                                </p>
+                                            </div>
+                                        </div>
+                                                                            <div class="col-md-6 mb-3">
+                                            <div class="border rounded p-3 bg-light">
+                                                <h6 class="text-primary mb-2">
+                                                    <i class="bi bi-folder2-open"></i> LIVERSE 音乐季：谭咏麟2024苏州特别专场《十方人间歌》                                                </h6>
+                                                <p class="mb-1"><strong>用户名:</strong> 袁星_LIV20250905160502</p>
+                                                <p class="mb-1"><strong>显示名:</strong> 袁星</p>
+                                                <p class="mb-1"><strong>角色:</strong> 
+                                                    <span class="badge bg-danger">
+                                                        管理员                                                    </span>
+                                                </p>
+                                                <p class="mb-0"><strong>访问地址:</strong><br>
+                                                    <code class="small">http://192.168.1.179/user/project_login.php?code=LIV20250905160502</code>
+                                                </p>
+                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                        </div>
+                    
+                    <!-- 配置项目访问权限 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-gear"></i> 配置项目访问权限</h5>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST">
+                                <input type="hidden" name="action" value="update_access">
+                                
+                                <div class="mb-3">
+                                    <h6>关联的项目（基于人员当前的项目分配）</h6>
+                                                                            <div class="row">
+                                                                                            <div class="col-md-6 mb-3">
+                                                    <div class="project-card p-3">
+                                                        <div class="form-check mb-2">
+                                                            <input class="form-check-input" type="checkbox" 
+                                                                   name="project_access[1][enabled]" 
+                                                                   id="project_1" 
+                                                                   value="1"
+                                                                   >
+                                                            <label class="form-check-label fw-bold" for="project_1">
+                                                                <i class="bi bi-folder2-open text-primary"></i> 
+                                                                AGA Onederful Live 2024 广州站                                                                <br><small class="text-muted">环球唱片</small>
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-6 mb-2">
+                                                                <label class="form-label small">用户名</label>
+                                                                <input type="text" class="form-control form-control-sm" 
+                                                                       name="project_access[1][username]" 
+                                                                       value="袁星_ALI20241201000001"
+                                                                       placeholder="用户名">
+                                                            </div>
+                                                            <div class="col-md-6 mb-2">
+                                                                <label class="form-label small">密码</label>
+                                                                <input type="text" class="form-control form-control-sm" 
+                                                                       name="project_access[1][password]" 
+                                                                       value="181517"
+                                                                       placeholder="密码">
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label class="form-label small">显示名</label>
+                                                            <input type="text" class="form-control form-control-sm" 
+                                                                   name="project_access[1][display_name]" 
+                                                                   value="袁星"
+                                                                   placeholder="显示名">
+                                                        </div>
+                                                        <div class="mb-0">
+                                                            <label class="form-label small">角色</label>
+                                                            <select class="form-select form-select-sm" 
+                                                                    name="project_access[1][role]">
+                                                                <option value="user">普通用户</option>
+                                                                <option value="admin">管理员</option>
+                                                            </select>
+                                                        </div>
+                                                        
+                                                        <div class="mt-2">
+                                                            <small class="text-muted">访问地址:</small><br>
+                                                            <code class="access-url">http://192.168.1.179/user/project_login.php?code=ALI20241201000001</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col-md-6 mb-3">
+                                                    <div class="project-card p-3">
+                                                        <div class="form-check mb-2">
+                                                            <input class="form-check-input" type="checkbox" 
+                                                                   name="project_access[2][enabled]" 
+                                                                   id="project_2" 
+                                                                   value="1"
+                                                                   checked>
+                                                            <label class="form-check-label fw-bold" for="project_2">
+                                                                <i class="bi bi-folder2-open text-primary"></i> 
+                                                                陈奕迅FEAR and DREAMS世界巡回演唱会 广州站                                                                <br><small class="text-muted">艺能制作</small>
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-6 mb-2">
+                                                                <label class="form-label small">用户名</label>
+                                                                <input type="text" class="form-control form-control-sm" 
+                                                                       name="project_access[2][username]" 
+                                                                       value="袁星_TEN20241201000002"
+                                                                       placeholder="用户名">
+                                                            </div>
+                                                            <div class="col-md-6 mb-2">
+                                                                <label class="form-label small">密码</label>
+                                                                <input type="text" class="form-control form-control-sm" 
+                                                                       name="project_access[2][password]" 
+                                                                       value="181517"
+                                                                       placeholder="密码">
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label class="form-label small">显示名</label>
+                                                            <input type="text" class="form-control form-control-sm" 
+                                                                   name="project_access[2][display_name]" 
+                                                                   value="袁星"
+                                                                   placeholder="显示名">
+                                                        </div>
+                                                        <div class="mb-0">
+                                                            <label class="form-label small">角色</label>
+                                                            <select class="form-select form-select-sm" 
+                                                                    name="project_access[2][role]">
+                                                                <option value="user" selected>普通用户</option>
+                                                                <option value="admin">管理员</option>
+                                                            </select>
+                                                        </div>
+                                                        
+                                                        <div class="mt-2">
+                                                            <small class="text-muted">访问地址:</small><br>
+                                                            <code class="access-url">http://192.168.1.179/user/project_login.php?code=TEN20241201000002</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col-md-6 mb-3">
+                                                    <div class="project-card p-3">
+                                                        <div class="form-check mb-2">
+                                                            <input class="form-check-input" type="checkbox" 
+                                                                   name="project_access[3][enabled]" 
+                                                                   id="project_3" 
+                                                                   value="1"
+                                                                   >
+                                                            <label class="form-check-label fw-bold" for="project_3">
+                                                                <i class="bi bi-folder2-open text-primary"></i> 
+                                                                陈慧娴 The Fabulous 40 Priscilla LIVE 成都站                                                                <br><small class="text-muted">英皇娱乐</small>
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-6 mb-2">
+                                                                <label class="form-label small">用户名</label>
+                                                                <input type="text" class="form-control form-control-sm" 
+                                                                       name="project_access[3][username]" 
+                                                                       value="袁星_BAI20241201000003"
+                                                                       placeholder="用户名">
+                                                            </div>
+                                                            <div class="col-md-6 mb-2">
+                                                                <label class="form-label small">密码</label>
+                                                                <input type="text" class="form-control form-control-sm" 
+                                                                       name="project_access[3][password]" 
+                                                                       value="181517"
+                                                                       placeholder="密码">
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label class="form-label small">显示名</label>
+                                                            <input type="text" class="form-control form-control-sm" 
+                                                                   name="project_access[3][display_name]" 
+                                                                   value="袁星"
+                                                                   placeholder="显示名">
+                                                        </div>
+                                                        <div class="mb-0">
+                                                            <label class="form-label small">角色</label>
+                                                            <select class="form-select form-select-sm" 
+                                                                    name="project_access[3][role]">
+                                                                <option value="user">普通用户</option>
+                                                                <option value="admin">管理员</option>
+                                                            </select>
+                                                        </div>
+                                                        
+                                                        <div class="mt-2">
+                                                            <small class="text-muted">访问地址:</small><br>
+                                                            <code class="access-url">http://192.168.1.179/user/project_login.php?code=BAI20241201000003</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col-md-6 mb-3">
+                                                    <div class="project-card p-3">
+                                                        <div class="form-check mb-2">
+                                                            <input class="form-check-input" type="checkbox" 
+                                                                   name="project_access[7][enabled]" 
+                                                                   id="project_7" 
+                                                                   value="1"
+                                                                   checked>
+                                                            <label class="form-check-label fw-bold" for="project_7">
+                                                                <i class="bi bi-folder2-open text-primary"></i> 
+                                                                AGA Onederful Live 2024 佛山站                                                                <br><small class="text-muted">环球唱片</small>
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-6 mb-2">
+                                                                <label class="form-label small">用户名</label>
+                                                                <input type="text" class="form-control form-control-sm" 
+                                                                       name="project_access[7][username]" 
+                                                                       value="袁星_TEST001"
+                                                                       placeholder="用户名">
+                                                            </div>
+                                                            <div class="col-md-6 mb-2">
+                                                                <label class="form-label small">密码</label>
+                                                                <input type="text" class="form-control form-control-sm" 
+                                                                       name="project_access[7][password]" 
+                                                                       value="181517"
+                                                                       placeholder="密码">
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label class="form-label small">显示名</label>
+                                                            <input type="text" class="form-control form-control-sm" 
+                                                                   name="project_access[7][display_name]" 
+                                                                   value="袁星"
+                                                                   placeholder="显示名">
+                                                        </div>
+                                                        <div class="mb-0">
+                                                            <label class="form-label small">角色</label>
+                                                            <select class="form-select form-select-sm" 
+                                                                    name="project_access[7][role]">
+                                                                <option value="user" selected>普通用户</option>
+                                                                <option value="admin">管理员</option>
+                                                            </select>
+                                                        </div>
+                                                        
+                                                        <div class="mt-2">
+                                                            <small class="text-muted">访问地址:</small><br>
+                                                            <code class="access-url">http://192.168.1.179/user/project_login.php?code=TEST001</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col-md-6 mb-3">
+                                                    <div class="project-card p-3">
+                                                        <div class="form-check mb-2">
+                                                            <input class="form-check-input" type="checkbox" 
+                                                                   name="project_access[4][enabled]" 
+                                                                   id="project_4" 
+                                                                   value="1"
+                                                                   checked>
+                                                            <label class="form-check-label fw-bold" for="project_4">
+                                                                <i class="bi bi-folder2-open text-primary"></i> 
+                                                                AGA Onederful Live 江海迦中国巡回演唱会深圳站                                                                <br><small class="text-muted">环球唱片</small>
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-6 mb-2">
+                                                                <label class="form-label small">用户名</label>
+                                                                <input type="text" class="form-control form-control-sm" 
+                                                                       name="project_access[4][username]" 
+                                                                       value="袁星_AGA20250809140353"
+                                                                       placeholder="用户名">
+                                                            </div>
+                                                            <div class="col-md-6 mb-2">
+                                                                <label class="form-label small">密码</label>
+                                                                <input type="text" class="form-control form-control-sm" 
+                                                                       name="project_access[4][password]" 
+                                                                       value="181517"
+                                                                       placeholder="密码">
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label class="form-label small">显示名</label>
+                                                            <input type="text" class="form-control form-control-sm" 
+                                                                   name="project_access[4][display_name]" 
+                                                                   value="袁星"
+                                                                   placeholder="显示名">
+                                                        </div>
+                                                        <div class="mb-0">
+                                                            <label class="form-label small">角色</label>
+                                                            <select class="form-select form-select-sm" 
+                                                                    name="project_access[4][role]">
+                                                                <option value="user">普通用户</option>
+                                                                <option value="admin" selected>管理员</option>
+                                                            </select>
+                                                        </div>
+                                                        
+                                                        <div class="mt-2">
+                                                            <small class="text-muted">访问地址:</small><br>
+                                                            <code class="access-url">http://192.168.1.179/user/project_login.php?code=AGA20250809140353</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                            <div class="col-md-6 mb-3">
+                                                    <div class="project-card p-3">
+                                                        <div class="form-check mb-2">
+                                                            <input class="form-check-input" type="checkbox" 
+                                                                   name="project_access[8][enabled]" 
+                                                                   id="project_8" 
+                                                                   value="1"
+                                                                   checked>
+                                                            <label class="form-check-label fw-bold" for="project_8">
+                                                                <i class="bi bi-folder2-open text-primary"></i> 
+                                                                LIVERSE 音乐季：谭咏麟2024苏州特别专场《十方人间歌》                                                                <br><small class="text-muted">艺能制作</small>
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-6 mb-2">
+                                                                <label class="form-label small">用户名</label>
+                                                                <input type="text" class="form-control form-control-sm" 
+                                                                       name="project_access[8][username]" 
+                                                                       value="袁星_LIV20250905160502"
+                                                                       placeholder="用户名">
+                                                            </div>
+                                                            <div class="col-md-6 mb-2">
+                                                                <label class="form-label small">密码</label>
+                                                                <input type="text" class="form-control form-control-sm" 
+                                                                       name="project_access[8][password]" 
+                                                                       value="181517"
+                                                                       placeholder="密码">
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label class="form-label small">显示名</label>
+                                                            <input type="text" class="form-control form-control-sm" 
+                                                                   name="project_access[8][display_name]" 
+                                                                   value="袁星"
+                                                                   placeholder="显示名">
+                                                        </div>
+                                                        <div class="mb-0">
+                                                            <label class="form-label small">角色</label>
+                                                            <select class="form-select form-select-sm" 
+                                                                    name="project_access[8][role]">
+                                                                <option value="user">普通用户</option>
+                                                                <option value="admin" selected>管理员</option>
+                                                            </select>
+                                                        </div>
+                                                        
+                                                        <div class="mt-2">
+                                                            <small class="text-muted">访问地址:</small><br>
+                                                            <code class="access-url">http://192.168.1.179/user/project_login.php?code=LIV20250905160502</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                    </div>
+                                                                    </div>
+                                
+                                                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="bi bi-check-circle"></i> 保存项目访问权限
+                                        </button>
+                                    </div>
+                                                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 启用/禁用项目卡片样式
+        document.querySelectorAll('.form-check-input').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const card = this.closest('.project-card');
+                if (this.checked) {
+                    card.classList.add('enabled');
+                } else {
+                    card.classList.remove('enabled');
+                }
+            });
+        });
+
+        function copyUrl(projectCode) {
+            const url = `http://192.168.1.179/user/project_login.php?code=${projectCode}`;
+            navigator.clipboard.writeText(url).then(() => {
+                // 创建临时提示
+                const toast = document.createElement('div');
+                toast.className = 'position-fixed top-0 end-0 m-3 alert alert-success';
+                toast.style.zIndex = '9999';
+                toast.textContent = '已复制项目访问地址';
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 2000);
+            });
+        }
+
+        function copyUrlWithUser(projectCode, username, password) {
+            const url = `http://192.168.1.179/user/project_login.php?code=${projectCode}`;
+            const text = `项目访问地址：${url}\n用户名：${username}\n密码：${password}`;
+            navigator.clipboard.writeText(text).then(() => {
+                // 创建临时提示
+                const toast = document.createElement('div');
+                toast.className = 'position-fixed top-0 end-0 m-3 alert alert-success';
+                toast.style.zIndex = '9999';
+                toast.textContent = '已复制访问信息';
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 2000);
+            });
+        }
+    </script>
+    <!-- 管理后台页脚 -->
+<footer class="mt-5 py-4 bg-light border-top">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="text-muted mb-0">&copy; 2025 项目管理系统 - 管理后台</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <small class="text-muted">
+                    <i class="bi bi-clock"></i> 页面加载时间: 0.038秒
+                </small>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- 自定义脚本 -->
+<script>
+// 页面加载完成后的通用功能
+document.addEventListener('DOMContentLoaded', function() {
+    // 自动隐藏警告消息
+    const alerts = document.querySelectorAll('.alert:not(.alert-permanent)');
+    alerts.forEach(alert => {
+        setTimeout(() => {
+            if (alert.parentNode) {
+                alert.classList.add('fade');
+                setTimeout(() => alert.remove(), 150);
+            }
+        }, 5000);
+    });
+
+    // 为所有表格添加悬停效果
+    const tables = document.querySelectorAll('.table');
+    tables.forEach(table => {
+        const rows = table.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.backgroundColor = '#f8f9fa';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.backgroundColor = '';
+            });
+        });
+    });
+});
+
+// 通用工具函数
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `position-fixed top-0 start-50 translate-middle-x mt-3 alert alert-${type} alert-dismissible fade show shadow-lg`;
+    toast.style.zIndex = '9999';
+    toast.innerHTML = `
+        <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}-fill me-2"></i>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.remove();
+        }
+    }, 3000);
+}
+
+// 复制到剪贴板功能
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        showToast('已复制到剪贴板');
+    }).catch(err => {
+        console.error('复制失败:', err);
+        showToast('复制失败，请手动复制', 'danger');
+    });
+}
+</script>
+</body>
+</html>
+</body>
+</html>
