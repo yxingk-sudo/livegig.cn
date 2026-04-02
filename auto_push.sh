@@ -11,7 +11,7 @@ echo ""
 
 # 配置
 REMOTE_URL="https://github.com/zhudong2024/livegig.cn.git"
-BRANCH_NAME="main"
+BRANCH_NAME="master"
 COMMIT_MSG="feat: 批量提交项目更新 - $(date +%Y%m%d)"
 
 # 颜色定义

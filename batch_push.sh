@@ -12,7 +12,7 @@ echo ""
 
 # 配置
 REMOTE_URL="https://github.com/zhudong2024/livegig.cn.git"
-BRANCH_NAME="main"
+BRANCH_NAME="master"
 
 # 颜色定义
 RED='\033[0;31m'
