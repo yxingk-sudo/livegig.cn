@@ -1,5 +1,12 @@
 <?php
 session_start();
+// 引入权限中间件进行权限验证
+require_once '../includes/PermissionMiddleware.php';
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkUserPagePermission('frontend:transport:export');
+
 require_once '../config/database.php';
 require_once '../includes/functions.php';
 require_once '../includes/site_config.php';

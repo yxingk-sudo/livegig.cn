@@ -238,7 +238,7 @@ if (!headers_sent() && !ob_get_level()) {
                             <li><a class="dropdown-item" href="profile.php">
                                 <i class="bi bi-person-circle"></i> 个人资料
                             </a></li>
-                            <?php if (($_SESSION['role'] ?? 'user') === 'admin'): ?>
+                            <?php if (($_SESSION['role_key'] ?? '') === 'user_admin'): ?>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="user_permission_management.php">
                                 <i class="bi bi-shield-lock"></i> 权限管理

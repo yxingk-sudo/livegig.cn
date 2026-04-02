@@ -1,6 +1,16 @@
 <?php
 // 启动会话
 session_start();
+// 引入数据库连接类
+require_once '../config/database.php';
+// 引入权限中间件进行权限验证
+require_once '../includes/PermissionMiddleware.php';
+
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkUserPagePermission('frontend:personnel:list');
+
 
 // 检查用户是否已登录
 if (!isset($_SESSION['user_id'])) {

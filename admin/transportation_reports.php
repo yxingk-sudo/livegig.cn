@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+// 引入基础控制器进行权限验证
+require_once '../includes/BaseAdminController.php';
 require_once '../config/database.php';
 // 更可靠地包含page_functions.php，如果文件不存在则定义默认函数
 $page_functions_path = __DIR__ . '/page_functions.php';
@@ -395,6 +398,12 @@ if (isset($_GET['logout'])) {
 }
 
 // 引入头部
+// 权限验证
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkAdminPagePermission('backend:transport:list');
+
 require_once 'includes/header.php';
 ?>
 

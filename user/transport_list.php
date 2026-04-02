@@ -47,6 +47,13 @@ function parse_vehicle_requirements($vehicle_requirements_json) {
 }
 
 session_start();
+// 引入权限中间件进行权限验证
+require_once '../includes/PermissionMiddleware.php';
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkUserPagePermission('frontend:transport:list');
+
 requireLogin();
 checkProjectPermission($_SESSION['project_id']);
 

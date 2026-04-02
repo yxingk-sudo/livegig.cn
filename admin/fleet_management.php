@@ -1,6 +1,9 @@
 <?php
 // 车队管理主页面
 session_start();
+
+// 引入基础控制器进行权限验证
+require_once '../includes/BaseAdminController.php';
 require_once '../config/database.php';
 require_once '../includes/functions.php';
 

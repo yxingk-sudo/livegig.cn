@@ -1,7 +1,29 @@
 <?php
-// 简化版header.php文件
+// 管理后台统一头部文件 - 自动进行权限验证
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
+}
+
+// 检查是否已登录（排除 login.php 和 logout.php）
+$currentFile = basename($_SERVER['PHP_SELF'], '.php');
+if (!in_array($currentFile, ['login', 'logout'])) {
+    if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+        // AJAX 请求返回 JSON
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+            strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'message' => '未登录或登录已过期',
+                'redirect' => 'login.php'
+            ]);
+            exit;
+        }
+        
+        // 重定向到登录页
+        header('Location: login.php?redirect=' . urlencode($_SERVER['REQUEST_URI']));
+        exit;
+    }
 }
 ?>
 <!DOCTYPE html>

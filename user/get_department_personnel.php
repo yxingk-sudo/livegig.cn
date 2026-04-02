@@ -7,6 +7,20 @@ header('Content-Type: application/json; charset=utf-8');
 
 // 检查是否登录
 session_start();
+// API 权限验证
+require_once '../includes/PermissionMiddleware.php';
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkUserApiPermission('frontend:api:department_personnel');
+
+// 引入权限中间件进行权限验证
+require_once '../includes/PermissionMiddleware.php';
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkUserPagePermission('frontend:personnel:api');
+
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(['success' => false, 'error' => '未登录']);
     exit;

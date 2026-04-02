@@ -3,6 +3,13 @@ require_once '../config/database.php';
 require_once '../includes/functions.php';
 
 session_start();
+// API 权限验证
+require_once '../includes/PermissionMiddleware.php';
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkUserApiPermission('frontend:api:meal_allowance');
+
 requireLogin();
 
 // 只允许 POST 请求

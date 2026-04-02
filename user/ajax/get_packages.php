@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/../../config/database.php';
+
+require_once '../config/database.php';require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../includes/functions.php';
 
 // 设置错误报告
@@ -12,6 +13,13 @@ header('Cache-Control: no-cache, must-revalidate');
 
 // 启动session
 session_start();
+// API 权限验证
+require_once '../includes/PermissionMiddleware.php';
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkUserApiPermission('frontend:api:general');
+
 
 // 检查登录和权限
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['project_id'])) {

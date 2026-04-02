@@ -32,52 +32,6 @@ $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="<?php echo $site_info['site_url']; ?>">
-                <i class="bi bi-people-fill"></i> 
-                <?php echo htmlspecialchars($site_info['logo_text']); ?>
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo $site_info['site_url']; ?>">首页</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="user/dashboard.php">工作台</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="user/project.php">项目中心</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="user/meals.php">报餐服务</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="user/hotels.php">酒店预订</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="user/transport.php">出行服务</a>
-                    </li>
-                </ul>
-                
-                <div class="d-flex">
-                    <a href="user/login.php" class="btn btn-outline-light me-2">
-                        <i class="bi bi-person-circle"></i> 登录
-                    </a>
-                    <a href="admin/login.php" class="btn btn-outline-light">
-                        <i class="bi bi-shield-lock"></i> 管理后台
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
     <!-- 主要内容 -->
     <div class="hero-section bg-primary text-white py-5">
         <div class="container">
@@ -90,12 +44,7 @@ $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                         <?php echo htmlspecialchars($site_info['meta_description']); ?>
                     </p>
                     <div class="d-flex gap-3">
-                        <a href="user/dashboard.php" class="btn btn-light btn-lg">
-                        <i class="bi bi-rocket-takeoff"></i> 开始使用
-                    </a>
-                    <a href="user/project.php" class="btn btn-outline-light btn-lg">
-                        <i class="bi bi-folder"></i> 查看项目
-                    </a>
+                        <!-- 按钮已移除 -->
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -123,7 +72,7 @@ $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                         <i class="bi bi-cup-hot text-primary" style="font-size: 3rem;"></i>
                         <h4 class="card-title mt-3">智能报餐</h4>
                         <p class="card-text">便捷的在线报餐系统，支持多种餐型和特殊需求</p>
-                        <a href="user/meals.php" class="btn btn-primary">立即报餐</a>
+                        <!-- 按钮已移除 -->
                     </div>
                 </div>
             </div>
@@ -134,7 +83,7 @@ $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                         <i class="bi bi-building text-success" style="font-size: 3rem;"></i>
                         <h4 class="card-title mt-3">酒店预订</h4>
                         <p class="card-text">一站式酒店预订服务，支持多种房型和入住需求</p>
-                        <a href="user/hotels.php" class="btn btn-success">预订酒店</a>
+                        <!-- 按钮已移除 -->
                     </div>
                 </div>
             </div>
@@ -145,7 +94,7 @@ $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                         <i class="bi bi-car-front text-warning" style="font-size: 3rem;"></i>
                         <h4 class="card-title mt-3">出行服务</h4>
                         <p class="card-text">灵活的出行车安排，满足各种团队出行需求</p>
-                        <a href="user/transport.php" class="btn btn-warning">安排出行</a>
+                        <!-- 按钮已移除 -->
                     </div>
                 </div>
             </div>
@@ -169,9 +118,7 @@ $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                     </div>
                 </div>
                 <div class="col-md-4 text-md-end">
-                    <a href="user/login.php" class="btn btn-primary">
-                        <i class="bi bi-person-circle"></i> 用户登录
-                    </a>
+                    <!-- 用户登录按钮已移除 -->
                 </div>
             </div>
         </div>

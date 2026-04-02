@@ -1,6 +1,6 @@
 ---
-trigger: always_on
-alwaysApply: true
+trigger: manual
+alwaysApply: false
 ---
 trigger: always_on
 alwaysApply: true

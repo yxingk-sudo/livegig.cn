@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+// 引入基础控制器进行权限验证
+require_once '../includes/BaseAdminController.php';
 require_once '../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
 // 更可靠地包含page_functions.php，如果文件不存在则定义默认函数

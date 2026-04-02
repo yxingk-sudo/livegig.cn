@@ -1,5 +1,12 @@
 <?php
 session_start();
+// 引入权限中间件进行权限验证
+require_once '../includes/PermissionMiddleware.php';
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkUserPagePermission('frontend:transport:list');
+
 
 if (!isset($_SESSION['project_id'])) {
     header("Location: project_login.php");
@@ -33,7 +40,8 @@ $project_name = $_SESSION['project_name'] ?? '项目';
     </style>
 </head>
 <body>
-    <?php require_once 'includes/header.php'; ?>
+    <?php 
+require_once '../config/database.php';require_once 'includes/header.php'; ?>
     
     <div class="container-fluid">
         <div class="row">

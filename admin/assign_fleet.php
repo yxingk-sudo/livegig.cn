@@ -1,6 +1,9 @@
 <?php
 // 车队分配页面 - 将车辆分配给出行记录
 session_start();
+
+// 引入基础控制器进行权限验证
+require_once '../includes/BaseAdminController.php';
 require_once '../config/database.php';
 require_once '../includes/functions.php';
 

@@ -2,6 +2,9 @@
 // 确保在任何输出之前启动会话
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
+
+// 引入基础控制器进行权限验证
+require_once '../includes/BaseAdminController.php';
 }
 require_once '../config/database.php';
 require_once '../includes/functions.php';

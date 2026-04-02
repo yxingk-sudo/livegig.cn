@@ -2,6 +2,9 @@
 // 编辑酒店报告分组记录页面
 
 session_start();
+
+// 引入基础控制器进行权限验证
+require_once '../includes/BaseAdminController.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/db.php';
 
@@ -360,6 +363,12 @@ $roomTypes = $available_room_types;
 $page_title = '编辑酒店报告';
 
 // 引入标准头部
+// 权限验证
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkAdminPagePermission('backend:system:config');
+
 require_once 'includes/header.php';
 ?>
 

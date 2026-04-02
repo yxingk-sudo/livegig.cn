@@ -2,6 +2,9 @@
 require_once '../config/database.php';
 session_start();
 
+// 引入基础控制器进行权限验证
+require_once '../includes/BaseAdminController.php';
+
 // 检查是否登录
 if (!isset($_SESSION['admin_logged_in'])) {
     http_response_code(401);

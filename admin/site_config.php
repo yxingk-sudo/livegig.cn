@@ -17,6 +17,9 @@ if (file_exists($page_functions_path)) {
 // 启动会话
 session_start();
 
+// 引入基础控制器进行权限验证
+require_once '../includes/BaseAdminController.php';
+
 // 检查是否已登录（这里简化处理，实际应该检查session）
 // if (!isset($_SESSION['admin_id'])) {
 //     header("Location: login.php");

@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+// 引入基础控制器进行权限验证
+require_once '../includes/BaseAdminController.php';
 require_once '../config/database.php';
 
 // 更可靠地包含page_functions.php，如果文件不存在则定义默认函数
@@ -161,6 +164,12 @@ if (isset($_GET['action']) && $_GET['action'] === 'get_person_details' && isset(
 }
 
 // 引入header.php文件
+// 权限验证
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkAdminPagePermission('backend:personnel:list');
+
 require_once 'includes/header.php';
 
 // 处理表单提交

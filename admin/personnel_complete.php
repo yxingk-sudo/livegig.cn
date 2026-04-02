@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+// 引入基础控制器进行权限验证
+require_once '../includes/BaseAdminController.php';
+
 // 调试模式 - 如果URL中包含debug=1，则绕过登录检查
 $debug_mode = isset($_GET['debug']) && $_GET['debug'] == '1';
 

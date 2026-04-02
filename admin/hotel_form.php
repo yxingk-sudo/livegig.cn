@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+// 引入基础控制器进行权限验证
+require_once '../includes/BaseAdminController.php';
 if (!isset($_SESSION['admin_logged_in'])) {
     header("Location: login.php");
     exit;

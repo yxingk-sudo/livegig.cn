@@ -3,6 +3,13 @@ require_once '../config/database.php';
 require_once '../includes/functions.php';
 // 独立的酒店添加页面，可通过 /user/hotels.php?action=add 或 /user/hotel_add.php 访问
 session_start();
+// 引入权限中间件进行权限验证
+require_once '../includes/PermissionMiddleware.php';
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkUserPagePermission('frontend:hotel:add');
+
 requireLogin();
 
 // 检查用户是否有项目权限

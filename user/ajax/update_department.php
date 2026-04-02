@@ -1,5 +1,12 @@
 <?php
 session_start();
+// API 权限验证
+require_once '../includes/PermissionMiddleware.php';
+$database = new Database();
+$db = $database->getConnection();
+$middleware = new PermissionMiddleware($db);
+$middleware->checkUserApiPermission('frontend:api:general');
+
 
 // 检查用户是否已登录
 if (!isset($_SESSION['user_id'])) {

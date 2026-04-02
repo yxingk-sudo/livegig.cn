@@ -46,6 +46,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     
                     if ($project_user) {
                         $_SESSION['project_id'] = $project_user['project_id'];
+                        
+                        // 获取用户的角色标识 role_key
+                        $role_stmt = $conn->prepare("
+                            SELECT r.role_key 
+                            FROM roles r 
+                            INNER JOIN user_roles ur ON r.id = ur.role_id 
+                            WHERE ur.user_id = ? 
+                            LIMIT 1
+                        ");
+                        $role_stmt->execute([$user['id']]);
+                        $role_info = $role_stmt->fetch(PDO::FETCH_ASSOC);
+                        
+                        $_SESSION['role_key'] = $role_info['role_key'] ?? 'user';
+                    } else {
+                        $_SESSION['role_key'] = 'user';
                     }
                     
                     // 重定向到工作台
